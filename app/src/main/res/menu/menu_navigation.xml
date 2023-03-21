@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/training"
+        android:title="Тренировки"
+        android:icon="@drawable/menu_training"/>
+    <item
+        android:id="@+id/food"
+        android:icon="@drawable/menu_food"
+        android:title="Питание" />
+    <item
+        android:id="@+id/progress"
+        android:title="Прогресс"
+        android:icon="@drawable/menu_progress"/>
+    <item
+        android:id="@+id/profile"
+        android:title="Профиль"
+        android:icon="@drawable/menu_profile"/>
+</menu>
