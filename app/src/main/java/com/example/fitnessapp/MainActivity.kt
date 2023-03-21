@@ -16,6 +16,9 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+
+        loadFragment(ProfileFragment())
+        binding.bottomNavigation.selectedItemId = R.id.profile
         binding.bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.training -> {
@@ -24,6 +27,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.food -> {
                     loadFragment(FoodFragment())
+                    true
+                }
+                R.id.progress -> {
+                    loadFragment(ProgressFragment())
                     true
                 }
                 else -> {
@@ -36,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
     private  fun loadFragment(fragment: Fragment){
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container,fragment)
+        transaction.replace(R.id.container, fragment)
         transaction.commit()
     }
 }
