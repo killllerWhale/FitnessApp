@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
 import com.example.fitnessapp.databinding.FragmentProfileBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -32,8 +33,11 @@ class ProfileFragment : Fragment() {
         updateDateText()
         val goSettings = binding.goSettings
         goSettings.setOnClickListener {
-            val intent = Intent(context, Settings::class.java)
-            startActivity(intent)
+            val newFragment = SettingsFragment()
+            val transaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.container, newFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
     }
 
