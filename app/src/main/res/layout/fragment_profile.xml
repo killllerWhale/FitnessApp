@@ -14,12 +14,21 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="240dp"
             android:background="@color/color_one"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
+            app:layout_constraintTop_toTopOf="parent">
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/go_settings"
+                android:layout_width="21dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/icon_setting"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView9" />
 
             <ProgressBar
                 android:id="@+id/progress_bar"
@@ -125,7 +134,6 @@
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:fontFamily="@font/lora_bold"
                 android:text="FitBalance"
                 android:textColor="@color/white"
@@ -133,13 +141,165 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/static_svg_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                app:layout_constraintBottom_toBottomOf="@+id/static_svg_8"
+                app:layout_constraintEnd_toStartOf="@+id/static_svg_8"
+                app:srcCompat="@drawable/icon_line" />
+
+            <ImageView
+                android:id="@+id/static_svg_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="50dp"
+                app:layout_constraintStart_toEndOf="@+id/static_svg_8"
+                app:layout_constraintTop_toTopOf="@+id/static_svg_8"
+                app:srcCompat="@drawable/icon_line" />
+
+            <ImageView
+                android:id="@+id/static_svg_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progress_bar"
+                app:srcCompat="@drawable/icon_line" />
+
+            <TextView
+                android:id="@+id/static_text_22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="@font/lora_bold"
+                android:text="Углеводы"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/static_svg_6"
+                app:layout_constraintEnd_toEndOf="@+id/static_svg_6"
+                app:layout_constraintStart_toStartOf="@+id/static_svg_6" />
+
+            <TextView
+                android:id="@+id/static_text_23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="@font/lora_bold"
+                android:text="Белки"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/static_svg_8"
+                app:layout_constraintEnd_toEndOf="@+id/static_svg_8"
+                app:layout_constraintStart_toStartOf="@+id/static_svg_8" />
+
+            <TextView
+                android:id="@+id/static_text_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="@font/lora_bold"
+                android:text="Жиры"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/static_svg_7"
+                app:layout_constraintEnd_toEndOf="@+id/static_svg_7"
+                app:layout_constraintStart_toStartOf="@+id/static_svg_7" />
+
+            <TextView
+                android:id="@+id/set_carbohydrates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="2dp"
+                android:fontFamily="@font/lora"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/static_text_25"
+                app:layout_constraintTop_toBottomOf="@+id/static_svg_6" />
+
+            <TextView
+                android:id="@+id/static_text_25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="1dp"
+                android:fontFamily="@font/lora"
+                android:text="/ 319г"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/static_svg_6"
+                app:layout_constraintStart_toStartOf="@+id/static_svg_6"
+                app:layout_constraintTop_toBottomOf="@+id/static_svg_6" />
+
+            <TextView
+                android:id="@+id/set_squirrels"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="2dp"
+                android:fontFamily="@font/lora"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/static_text_26"
+                app:layout_constraintTop_toBottomOf="@+id/static_svg_8" />
+
+            <TextView
+                android:id="@+id/static_text_26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="1dp"
+                android:fontFamily="@font/lora"
+                android:text="/ 319г"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/static_svg_8"
+                app:layout_constraintStart_toStartOf="@+id/static_svg_8"
+                app:layout_constraintTop_toBottomOf="@+id/static_svg_8" />
+
+            <TextView
+                android:id="@+id/set_fats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="2dp"
+                android:fontFamily="@font/lora"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/static_text_27"
+                app:layout_constraintTop_toBottomOf="@+id/static_svg_7" />
+
+            <TextView
+                android:id="@+id/static_text_27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="1dp"
+                android:fontFamily="@font/lora"
+                android:text="/ 319г"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/static_svg_7"
+                app:layout_constraintStart_toStartOf="@+id/static_svg_7"
+                app:layout_constraintTop_toBottomOf="@+id/static_svg_7" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/one"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/rect_gray"
             app:layout_constraintEnd_toEndOf="parent"
@@ -626,6 +786,32 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/static_text_28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="40dp"
+            android:fontFamily="@font/lora"
+            android:text="cегодня, "
+            android:textColor="@color/inconspicuous_shadow"
+            android:textSize="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+        <TextView
+            android:id="@+id/set_data_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:fontFamily="@font/lora"
+            android:textColor="@color/inconspicuous_shadow"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/static_text_28"
+            app:layout_constraintStart_toEndOf="@+id/static_text_28"
+            app:layout_constraintTop_toTopOf="@+id/static_text_28" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
