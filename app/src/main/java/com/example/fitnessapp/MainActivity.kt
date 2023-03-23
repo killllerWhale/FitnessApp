@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         loadFragment(ProfileFragment())
         binding.bottomNavigation.selectedItemId = R.id.profile
         binding.bottomNavigation.setOnItemSelectedListener {
@@ -45,4 +44,5 @@ class MainActivity : AppCompatActivity() {
         transaction.replace(R.id.container, fragment)
         transaction.commit()
     }
+
 }

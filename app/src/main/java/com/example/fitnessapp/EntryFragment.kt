@@ -24,10 +24,16 @@ class EntryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.go.setOnClickListener{
-            startActivity(Intent(activity, MainActivity::class.java))
+            loadFragment(Start0Fragment())
         }
         binding.enter.setOnClickListener{
             startActivity(Intent(activity, MainActivity::class.java))
         }
+    }
+
+    private  fun loadFragment(fragment: Fragment){
+        val transaction = parentFragmentManager.beginTransaction()
+        transaction.replace(R.id.container, fragment)
+        transaction.commit()
     }
 }

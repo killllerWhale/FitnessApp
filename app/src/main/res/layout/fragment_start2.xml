@@ -2,10 +2,10 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/color_background"
-    android:layout_height="match_parent"
-    tools:context=".Start0Fragment">
+    tools:context=".Start2Fragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
                     android:id="@+id/start0"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    app:backgroundTint="@color/teal_700"
+                    app:backgroundTint="@color/white"
                     app:cornerRadius="180dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +53,6 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="10dp"
-                    android:enabled="false"
                     app:backgroundTint="@color/white"
                     app:cornerRadius="180dp"
                     app:layout_constraintBottom_toBottomOf="@+id/start0"
@@ -66,7 +65,7 @@
                     android:layout_height="20dp"
                     android:layout_marginStart="10dp"
                     android:enabled="false"
-                    app:backgroundTint="@color/white"
+                    app:backgroundTint="@color/teal_700"
                     app:cornerRadius="180dp"
                     app:layout_constraintBottom_toBottomOf="@+id/start1"
                     app:layout_constraintStart_toEndOf="@+id/start1"
@@ -115,55 +114,100 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Выберите цель"
+            android:text="Укажите дату рождения"
             android:textColor="@color/white"
             android:textSize="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/static_text_1" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/lose_weight"
-            android:layout_width="300dp"
-            android:layout_height="80dp"
-            android:text="Похудение"
-            app:cornerRadius="10dp"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:backgroundTint="@color/color_background_gray"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.25" />
+            app:layout_constraintTop_toBottomOf="@+id/task">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/be_fit"
-            app:cornerRadius="10dp"
-            android:layout_width="300dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="30dp"
-            android:text="Поддержание массы"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:backgroundTint="@color/color_background_gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lose_weight" />
+            <TextView
+                android:id="@+id/text_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="День"
+                android:textSize="18dp"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/editText_day"
+                app:layout_constraintStart_toStartOf="@+id/editText_day"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/muscles_up"
-            android:layout_width="300dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="30dp"
-            android:text="Набор мышечной массы"
-            android:textAllCaps="false"
-            app:cornerRadius="10dp"
-            android:textColor="@color/white"
-            app:backgroundTint="@color/color_background_gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/be_fit" />
+            <EditText
+                android:id="@+id/editText_day"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:inputType="text"
+                android:background="@drawable/edit_text_birth"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toStartOf="@+id/editText_month"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_day" />
+
+            <TextView
+                android:id="@+id/text_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Месяц"
+                android:textSize="18dp"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/editText_month"
+                app:layout_constraintStart_toStartOf="@+id/editText_month"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editText_month"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:inputType="text"
+                android:background="@drawable/edit_text_birth"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_month" />
+
+
+            <TextView
+                android:id="@+id/text_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Год"
+                android:textSize="18dp"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/editText_year"
+                app:layout_constraintStart_toStartOf="@+id/editText_year"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editText_year"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:textAlignment="center"
+                android:layout_marginTop="5dp"
+                android:inputType="text"
+                android:background="@drawable/edit_text_birth"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/editText_month"
+                app:layout_constraintTop_toBottomOf="@+id/text_year" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/next"
@@ -180,4 +224,5 @@
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>

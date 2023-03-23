@@ -58,7 +58,7 @@
                 app:layout_constraintTop_toTopOf="@+id/progress_bar" />
 
             <TextView
-                android:id="@+id/text_static_progress"
+                android:id="@+id/static_text_progress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lora"

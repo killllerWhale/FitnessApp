@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/color_background"
     android:layout_height="match_parent"
-    tools:context=".Start0Fragment">
+    tools:context=".Start1Fragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
                     android:id="@+id/start0"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    app:backgroundTint="@color/teal_700"
+                    app:backgroundTint="@color/white"
                     app:cornerRadius="180dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +54,7 @@
                     android:layout_height="20dp"
                     android:layout_marginStart="10dp"
                     android:enabled="false"
-                    app:backgroundTint="@color/white"
+                    app:backgroundTint="@color/teal_700"
                     app:cornerRadius="180dp"
                     app:layout_constraintBottom_toBottomOf="@+id/start0"
                     app:layout_constraintStart_toEndOf="@+id/start0"
@@ -115,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Выберите цель"
+            android:text="Укажите пол"
             android:textColor="@color/white"
             android:textSize="24dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -123,10 +123,10 @@
             app:layout_constraintTop_toBottomOf="@+id/static_text_1" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/lose_weight"
+            android:id="@+id/male"
             android:layout_width="300dp"
             android:layout_height="80dp"
-            android:text="Похудение"
+            android:text="Мужской"
             app:cornerRadius="10dp"
             android:textAllCaps="false"
             android:textColor="@color/white"
@@ -138,32 +138,19 @@
             app:layout_constraintVertical_bias="0.25" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/be_fit"
+            android:id="@+id/female"
             app:cornerRadius="10dp"
             android:layout_width="300dp"
             android:layout_height="80dp"
             android:layout_marginTop="30dp"
-            android:text="Поддержание массы"
+            android:text="Женский"
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:backgroundTint="@color/color_background_gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lose_weight" />
+            app:layout_constraintTop_toBottomOf="@+id/male" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/muscles_up"
-            android:layout_width="300dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="30dp"
-            android:text="Набор мышечной массы"
-            android:textAllCaps="false"
-            app:cornerRadius="10dp"
-            android:textColor="@color/white"
-            app:backgroundTint="@color/color_background_gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/be_fit" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/next"
@@ -180,4 +167,5 @@
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>

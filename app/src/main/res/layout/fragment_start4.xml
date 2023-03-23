@@ -2,10 +2,10 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/color_background"
-    android:layout_height="match_parent"
-    tools:context=".Start0Fragment">
+    tools:context=".Start4Fragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
                     android:id="@+id/start0"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    app:backgroundTint="@color/teal_700"
+                    app:backgroundTint="@color/white"
                     app:cornerRadius="180dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +53,6 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="10dp"
-                    android:enabled="false"
                     app:backgroundTint="@color/white"
                     app:cornerRadius="180dp"
                     app:layout_constraintBottom_toBottomOf="@+id/start0"
@@ -65,7 +64,6 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="10dp"
-                    android:enabled="false"
                     app:backgroundTint="@color/white"
                     app:cornerRadius="180dp"
                     app:layout_constraintBottom_toBottomOf="@+id/start1"
@@ -77,7 +75,6 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="10dp"
-                    android:enabled="false"
                     app:backgroundTint="@color/white"
                     app:cornerRadius="180dp"
                     app:layout_constraintBottom_toBottomOf="@+id/start2"
@@ -89,8 +86,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="10dp"
-                    android:enabled="false"
-                    app:backgroundTint="@color/white"
+                    app:backgroundTint="@color/teal_700"
                     app:cornerRadius="180dp"
                     app:layout_constraintBottom_toBottomOf="@+id/start3"
                     app:layout_constraintStart_toEndOf="@+id/start3"
@@ -104,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Расскажите о себе!"
+            android:text="Создать аккаунт"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -115,55 +111,120 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Выберите цель"
+            android:text="Остался последний штрих"
             android:textColor="@color/white"
             android:textSize="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/static_text_1" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/lose_weight"
-            android:layout_width="300dp"
-            android:layout_height="80dp"
-            android:text="Похудение"
-            app:cornerRadius="10dp"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:backgroundTint="@color/color_background_gray"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.25" />
+            app:layout_constraintTop_toBottomOf="@+id/task"
+            app:layout_constraintVertical_bias="0.05">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/be_fit"
-            app:cornerRadius="10dp"
-            android:layout_width="300dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="30dp"
-            android:text="Поддержание массы"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:backgroundTint="@color/color_background_gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lose_weight" />
+            <TextView
+                android:id="@+id/text_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Имя"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="@+id/editText_name"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/muscles_up"
-            android:layout_width="300dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="30dp"
-            android:text="Набор мышечной массы"
-            android:textAllCaps="false"
-            app:cornerRadius="10dp"
-            android:textColor="@color/white"
-            app:backgroundTint="@color/color_background_gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/be_fit" />
+            <EditText
+                android:id="@+id/editText_name"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="5dp"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/color_background_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_name" />
+
+            <TextView
+                android:id="@+id/text_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Email"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="@+id/editText_email"
+                app:layout_constraintTop_toBottomOf="@+id/editText_name" />
+
+            <EditText
+                android:id="@+id/editText_email"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="5dp"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/color_background_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_email" />
+
+            <TextView
+                android:id="@+id/text_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Пароль"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="@+id/editText_password"
+                app:layout_constraintTop_toBottomOf="@+id/editText_email" />
+
+            <EditText
+                android:id="@+id/editText_password"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="5dp"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/color_background_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_password" />
+
+            <TextView
+                android:id="@+id/text_password_repeat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Повторите пароль"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="@+id/editText_password_repeat"
+                app:layout_constraintTop_toBottomOf="@+id/editText_password" />
+
+            <EditText
+                android:id="@+id/editText_password_repeat"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/color_background_gray"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_password_repeat" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/next"
@@ -180,4 +241,5 @@
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>

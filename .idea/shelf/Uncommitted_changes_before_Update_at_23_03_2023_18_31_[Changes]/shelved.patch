@@ -1,0 +1,313 @@
+Index: app/src/main/java/com/example/fitnessapp/EntryFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/fitnessapp/EntryFragment.kt b/app/src/main/java/com/example/fitnessapp/EntryFragment.kt
+new file mode 100644
+--- /dev/null	(date 1679578714919)
++++ b/app/src/main/java/com/example/fitnessapp/EntryFragment.kt	(date 1679578714919)
+@@ -0,0 +1,39 @@
++package com.example.fitnessapp
++
++import android.content.Intent
++import android.os.Bundle
++import androidx.fragment.app.Fragment
++import android.view.LayoutInflater
++import android.view.View
++import android.view.ViewGroup
++import com.example.fitnessapp.databinding.FragmentEntryBinding
++
++class EntryFragment : Fragment() {
++
++    private lateinit var binding: FragmentEntryBinding
++
++    override fun onCreateView(
++        inflater: LayoutInflater, container: ViewGroup?,
++        savedInstanceState: Bundle?
++    ): View {
++        // Inflate the layout for this fragment
++        binding = FragmentEntryBinding.inflate(layoutInflater, container, false)
++        return binding.root
++    }
++
++    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
++        super.onViewCreated(view, savedInstanceState)
++        binding.go.setOnClickListener{
++            loadFragment(Start0Fragment())
++        }
++        binding.enter.setOnClickListener{
++            startActivity(Intent(activity, MainActivity::class.java))
++        }
++    }
++
++    private  fun loadFragment(fragment: Fragment){
++        val transaction = parentFragmentManager.beginTransaction()
++        transaction.replace(R.id.container, fragment)
++        transaction.commit()
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/fragment_entry.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/fragment_entry.xml b/app/src/main/res/layout/fragment_entry.xml
+new file mode 100644
+--- /dev/null	(date 1679573696142)
++++ b/app/src/main/res/layout/fragment_entry.xml	(date 1679573696142)
+@@ -0,0 +1,87 @@
++<?xml version="1.0" encoding="utf-8"?>
++<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:background="@drawable/entry"
++    android:layout_height="match_parent"
++    tools:context=".EntryFragment">
++
++    <androidx.constraintlayout.widget.ConstraintLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent">
++
++        <TextView
++            android:id="@+id/app_name"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="FitBalance"
++            android:textColor="@color/teal_700"
++            android:textSize="48dp"
++            app:layout_constraintBottom_toTopOf="@+id/slogan"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toTopOf="parent"
++            app:layout_constraintVertical_bias="0.2" />
++
++        <TextView
++            android:id="@+id/slogan"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="Здоровье для всех"
++            android:textColor="@color/white"
++            android:textSize="24dp"
++            app:layout_constraintBottom_toBottomOf="parent"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toTopOf="parent"
++            app:layout_constraintVertical_bias="0.7" />
++
++        <com.google.android.material.button.MaterialButton
++            android:id="@+id/go"
++            android:layout_width="300dp"
++            android:layout_height="wrap_content"
++            android:layout_marginTop="30dp"
++            android:backgroundTint="@color/teal_700"
++            android:text="вперед"
++            android:textAllCaps="false"
++            android:textSize="24dp"
++            app:cornerRadius="10dp"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toBottomOf="@+id/slogan" />
++
++        <androidx.constraintlayout.widget.ConstraintLayout
++            android:layout_width="wrap_content"
++            android:layout_height="40dp"
++            android:layout_marginTop="20dp"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toBottomOf="@+id/go">
++
++            <TextView
++                android:id="@+id/have_account"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:text="Есть аккаунт?"
++                android:textColor="@color/white"
++                android:textSize="18dp"
++                app:layout_constraintBottom_toBottomOf="parent"
++                app:layout_constraintStart_toStartOf="parent"
++                app:layout_constraintTop_toTopOf="parent" />
++
++            <com.google.android.material.button.MaterialButton
++                style="@style/Widget.MaterialComponents.Button.TextButton"
++                android:id="@+id/enter"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:text="Войти"
++                android:textColor="@color/white"
++                android:textSize="12dp"
++                app:layout_constraintBottom_toBottomOf="@+id/have_account"
++                app:layout_constraintStart_toEndOf="@+id/have_account"
++                app:layout_constraintTop_toTopOf="@+id/have_account"/>
++
++        </androidx.constraintlayout.widget.ConstraintLayout>
++    </androidx.constraintlayout.widget.ConstraintLayout>
++</FrameLayout>
+\ No newline at end of file
+Index: .idea/deploymentTargetDropDown.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetDropDown.xml b/.idea/deploymentTargetDropDown.xml
+new file mode 100644
+--- /dev/null	(date 1679585507442)
++++ b/.idea/deploymentTargetDropDown.xml	(date 1679585507442)
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="deploymentTargetDropDown">
++    <targetSelectedWithDropDown>
++      <Target>
++        <type value="QUICK_BOOT_TARGET" />
++        <deviceKey>
++          <Key>
++            <type value="VIRTUAL_DEVICE_PATH" />
++            <value value="C:\Users\marle\.android\avd\Pixel_5_API_30.avd" />
++          </Key>
++        </deviceKey>
++      </Target>
++    </targetSelectedWithDropDown>
++    <timeTargetWasSelectedWithDropDown value="2023-03-23T13:39:51.387175700Z" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/java/com/example/fitnessapp/EntryActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.fitnessapp\r\n\r\nimport android.content.Intent\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport android.view.View\r\nimport com.example.fitnessapp.databinding.ActivityEntryBinding\r\n\r\nclass EntryActivity : AppCompatActivity() {\r\n\r\n    lateinit var binding: ActivityEntryBinding\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        binding = ActivityEntryBinding.inflate(layoutInflater)\r\n        setContentView(binding.root)\r\n\r\n        binding.enter.setOnClickListener{\r\n            startActivity(Intent(this, MainActivity::class.java))\r\n        }\r\n        binding.go.setOnClickListener{\r\n            startActivity(Intent(this, MainActivity::class.java))\r\n        }\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/fitnessapp/EntryActivity.kt b/app/src/main/java/com/example/fitnessapp/EntryActivity.kt
+--- a/app/src/main/java/com/example/fitnessapp/EntryActivity.kt	(revision f78a70a5c58869983123a7bc598051828511e6da)
++++ b/app/src/main/java/com/example/fitnessapp/EntryActivity.kt	(date 1679579884875)
+@@ -4,23 +4,24 @@
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
+ import android.view.View
++import androidx.fragment.app.Fragment
+ import com.example.fitnessapp.databinding.ActivityEntryBinding
+ 
+ class EntryActivity : AppCompatActivity() {
+ 
+-    lateinit var binding: ActivityEntryBinding
++    private lateinit var binding: ActivityEntryBinding
+ 
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+         binding = ActivityEntryBinding.inflate(layoutInflater)
+         setContentView(binding.root)
+ 
+-        binding.enter.setOnClickListener{
+-            startActivity(Intent(this, MainActivity::class.java))
+-        }
+-        binding.go.setOnClickListener{
+-            startActivity(Intent(this, MainActivity::class.java))
+-        }
+-
++        loadFragment(EntryFragment())
++
++    }
++    private  fun loadFragment(fragment: Fragment){
++        val transaction = supportFragmentManager.beginTransaction()
++        transaction.replace(R.id.container, fragment)
++        transaction.commit()
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_entry.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@drawable/entry\"\r\n    tools:context=\".EntryActivity\">\r\n\r\n\r\n    <TextView\r\n        android:id=\"@+id/app_name\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"FitBalance\"\r\n        android:textColor=\"@color/teal_700\"\r\n        android:textSize=\"48dp\"\r\n        app:layout_constraintBottom_toTopOf=\"@+id/slogan\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.19999999\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/slogan\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Здоровье для всех\"\r\n        android:textColor=\"@color/white\"\r\n        android:textSize=\"24dp\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.7\" />\r\n\r\n    <com.google.android.material.button.MaterialButton\r\n        android:id=\"@+id/go\"\r\n        android:layout_width=\"300dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"30dp\"\r\n        android:backgroundTint=\"@color/teal_700\"\r\n        android:text=\"вперед\"\r\n        android:textAllCaps=\"false\"\r\n        android:textSize=\"24dp\"\r\n        app:cornerRadius=\"10dp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/slogan\" />\r\n\r\n    <androidx.constraintlayout.widget.ConstraintLayout\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"40dp\"\r\n        android:layout_marginTop=\"20dp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/go\">\r\n\r\n        <TextView\r\n            android:id=\"@+id/have_account\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"Есть аккаунт?\"\r\n            android:textColor=\"@color/white\"\r\n            android:textSize=\"18dp\"\r\n            app:layout_constraintBottom_toBottomOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n        <com.google.android.material.button.MaterialButton\r\n            style=\"@style/Widget.MaterialComponents.Button.TextButton\"\r\n            android:id=\"@+id/enter\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"Войти\"\r\n            android:textColor=\"@color/white\"\r\n            android:textSize=\"12dp\"\r\n            app:layout_constraintBottom_toBottomOf=\"@+id/have_account\"\r\n            app:layout_constraintStart_toEndOf=\"@+id/have_account\"\r\n            app:layout_constraintTop_toTopOf=\"@+id/have_account\"/>\r\n\r\n    </androidx.constraintlayout.widget.ConstraintLayout>\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_entry.xml b/app/src/main/res/layout/activity_entry.xml
+--- a/app/src/main/res/layout/activity_entry.xml	(revision f78a70a5c58869983123a7bc598051828511e6da)
++++ b/app/src/main/res/layout/activity_entry.xml	(date 1679573696130)
+@@ -7,77 +7,9 @@
+     android:background="@drawable/entry"
+     tools:context=".EntryActivity">
+ 
+-
+-    <TextView
+-        android:id="@+id/app_name"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:text="FitBalance"
+-        android:textColor="@color/teal_700"
+-        android:textSize="48dp"
+-        app:layout_constraintBottom_toTopOf="@+id/slogan"
+-        app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toTopOf="parent"
+-        app:layout_constraintVertical_bias="0.19999999" />
+-
+-    <TextView
+-        android:id="@+id/slogan"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:text="Здоровье для всех"
+-        android:textColor="@color/white"
+-        android:textSize="24dp"
+-        app:layout_constraintBottom_toBottomOf="parent"
+-        app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toTopOf="parent"
+-        app:layout_constraintVertical_bias="0.7" />
+-
+-    <com.google.android.material.button.MaterialButton
+-        android:id="@+id/go"
+-        android:layout_width="300dp"
+-        android:layout_height="wrap_content"
+-        android:layout_marginTop="30dp"
+-        android:backgroundTint="@color/teal_700"
+-        android:text="вперед"
+-        android:textAllCaps="false"
+-        android:textSize="24dp"
+-        app:cornerRadius="10dp"
+-        app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toBottomOf="@+id/slogan" />
+-
+-    <androidx.constraintlayout.widget.ConstraintLayout
+-        android:layout_width="wrap_content"
+-        android:layout_height="40dp"
+-        android:layout_marginTop="20dp"
+-        app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toBottomOf="@+id/go">
++    <FrameLayout
++        android:id="@+id/container"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"/>
+ 
+-        <TextView
+-            android:id="@+id/have_account"
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"
+-            android:text="Есть аккаунт?"
+-            android:textColor="@color/white"
+-            android:textSize="18dp"
+-            app:layout_constraintBottom_toBottomOf="parent"
+-            app:layout_constraintStart_toStartOf="parent"
+-            app:layout_constraintTop_toTopOf="parent" />
+-
+-        <com.google.android.material.button.MaterialButton
+-            style="@style/Widget.MaterialComponents.Button.TextButton"
+-            android:id="@+id/enter"
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"
+-            android:text="Войти"
+-            android:textColor="@color/white"
+-            android:textSize="12dp"
+-            app:layout_constraintBottom_toBottomOf="@+id/have_account"
+-            app:layout_constraintStart_toEndOf="@+id/have_account"
+-            app:layout_constraintTop_toTopOf="@+id/have_account"/>
+-
+-    </androidx.constraintlayout.widget.ConstraintLayout>
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
