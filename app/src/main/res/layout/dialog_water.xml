@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="350dp"
+    android:layout_height="150dp"
+    android:background="@drawable/dialog_background">
+
+
+    <TextView
+        android:id="@+id/static_text_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Вода"
+        android:fontFamily="@font/lora_bold"
+        android:textColor="@color/inconspicuous_shadow"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/static_text_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/lora_bold"
+        android:text="250мл"
+        android:textColor="@color/inconspicuous_shadow"
+        android:textSize="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/static_text_0" />
+
+    <TextView
+        android:id="@+id/static_text_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/lora_bold"
+        android:text="500мл"
+        android:textColor="@color/inconspicuous_shadow"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/water_glass_0"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/icon_water"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/static_text_1"
+        app:layout_constraintStart_toEndOf="@+id/static_text_1"
+        app:layout_constraintTop_toTopOf="@+id/static_text_1" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/water_glass_2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/icon_glass_water_null"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/water_glass_0"
+        app:layout_constraintStart_toEndOf="@+id/water_glass_0"
+        app:layout_constraintTop_toTopOf="@+id/water_glass_0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/water_glass_3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/icon_glass_water_null"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/water_glass_2"
+        app:layout_constraintStart_toEndOf="@+id/water_glass_2"
+        app:layout_constraintTop_toTopOf="@+id/water_glass_2" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/water_glass_4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/icon_glass_water_null"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/water_glass_3"
+        app:layout_constraintStart_toEndOf="@+id/water_glass_3"
+        app:layout_constraintTop_toTopOf="@+id/water_glass_3" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/water_glass_6"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/icon_glass_water_null"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/water_glass_5"
+        app:layout_constraintStart_toEndOf="@+id/water_glass_5"
+        app:layout_constraintTop_toTopOf="@+id/water_glass_5" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/water_glass_7"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/icon_glass_water_null"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/water_glass_6"
+        app:layout_constraintStart_toEndOf="@+id/water_glass_6"
+        app:layout_constraintTop_toTopOf="@+id/water_glass_6" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/water_glass_8"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/icon_glass_water_null"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/water_glass_7"
+        app:layout_constraintStart_toEndOf="@+id/water_glass_7"
+        app:layout_constraintTop_toTopOf="@+id/water_glass_7" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/water_glass_5"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/icon_glass_water_null"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/water_glass_4"
+        app:layout_constraintStart_toEndOf="@+id/water_glass_4"
+        app:layout_constraintTop_toTopOf="@+id/water_glass_4" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/water_glass_1"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="9dp"
+        android:background="@drawable/icon_bottom_water"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/static_text_2"
+        app:layout_constraintStart_toEndOf="@+id/static_text_2"
+        app:layout_constraintTop_toTopOf="@+id/static_text_2" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/water_glass_9"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/icon_bottom_water_null"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/water_glass_1"
+        app:layout_constraintStart_toEndOf="@+id/water_glass_1"
+        app:layout_constraintTop_toTopOf="@+id/water_glass_1" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/water_glass_10"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/icon_bottom_water_null"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/water_glass_9"
+        app:layout_constraintStart_toEndOf="@+id/water_glass_9"
+        app:layout_constraintTop_toTopOf="@+id/water_glass_9" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/water_glass_11"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/icon_bottom_water_null"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/water_glass_10"
+        app:layout_constraintStart_toEndOf="@+id/water_glass_10"
+        app:layout_constraintTop_toTopOf="@+id/water_glass_10" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/water_glass_12"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/icon_bottom_water_null"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/water_glass_11"
+        app:layout_constraintStart_toEndOf="@+id/water_glass_11"
+        app:layout_constraintTop_toTopOf="@+id/water_glass_11" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/water_glass_13"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/icon_bottom_water_null"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/water_glass_12"
+        app:layout_constraintStart_toEndOf="@+id/water_glass_12"
+        app:layout_constraintTop_toTopOf="@+id/water_glass_12" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/water_glass_14"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/icon_bottom_water_null"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/water_glass_13"
+        app:layout_constraintStart_toEndOf="@+id/water_glass_13"
+        app:layout_constraintTop_toTopOf="@+id/water_glass_13" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/water_glass_15"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/icon_bottom_water_null"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/water_glass_14"
+        app:layout_constraintStart_toEndOf="@+id/water_glass_14"
+        app:layout_constraintTop_toTopOf="@+id/water_glass_14" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
