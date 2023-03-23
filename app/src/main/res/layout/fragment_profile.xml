@@ -20,15 +20,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.appcompat.widget.AppCompatButton
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/go_settings"
                 android:layout_width="21dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/icon_setting"
+                app:backgroundTint="@null"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView9" />
+                app:layout_constraintTop_toTopOf="@+id/textView9"/>
 
             <ProgressBar
                 android:id="@+id/progress_bar"
@@ -366,15 +367,17 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/icon_breakfast" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_go_breakfast"
                 android:layout_width="18dp"
                 android:layout_height="14dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/icon_go"
+                app:backgroundTint="@null"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/two"
@@ -448,12 +451,13 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/icon_lunch" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_go_lunch"
                 android:layout_width="18dp"
                 android:layout_height="14dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/icon_go"
+                app:backgroundTint="@null"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -530,12 +534,13 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/icon_dinner" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_go_dinner"
                 android:layout_width="18dp"
                 android:layout_height="14dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/icon_go"
+                app:backgroundTint="@null"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -612,12 +617,13 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/icon_snack" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_go_snake"
                 android:layout_width="18dp"
                 android:layout_height="14dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/icon_go"
+                app:backgroundTint="@null"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -694,12 +700,13 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/icon_water" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_go_water"
                 android:layout_width="18dp"
                 android:layout_height="14dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/icon_go"
+                app:backgroundTint="@null"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -776,12 +783,13 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/icon_workout" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_go_workout"
                 android:layout_width="18dp"
                 android:layout_height="14dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/icon_go"
+                app:backgroundTint="@null"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

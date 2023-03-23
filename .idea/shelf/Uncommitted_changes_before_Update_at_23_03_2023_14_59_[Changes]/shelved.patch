@@ -1,0 +1,248 @@
+Index: app/src/main/res/layout/activity_entry.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_entry.xml b/app/src/main/res/layout/activity_entry.xml
+new file mode 100644
+--- /dev/null	(date 1679572546242)
++++ b/app/src/main/res/layout/activity_entry.xml	(date 1679572546242)
+@@ -0,0 +1,83 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="@drawable/entry"
++    tools:context=".EntryActivity">
++
++
++    <TextView
++        android:id="@+id/app_name"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="FitBalance"
++        android:textColor="@color/teal_700"
++        android:textSize="48dp"
++        app:layout_constraintBottom_toTopOf="@+id/slogan"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.19999999" />
++
++    <TextView
++        android:id="@+id/slogan"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="Здоровье для всех"
++        android:textColor="@color/white"
++        android:textSize="24dp"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.7" />
++
++    <com.google.android.material.button.MaterialButton
++        android:id="@+id/go"
++        android:layout_width="300dp"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="30dp"
++        android:backgroundTint="@color/teal_700"
++        android:text="вперед"
++        android:textAllCaps="false"
++        android:textSize="24dp"
++        app:cornerRadius="10dp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/slogan" />
++
++    <androidx.constraintlayout.widget.ConstraintLayout
++        android:layout_width="wrap_content"
++        android:layout_height="40dp"
++        android:layout_marginTop="20dp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/go">
++
++        <TextView
++            android:id="@+id/have_account"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="Есть аккаунт?"
++            android:textColor="@color/white"
++            android:textSize="18dp"
++            app:layout_constraintBottom_toBottomOf="parent"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toTopOf="parent" />
++
++        <com.google.android.material.button.MaterialButton
++            style="@style/Widget.MaterialComponents.Button.TextButton"
++            android:id="@+id/enter"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="Войти"
++            android:textColor="@color/white"
++            android:textSize="12dp"
++            app:layout_constraintBottom_toBottomOf="@+id/have_account"
++            app:layout_constraintStart_toEndOf="@+id/have_account"
++            app:layout_constraintTop_toTopOf="@+id/have_account"/>
++
++    </androidx.constraintlayout.widget.ConstraintLayout>
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/fitnessapp/EntryActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/fitnessapp/EntryActivity.kt b/app/src/main/java/com/example/fitnessapp/EntryActivity.kt
+new file mode 100644
+--- /dev/null	(date 1679570789514)
++++ b/app/src/main/java/com/example/fitnessapp/EntryActivity.kt	(date 1679570789514)
+@@ -0,0 +1,26 @@
++package com.example.fitnessapp
++
++import android.content.Intent
++import androidx.appcompat.app.AppCompatActivity
++import android.os.Bundle
++import android.view.View
++import com.example.fitnessapp.databinding.ActivityEntryBinding
++
++class EntryActivity : AppCompatActivity() {
++
++    lateinit var binding: ActivityEntryBinding
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        binding = ActivityEntryBinding.inflate(layoutInflater)
++        setContentView(binding.root)
++
++        binding.enter.setOnClickListener{
++            startActivity(Intent(this, MainActivity::class.java))
++        }
++        binding.go.setOnClickListener{
++            startActivity(Intent(this, MainActivity::class.java))
++        }
++
++    }
++}
+\ No newline at end of file
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.FitnessApp\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".Settings\"\r\n            android:exported=\"false\">\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity>\r\n        <activity\r\n            android:name=\".Progress\"\r\n            android:exported=\"false\">\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity>\r\n        <activity\r\n            android:name=\".Profile\"\r\n            android:exported=\"false\">\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity>\r\n        <activity\r\n            android:name=\".Food\"\r\n            android:exported=\"false\">\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity>\r\n        <activity\r\n            android:name=\".Training\"\r\n            android:exported=\"false\">\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity>\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity>\r\n\r\n        <meta-data\r\n            android:name=\"preloaded_fonts\"\r\n            android:resource=\"@array/preloaded_fonts\" />\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 15f31c8a3b1db303eb99d902bf89c55d54abde0a)
++++ b/app/src/main/AndroidManifest.xml	(date 1679524241882)
+@@ -13,35 +13,19 @@
+         android:theme="@style/Theme.FitnessApp"
+         tools:targetApi="31">
+         <activity
+-            android:name=".Settings"
+-            android:exported="false">
+-            <meta-data
+-                android:name="android.app.lib_name"
+-                android:value="" />
+-        </activity>
+-        <activity
+-            android:name=".Progress"
+-            android:exported="false">
+-            <meta-data
+-                android:name="android.app.lib_name"
+-                android:value="" />
+-        </activity>
+-        <activity
+-            android:name=".Profile"
+-            android:exported="false">
+-            <meta-data
+-                android:name="android.app.lib_name"
+-                android:value="" />
+-        </activity>
+-        <activity
+-            android:name=".Food"
+-            android:exported="false">
++            android:name=".EntryActivity"
++            android:exported="true">
+             <meta-data
+                 android:name="android.app.lib_name"
+                 android:value="" />
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
+         </activity>
+         <activity
+-            android:name=".Training"
++            android:name=".Settings"
+             android:exported="false">
+             <meta-data
+                 android:name="android.app.lib_name"
+@@ -49,13 +33,7 @@
+         </activity>
+         <activity
+             android:name=".MainActivity"
+-            android:exported="true">
+-            <intent-filter>
+-                <action android:name="android.intent.action.MAIN" />
+-
+-                <category android:name="android.intent.category.LAUNCHER" />
+-            </intent-filter>
+-
++            android:exported="false">
+             <meta-data
+                 android:name="android.app.lib_name"
+                 android:value="" />
+Index: .idea/deploymentTargetDropDown.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetDropDown.xml b/.idea/deploymentTargetDropDown.xml
+new file mode 100644
+--- /dev/null	(date 1679572282328)
++++ b/.idea/deploymentTargetDropDown.xml	(date 1679572282328)
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="deploymentTargetDropDown">
++    <targetSelectedWithDropDown>
++      <Target>
++        <type value="QUICK_BOOT_TARGET" />
++        <deviceKey>
++          <Key>
++            <type value="VIRTUAL_DEVICE_PATH" />
++            <value value="C:\Users\marle\.android\avd\Galaxy_Nexus_API_30.avd" />
++          </Key>
++        </deviceKey>
++      </Target>
++    </targetSelectedWithDropDown>
++    <timeTargetWasSelectedWithDropDown value="2023-03-23T11:50:36.600042700Z" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/java/com/example/fitnessapp/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.fitnessapp\r\n\r\nimport android.content.Intent\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport androidx.fragment.app.Fragment\r\nimport com.example.fitnessapp.databinding.ActivityMainBinding\r\n\r\nclass MainActivity : AppCompatActivity() {\r\n\r\n    private lateinit var binding: ActivityMainBinding\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        binding = ActivityMainBinding.inflate(layoutInflater)\r\n        val view = binding.root\r\n        setContentView(view)\r\n\r\n\r\n        loadFragment(ProfileFragment())\r\n        binding.bottomNavigation.selectedItemId = R.id.profile\r\n        binding.bottomNavigation.setOnItemSelectedListener {\r\n            when (it.itemId) {\r\n                R.id.training -> {\r\n                    loadFragment(TrainingFragment())\r\n                    true\r\n                }\r\n                R.id.food -> {\r\n                    loadFragment(FoodFragment())\r\n                    true\r\n                }\r\n                R.id.progress -> {\r\n                    loadFragment(ProgressFragment())\r\n                    true\r\n                }\r\n                else -> {\r\n                    loadFragment(ProfileFragment())\r\n                    true\r\n                }\r\n            }\r\n        }\r\n    }\r\n\r\n    private  fun loadFragment(fragment: Fragment){\r\n        val transaction = supportFragmentManager.beginTransaction()\r\n        transaction.replace(R.id.container, fragment)\r\n        transaction.commit()\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/fitnessapp/MainActivity.kt b/app/src/main/java/com/example/fitnessapp/MainActivity.kt
+--- a/app/src/main/java/com/example/fitnessapp/MainActivity.kt	(revision 15f31c8a3b1db303eb99d902bf89c55d54abde0a)
++++ b/app/src/main/java/com/example/fitnessapp/MainActivity.kt	(date 1679523753879)
+@@ -13,8 +13,7 @@
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+         binding = ActivityMainBinding.inflate(layoutInflater)
+-        val view = binding.root
+-        setContentView(view)
++        setContentView(binding.root)
+ 
+ 
+         loadFragment(ProfileFragment())
