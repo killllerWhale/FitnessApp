@@ -34,7 +34,7 @@ class ProfileFragment : Fragment() {
         val goSettings = binding.goSettings
         goSettings.setOnClickListener {
             val newFragment = SettingsFragment()
-            val transaction = requireFragmentManager().beginTransaction()
+            val transaction = parentFragmentManager.beginTransaction()
             transaction.replace(R.id.container, newFragment)
             transaction.addToBackStack(null)
             transaction.commit()
@@ -44,7 +44,7 @@ class ProfileFragment : Fragment() {
     private fun updateProgressBar() {
         val progressBar: ProgressBar = binding.progressBar
         var textView: TextView = binding.textViewProgress
-        progressBar.progress = 80
+        progressBar.progress = 50
     }
 
     private fun updateDateText(){
