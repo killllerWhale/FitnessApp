@@ -33,18 +33,17 @@ class Start1Fragment : Fragment(), View.OnClickListener {
 
     }
     override fun onClick(view: View?) {
-        val context = requireContext()
-        binding.male.setBackgroundColor(ContextCompat.getColor(context, R.color.color_background_gray))
-        binding.female.setBackgroundColor(ContextCompat.getColor(context, R.color.color_background_gray))
+        binding.male.setBackgroundResource(R.drawable.color_background_gray_corners)
+        binding.female.setBackgroundResource(R.drawable.color_background_gray_corners)
         when(view?.id){
             R.id.female->{
-                binding.female.setBackgroundColor(ContextCompat.getColor(context, R.color.teal_700))
-                binding.next.setBackgroundColor(ContextCompat.getColor(context, R.color.teal_700))
+                binding.female.setBackgroundResource(R.drawable.color_background_teal_700_corners)
+                binding.next.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 choose = 1
             }
             R.id.male->{
-                binding.male.setBackgroundColor(ContextCompat.getColor(context, R.color.teal_700))
-                binding.next.setBackgroundColor(ContextCompat.getColor(context, R.color.teal_700))
+                binding.male.setBackgroundResource(R.drawable.color_background_teal_700_corners)
+                binding.next.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 choose = 1
             }
             R.id.go_back->{

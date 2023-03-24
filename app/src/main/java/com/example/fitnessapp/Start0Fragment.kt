@@ -34,25 +34,23 @@ class Start0Fragment : Fragment(), View.OnClickListener {
 
     }
     override fun onClick(view: View?) {
-
-        val context = requireContext()
-        binding.beFit.setBackgroundColor(ContextCompat.getColor(context, R.color.color_background_gray))
-        binding.loseWeight.setBackgroundColor(ContextCompat.getColor(context, R.color.color_background_gray))
-        binding.musclesUp.setBackgroundColor(ContextCompat.getColor(context, R.color.color_background_gray))
+        binding.beFit.setBackgroundResource(R.drawable.color_background_gray_corners)
+        binding.loseWeight.setBackgroundResource(R.drawable.color_background_gray_corners)
+        binding.musclesUp.setBackgroundResource(R.drawable.color_background_gray_corners)
         when(view?.id){
             R.id.be_fit->{
-                binding.beFit.setBackgroundColor(ContextCompat.getColor(context, R.color.teal_700))
-                binding.next.setBackgroundColor(ContextCompat.getColor(context, R.color.teal_700))
+                binding.beFit.setBackgroundResource(R.drawable.color_background_teal_700_corners)
+                binding.next.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 choose = 1
             }
             R.id.muscles_up->{
-                binding.musclesUp.setBackgroundColor(ContextCompat.getColor(context, R.color.teal_700))
-                binding.next.setBackgroundColor(ContextCompat.getColor(context, R.color.teal_700))
+                binding.musclesUp.setBackgroundResource(R.drawable.color_background_teal_700_corners)
+                binding.next.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 choose = 1
             }
             R.id.lose_weight->{
-                binding.loseWeight.setBackgroundColor(ContextCompat.getColor(context, R.color.teal_700))
-                binding.next.setBackgroundColor(ContextCompat.getColor(context, R.color.teal_700))
+                binding.loseWeight.setBackgroundResource(R.drawable.color_background_teal_700_corners)
+                binding.next.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 choose = 1
             }
             R.id.go_back->{
