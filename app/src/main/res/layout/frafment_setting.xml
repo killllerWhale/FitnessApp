@@ -14,7 +14,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout1"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="wrap_content"
             android:background="@color/color_background_gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -22,24 +22,24 @@
             app:layout_constraintTop_toTopOf="parent">
 
 
-            <com.google.android.material.button.MaterialButton
+            <TextView
                 android:id="@+id/go_back"
-                android:layout_width="12dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="11dp"
-                app:backgroundTint="@color/white"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
                 android:background="@drawable/icon_back"
+                app:backgroundTint="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/static_text_0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/static_text_0"
-                />
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/static_text_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/lora"
                 android:text="Имя"
                 android:textColor="@color/inconspicuous_shadow"
@@ -88,10 +88,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
                 android:fontFamily="@font/lora"
                 android:text="Пол"
                 android:textColor="@color/inconspicuous_shadow"
                 android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/static_text_4"
                 app:layout_constraintTop_toBottomOf="@+id/static_text_4" />
 
@@ -99,7 +101,7 @@
                 android:id="@+id/set_name_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
                 android:fontFamily="@font/lora"
                 android:text="111"
@@ -149,10 +151,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:fontFamily="@font/lora"
                 android:text="111"
                 android:textColor="@color/inconspicuous_shadow"
                 android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/set_birth_text"
                 app:layout_constraintTop_toBottomOf="@+id/set_birth_text" />
 
@@ -160,23 +164,24 @@
                 android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="20dp"
                 android:background="@color/teal_700"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/static_text_0">
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/change_target"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:backgroundTint="#BB86FC"
-                    app:cornerRadius="20dp"
                     android:fontFamily="@font/lora_bold"
                     android:text="изменить цель"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="12dp"
+                    app:cornerRadius="20dp"
                     app:layout_constraintEnd_toEndOf="@+id/set_purpose_text"
                     app:layout_constraintStart_toStartOf="@+id/set_purpose_text"
                     app:layout_constraintTop_toBottomOf="@+id/set_purpose_text" />
@@ -187,9 +192,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="50dp"
                     android:fontFamily="@font/lora_bold"
-                    android:text="поддержание массы"
+                    android:text="@string/be_fit"
                     android:textColor="@color/white"
-                    android:textSize="15dp"
+                    android:textSize="15sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -202,10 +207,11 @@
                 android:id="@+id/static_text_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/lora_bold"
-                android:text="Личные данные"
+                android:text="@string/personal_data"
                 android:textColor="@color/white"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

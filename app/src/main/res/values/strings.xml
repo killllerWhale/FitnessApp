@@ -24,4 +24,5 @@
     <string name="email">Email</string>
     <string name="password">Пароль</string>
     <string name="password_repeat">Повторите пароль</string>
+    <string name="personal_data">Личные данные</string>
 </resources>
