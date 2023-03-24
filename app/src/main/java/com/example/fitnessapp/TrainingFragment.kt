@@ -26,9 +26,23 @@ class TrainingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //присваиваем актуальную дату
-        updateDateText()
         updateProgressBar()
+
+        binding.buttonAddWorkout.setOnClickListener{
+            val newFragment = AddWorkoutFragment()
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.container, newFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+        binding.myTraining.setOnClickListener{
+            loadFragment(MyTrainingFragment())
+        }
+
+        binding.workoutRecommendation.setOnClickListener{
+            loadFragment(WorkoutRecommendationFragment())
+        }
     }
 
     private fun updateProgressBar() {
@@ -36,12 +50,10 @@ class TrainingFragment : Fragment() {
         progressBar.progress = 10
     }
 
-    private fun updateDateText() {
-        val dateFormat = SimpleDateFormat("dd MMMM", Locale("ru"))
-        val currentDate = Date()
-        val formattedDate = dateFormat.format(currentDate)
-        var textView: TextView = binding.setDataText
-        textView.text = formattedDate
+    private fun loadFragment(fragment: Fragment) {
+        val transaction = parentFragmentManager.beginTransaction()
+        transaction.replace(R.id.container_training, fragment)
+        transaction.commit()
     }
 
 }
