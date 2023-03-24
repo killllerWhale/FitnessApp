@@ -24,6 +24,7 @@
     <string name="email">Email</string>
     <string name="password">Пароль</string>
     <string name="password_repeat">Повторите пароль</string>
+    <string name="personal_data">Личные данные</string>
     <string name="Water">Вода</string>
     <string name="_250">250мл</string>
     <string name="_500">500мл</string>
