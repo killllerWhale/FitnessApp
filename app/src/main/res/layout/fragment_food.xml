@@ -21,12 +21,11 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/text_food_data_now"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:fontFamily="@font/lora_bold"
-                android:text="@string/breakfast"
                 android:textColor="@color/white"
                 android:textSize="28sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -39,9 +38,9 @@
                 android:layout_height="35dp"
                 android:layout_marginStart="10dp"
                 android:background="@drawable/icon_back"
-                app:layout_constraintBottom_toBottomOf="@+id/textView2"
+                app:layout_constraintBottom_toBottomOf="@+id/text_food_data_now"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView2" />
+                app:layout_constraintTop_toTopOf="@+id/text_food_data_now" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout4"
@@ -53,7 +52,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/button_cancel"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2">
+                app:layout_constraintTop_toBottomOf="@+id/text_food_data_now">
 
                 <ImageView
                     android:id="@+id/static_magnifier"

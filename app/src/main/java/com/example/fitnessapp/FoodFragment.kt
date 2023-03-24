@@ -12,6 +12,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat.getSystemService
 import com.example.fitnessapp.databinding.FragmentFoodBinding
 import com.example.fitnessapp.databinding.FragmentTrainingBinding
+import java.util.*
 
 class FoodFragment : Fragment() {
 
@@ -29,6 +30,7 @@ class FoodFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         loadFragment(FoodOneFragment())
+        loadDataEat()
         binding.productSearch.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 binding.staticMagnifier.visibility = View.GONE
@@ -37,6 +39,7 @@ class FoodFragment : Fragment() {
                     binding.staticMagnifier.visibility = View.VISIBLE
                 }
             }
+            loadFragment(FoodTwoFragment())
         }
 
         binding.buttonCancel.setOnClickListener {
@@ -44,6 +47,7 @@ class FoodFragment : Fragment() {
             binding.productSearch.clearFocus()
             val inputMethodManager = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(binding.productSearch.windowToken, 0)
+            loadFragment(FoodOneFragment())
 
         }
     }
@@ -52,5 +56,20 @@ class FoodFragment : Fragment() {
         val transaction = parentFragmentManager.beginTransaction()
         transaction.replace(R.id.container_food, fragment)
         transaction.commit()
+    }
+
+    private fun loadDataEat(){
+        val currentTime = Calendar.getInstance(TimeZone.getTimeZone("Europe/Moscow"))
+        val currentHour = currentTime.get(Calendar.HOUR_OF_DAY)
+        System.out.println(currentHour)
+
+        val textView = binding.textFoodDataNow
+
+        when (currentHour) {
+            in 6..10 -> textView.text = "Завтрак"
+            in 11..16 -> textView.text = "Обед"
+            in 17..23, in 0..5 -> textView.text = "Ужин"
+        }
+
     }
 }

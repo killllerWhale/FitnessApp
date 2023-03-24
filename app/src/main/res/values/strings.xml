@@ -54,6 +54,8 @@
     <string name="is_account">Есть аккаунт?</string>
     <string name="enter">Войти</string>
     <string name="Consumption_per_day">Потребление за день</string>
+    <string name="g">г</string>
+    <string name="сonsumed">Потребленно</string>
     <string name="_0">0</string>
     <string name="my_training">Мои тренировки</string>
     <string name="recommendation">Рекомендации</string>
