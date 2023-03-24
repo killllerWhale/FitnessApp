@@ -13,8 +13,7 @@ class Start3Fragment : Fragment() {
     private lateinit var binding: FragmentStart3Binding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentStart3Binding.inflate(layoutInflater, container, false)
         return binding.root
@@ -23,30 +22,30 @@ class Start3Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.start0.setOnClickListener{
+        binding.start0.setOnClickListener {
             loadFragment(Start0Fragment())
         }
-        binding.start1.setOnClickListener{
+        binding.start1.setOnClickListener {
             loadFragment(Start1Fragment())
         }
-        binding.start2.setOnClickListener{
+        binding.start2.setOnClickListener {
             loadFragment(Start2Fragment())
         }
-        binding.goBack.setOnClickListener{
+        binding.goBack.setOnClickListener {
             loadFragment(Start2Fragment())
         }
-        binding.next.setOnClickListener{
-            if (binding.editTextWeight.text.isNotEmpty() && binding.editTextHeight.text.isNotEmpty()){
+        binding.next.setOnClickListener {
+            if (binding.editTextWeight.text.isNotEmpty() && binding.editTextHeight.text.isNotEmpty()) {
                 loadFragment(Start4Fragment())
-            }
-            else{
+            } else {
                 val toast = Toast.makeText(requireActivity(), "Заполните поля", Toast.LENGTH_SHORT)
                 toast.show()
             }
         }
 
     }
-    private  fun loadFragment(fragment: Fragment){
+
+    private fun loadFragment(fragment: Fragment) {
         val transaction = parentFragmentManager.beginTransaction()
         transaction.replace(R.id.container, fragment)
         transaction.commit()

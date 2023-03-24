@@ -45,4 +45,7 @@
     <string name="сarbohydrates">Углеводы</string>
     <string name="squirrels">Белки</string>
     <string name="fats">Жиры</string>
+    <string name="slogan">Здоровье для всех</string>
+    <string name="is_account">Есть аккаунт?</string>
+    <string name="enter">Войти</string>
 </resources>

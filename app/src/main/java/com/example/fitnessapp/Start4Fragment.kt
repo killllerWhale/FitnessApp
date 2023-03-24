@@ -2,12 +2,11 @@ package com.example.fitnessapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.fitnessapp.databinding.FragmentStart4Binding
 
 class Start4Fragment : Fragment(), View.OnClickListener {
@@ -36,33 +35,36 @@ class Start4Fragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        when (v?.id){
-            R.id.start0->{
+        when (v?.id) {
+            R.id.start0 -> {
                 loadFragment(Start0Fragment())
             }
-            R.id.start1->{
+            R.id.start1 -> {
                 loadFragment(Start1Fragment())
             }
-            R.id.start2->{
+            R.id.start2 -> {
                 loadFragment(Start2Fragment())
             }
-            R.id.start3->{
+            R.id.start3 -> {
                 loadFragment(Start3Fragment())
             }
-            R.id.go_back->{
+            R.id.go_back -> {
                 loadFragment(Start3Fragment())
             }
-            R.id.next->{
-                if (binding.editTextName.text.isNotEmpty() && binding.editTextEmail.text.isNotEmpty() && binding.editTextPassword.text.isNotEmpty() && binding.editTextPasswordRepeat.text.isNotEmpty() && (binding.editTextPassword.text.toString() == binding.editTextPasswordRepeat.text.toString())){
-                        startActivity(Intent(activity, MainActivity::class.java))
-                    }
-                else{
-                    if (binding.editTextName.text.isEmpty() || binding.editTextEmail.text.isEmpty() || binding.editTextPassword.text.isEmpty() || binding.editTextPasswordRepeat.text.isEmpty()){
-                        val toast = Toast.makeText(requireActivity(), "Введите данные", Toast.LENGTH_SHORT)
+            R.id.next -> {
+                if (binding.editTextName.text.isNotEmpty() && binding.editTextEmail.text.isNotEmpty() && binding.editTextPassword.text.isNotEmpty() && binding.editTextPasswordRepeat.text.isNotEmpty() && (binding.editTextPassword.text.toString() == binding.editTextPasswordRepeat.text.toString())) {
+                    startActivity(Intent(activity, MainActivity::class.java))
+                } else {
+                    if (binding.editTextName.text.isEmpty() || binding.editTextEmail.text.isEmpty() || binding.editTextPassword.text.isEmpty() || binding.editTextPasswordRepeat.text.isEmpty()) {
+                        val toast =
+                            Toast.makeText(requireActivity(), "Введите данные", Toast.LENGTH_SHORT)
                         toast.show()
-                    }
-                    else{
-                        val toast = Toast.makeText(requireActivity(), "Пароли не совпадают", Toast.LENGTH_SHORT)
+                    } else {
+                        val toast = Toast.makeText(
+                            requireActivity(),
+                            "Пароли не совпадают",
+                            Toast.LENGTH_SHORT
+                        )
                         toast.show()
                     }
                 }
@@ -70,7 +72,7 @@ class Start4Fragment : Fragment(), View.OnClickListener {
         }
     }
 
-    private  fun loadFragment(fragment: Fragment){
+    private fun loadFragment(fragment: Fragment) {
         val transaction = parentFragmentManager.beginTransaction()
         transaction.replace(R.id.container, fragment)
         transaction.commit()

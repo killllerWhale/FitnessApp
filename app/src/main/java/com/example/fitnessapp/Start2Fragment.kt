@@ -1,11 +1,11 @@
 package com.example.fitnessapp
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.fitnessapp.databinding.FragmentStart2Binding
 
 class Start2Fragment : Fragment() {
@@ -23,27 +23,27 @@ class Start2Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.goBack.setOnClickListener{
+        binding.goBack.setOnClickListener {
             loadFragment(Start1Fragment())
         }
-        binding.start0.setOnClickListener{
+        binding.start0.setOnClickListener {
             loadFragment(Start0Fragment())
         }
-        binding.start1.setOnClickListener{
+        binding.start1.setOnClickListener {
             loadFragment(Start1Fragment())
         }
-        binding.next.setOnClickListener{
-            if (binding.editTextDay.text.isNotEmpty() && binding.editTextMonth.text.isNotEmpty() && binding.editTextYear.text.isNotEmpty()){
+        binding.next.setOnClickListener {
+            if (binding.editTextDay.text.isNotEmpty() && binding.editTextMonth.text.isNotEmpty() && binding.editTextYear.text.isNotEmpty()) {
                 loadFragment(Start3Fragment())
-            }
-            else{
+            } else {
                 val toast = Toast.makeText(requireActivity(), "Заполните поля", Toast.LENGTH_SHORT)
                 toast.show()
             }
         }
 
     }
-    private  fun loadFragment(fragment: Fragment){
+
+    private fun loadFragment(fragment: Fragment) {
         val transaction = parentFragmentManager.beginTransaction()
         transaction.replace(R.id.container, fragment)
         transaction.commit()
