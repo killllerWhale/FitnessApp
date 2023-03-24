@@ -6,7 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.TextView
 import com.example.fitnessapp.databinding.FragmentTrainingBinding
+import java.text.SimpleDateFormat
+import java.util.*
 
 class TrainingFragment : Fragment() {
 
@@ -23,9 +27,22 @@ class TrainingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //присваиваем актуальную дату
+        updateDateText()
+        updateProgressBar()
+    }
 
+    private fun updateProgressBar() {
+        val progressBar: ProgressBar = binding.progressBar
+        progressBar.progress = 10
+    }
 
-
+    private fun updateDateText() {
+        val dateFormat = SimpleDateFormat("dd MMMM", Locale("ru"))
+        val currentDate = Date()
+        val formattedDate = dateFormat.format(currentDate)
+        var textView: TextView = binding.setDataText
+        textView.text = formattedDate
     }
 
 }

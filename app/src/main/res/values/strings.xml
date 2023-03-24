@@ -45,4 +45,9 @@
     <string name="сarbohydrates">Углеводы</string>
     <string name="squirrels">Белки</string>
     <string name="fats">Жиры</string>
+    <string name="training_progress">прогресс тренировки</string>
+    <string name="completed_exercises">выполнено упражнений</string>
+    <string name="required_perform">требуется выполнить</string>
+    <string name="add_workout">Добавить тренировку</string>
+    <string name="cancellation">отмена</string>
 </resources>

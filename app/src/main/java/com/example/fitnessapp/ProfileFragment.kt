@@ -66,10 +66,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     }
 
 
-    private fun updateStatusWater() {
-
-    }
-
     private fun updateProgressBar() {
         val progressBar: ProgressBar = binding.progressBar
         var textView: TextView = binding.textViewProgress
