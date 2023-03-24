@@ -15,8 +15,7 @@ class Start1Fragment : Fragment(), View.OnClickListener {
     var choose = 0
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentStart1Binding.inflate(layoutInflater, container, false)

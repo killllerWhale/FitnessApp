@@ -50,4 +50,7 @@
     <string name="required_perform">требуется выполнить</string>
     <string name="add_workout">Добавить тренировку</string>
     <string name="cancellation">отмена</string>
+    <string name="slogan">Здоровье для всех</string>
+    <string name="is_account">Есть аккаунт?</string>
+    <string name="enter">Войти</string>
 </resources>

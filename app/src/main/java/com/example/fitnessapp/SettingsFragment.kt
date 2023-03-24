@@ -12,8 +12,7 @@ class SettingsFragment : Fragment() {
     lateinit var binding: FrafmentSettingBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
         binding = FrafmentSettingBinding.inflate(layoutInflater, container, false)
@@ -33,7 +32,7 @@ class SettingsFragment : Fragment() {
 
     }
 
-    private  fun loadFragment(fragment: Fragment){
+    private fun loadFragment(fragment: Fragment) {
         val transaction = parentFragmentManager.beginTransaction()
         transaction.replace(R.id.container, fragment)
         transaction.commit()

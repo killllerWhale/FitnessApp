@@ -19,7 +19,8 @@ class EntryActivity : AppCompatActivity() {
         loadFragment(EntryFragment())
 
     }
-    private  fun loadFragment(fragment: Fragment){
+
+    private fun loadFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.container, fragment)
         transaction.commit()
