@@ -43,4 +43,6 @@
     <string name="expenditure">расход</string>
     <string name="fitbalance">FitBalance</string>
     <string name="сarbohydrates">Углеводы</string>
+    <string name="squirrels">Белки</string>
+    <string name="fats">Жиры</string>
 </resources>

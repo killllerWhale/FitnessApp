@@ -20,7 +20,7 @@ import java.util.*
 class ProfileFragment : Fragment(), View.OnClickListener {
 
     lateinit var binding: FragmentProfileBinding
-    lateinit var bindingDialog : DialogWaterBinding
+    lateinit var bindingDialog: DialogWaterBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -66,7 +66,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     }
 
 
-    private fun updateStatusWater(){
+    private fun updateStatusWater() {
 
     }
 
@@ -76,7 +76,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         progressBar.progress = 50
     }
 
-    private fun updateDateText(){
+    private fun updateDateText() {
         val dateFormat = SimpleDateFormat("dd MMMM", Locale("ru"))
         val currentDate = Date()
         val formattedDate = dateFormat.format(currentDate)
@@ -85,26 +85,26 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        when (v?.id){
-            R.id.water_glass_1->{
+        when (v?.id) {
+            R.id.water_glass_1 -> {
                 bindingDialog.waterGlass1.setBackgroundResource(R.drawable.icon_water)
             }
-            R.id.water_glass_2->{
+            R.id.water_glass_2 -> {
                 bindingDialog.waterGlass2.setBackgroundResource(R.drawable.icon_water)
             }
-            R.id.water_glass_3->{
+            R.id.water_glass_3 -> {
                 bindingDialog.waterGlass3.setBackgroundResource(R.drawable.icon_water)
             }
-            R.id.water_glass_4->{
+            R.id.water_glass_4 -> {
                 bindingDialog.waterGlass4.setBackgroundResource(R.drawable.icon_water)
             }
-            R.id.water_glass_5->{
+            R.id.water_glass_5 -> {
                 bindingDialog.waterGlass5.setBackgroundResource(R.drawable.icon_water)
             }
-            R.id.water_glass_6->{
+            R.id.water_glass_6 -> {
                 bindingDialog.waterGlass6.setBackgroundResource(R.drawable.icon_water)
             }
-            R.id.water_glass_7->{
+            R.id.water_glass_7 -> {
                 bindingDialog.waterGlass7.setBackgroundResource(R.drawable.icon_water)
             }
         }

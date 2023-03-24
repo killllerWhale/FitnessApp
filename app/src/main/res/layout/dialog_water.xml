@@ -11,8 +11,8 @@
         android:id="@+id/static_text_0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Water"
         android:fontFamily="@font/lora_bold"
+        android:text="@string/Water"
         android:textColor="@color/inconspicuous_shadow"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,8 +63,8 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="5dp"
-        android:contentDescription="@string/todo"
         android:background="@drawable/icon_glass_water_null"
+        android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="@+id/water_glass_0"
         app:layout_constraintStart_toEndOf="@+id/water_glass_0"
         app:layout_constraintTop_toTopOf="@+id/water_glass_0" />
@@ -244,7 +244,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/static_text_2" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
