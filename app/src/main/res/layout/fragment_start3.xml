@@ -38,58 +38,53 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <com.google.android.material.button.MaterialButton
+                <TextView
                     android:id="@+id/start0"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    app:backgroundTint="@color/white"
-                    app:cornerRadius="180dp"
+                    android:background="@drawable/not_selected_item_start"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.button.MaterialButton
+                <TextView
                     android:id="@+id/start1"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="10dp"
-                    app:backgroundTint="@color/white"
-                    app:cornerRadius="180dp"
+                    android:background="@drawable/not_selected_item_start"
                     app:layout_constraintBottom_toBottomOf="@+id/start0"
                     app:layout_constraintStart_toEndOf="@+id/start0"
                     app:layout_constraintTop_toTopOf="@+id/start0" />
 
-                <com.google.android.material.button.MaterialButton
+                <TextView
                     android:id="@+id/start2"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="10dp"
-                    app:backgroundTint="@color/white"
-                    app:cornerRadius="180dp"
+                    android:background="@drawable/not_selected_item_start"
                     app:layout_constraintBottom_toBottomOf="@+id/start1"
                     app:layout_constraintStart_toEndOf="@+id/start1"
                     app:layout_constraintTop_toTopOf="@+id/start1" />
 
-                <com.google.android.material.button.MaterialButton
+                <TextView
                     android:id="@+id/start3"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="10dp"
                     android:enabled="false"
-                    app:backgroundTint="@color/teal_700"
-                    app:cornerRadius="180dp"
+                    android:background="@drawable/selected_item_start"
                     app:layout_constraintBottom_toBottomOf="@+id/start2"
                     app:layout_constraintStart_toEndOf="@+id/start2"
                     app:layout_constraintTop_toTopOf="@+id/start2" />
 
-                <com.google.android.material.button.MaterialButton
+                <TextView
                     android:id="@+id/start4"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="10dp"
                     android:enabled="false"
-                    app:backgroundTint="@color/white"
-                    app:cornerRadius="180dp"
+                    android:background="@drawable/not_selected_item_start"
                     app:layout_constraintBottom_toBottomOf="@+id/start3"
                     app:layout_constraintStart_toEndOf="@+id/start3"
                     app:layout_constraintTop_toTopOf="@+id/start3" />
@@ -102,7 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Расскажите о себе!"
+            android:text="@string/talk_about"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -113,9 +108,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Укажите свой рост и вес"
+            android:text="@string/body_params"
             android:textColor="@color/white"
-            android:textSize="24dp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/static_text_1" />
@@ -132,12 +127,12 @@
                 android:id="@+id/text_height"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Рост(см)"
-                android:textSize="18dp"
+                android:text="@string/height"
+                android:textSize="18sp"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="@+id/editText_height"
                 app:layout_constraintStart_toStartOf="@+id/editText_height"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <EditText
                 android:id="@+id/editText_height"
@@ -150,15 +145,17 @@
                 android:background="@drawable/edit_text_birth"
                 android:textAllCaps="false"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_height" />
+                app:layout_constraintTop_toBottomOf="@+id/text_height"
+                tools:ignore="LabelFor,TextFields"
+                android:autofillHints= ""/>
 
 
             <TextView
                 android:id="@+id/text_weight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Вес(кг)"
-                android:textSize="18dp"
+                android:text="@string/weight"
+                android:textSize="18sp"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="@+id/editText_weight"
                 app:layout_constraintStart_toStartOf="@+id/editText_weight"
@@ -176,22 +173,25 @@
                 android:background="@drawable/edit_text_birth"
                 android:textAllCaps="false"
                 app:layout_constraintStart_toEndOf="@+id/editText_height"
-                app:layout_constraintTop_toBottomOf="@+id/text_weight" />
+                app:layout_constraintTop_toBottomOf="@+id/text_weight"
+                tools:ignore="LabelFor,TextFields"
+                android:autofillHints="" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <com.google.android.material.button.MaterialButton
+        <TextView
             android:id="@+id/next"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginBottom="30dp"
-            android:text="Вперед"
+            android:text="@string/next"
             app:cornerRadius="10dp"
             android:textAllCaps="false"
+            android:gravity="center"
             android:textColor="@color/white"
-            app:backgroundTint="@color/color_background_gray"
+            android:background="@drawable/color_background_gray_corners"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

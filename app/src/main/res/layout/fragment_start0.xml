@@ -19,13 +19,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.button.MaterialButton
+            <TextView
                 android:id="@+id/go_back"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
                 android:background="@drawable/icon_back"
-                app:backgroundTint="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -38,60 +37,55 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <com.google.android.material.button.MaterialButton
+                <TextView
                     android:id="@+id/start0"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    app:backgroundTint="@color/teal_700"
-                    app:cornerRadius="180dp"
+                    android:background="@drawable/selected_item_start"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.button.MaterialButton
+                <TextView
                     android:id="@+id/start1"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="10dp"
                     android:enabled="false"
-                    app:backgroundTint="@color/white"
-                    app:cornerRadius="180dp"
+                    android:background="@drawable/not_selected_item_start"
                     app:layout_constraintBottom_toBottomOf="@+id/start0"
                     app:layout_constraintStart_toEndOf="@+id/start0"
                     app:layout_constraintTop_toTopOf="@+id/start0" />
 
-                <com.google.android.material.button.MaterialButton
+                <TextView
                     android:id="@+id/start2"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="10dp"
                     android:enabled="false"
-                    app:backgroundTint="@color/white"
-                    app:cornerRadius="180dp"
+                    android:background="@drawable/not_selected_item_start"
                     app:layout_constraintBottom_toBottomOf="@+id/start1"
                     app:layout_constraintStart_toEndOf="@+id/start1"
                     app:layout_constraintTop_toTopOf="@+id/start1" />
 
-                <com.google.android.material.button.MaterialButton
+                <TextView
                     android:id="@+id/start3"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="10dp"
                     android:enabled="false"
-                    app:backgroundTint="@color/white"
-                    app:cornerRadius="180dp"
+                    android:background="@drawable/not_selected_item_start"
                     app:layout_constraintBottom_toBottomOf="@+id/start2"
                     app:layout_constraintStart_toEndOf="@+id/start2"
                     app:layout_constraintTop_toTopOf="@+id/start2" />
 
-                <com.google.android.material.button.MaterialButton
+                <TextView
                     android:id="@+id/start4"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="10dp"
                     android:enabled="false"
-                    app:backgroundTint="@color/white"
-                    app:cornerRadius="180dp"
+                    android:background="@drawable/not_selected_item_start"
                     app:layout_constraintBottom_toBottomOf="@+id/start3"
                     app:layout_constraintStart_toEndOf="@+id/start3"
                     app:layout_constraintTop_toTopOf="@+id/start3" />
@@ -104,77 +98,79 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Расскажите о себе!"
+            android:text="@string/talk_about"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+            />
 
         <TextView
             android:id="@+id/task"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Выберите цель"
+            android:text="@string/target"
             android:textColor="@color/white"
-            android:textSize="24dp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/static_text_1" />
 
-        <com.google.android.material.button.MaterialButton
+        <TextView
             android:id="@+id/lose_weight"
             android:layout_width="300dp"
             android:layout_height="80dp"
-            android:text="Похудение"
-            app:cornerRadius="10dp"
+            android:text="@string/lose_weight"
+            android:gravity="center"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            app:backgroundTint="@color/color_background_gray"
+            android:background="@drawable/color_background_gray_corners"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.25" />
 
-        <com.google.android.material.button.MaterialButton
+        <TextView
             android:id="@+id/be_fit"
-            app:cornerRadius="10dp"
             android:layout_width="300dp"
             android:layout_height="80dp"
             android:layout_marginTop="30dp"
-            android:text="Поддержание массы"
+            android:text="@string/be_fit"
+            android:gravity="center"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            app:backgroundTint="@color/color_background_gray"
+            android:background="@drawable/color_background_gray_corners"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lose_weight" />
 
-        <com.google.android.material.button.MaterialButton
+        <TextView
             android:id="@+id/muscles_up"
             android:layout_width="300dp"
             android:layout_height="80dp"
-            android:layout_marginTop="30dp"
-            android:text="Набор мышечной массы"
+            android:layout_marginTop="28dp"
+            android:text="@string/muscles_up"
             android:textAllCaps="false"
-            app:cornerRadius="10dp"
+            android:gravity="center"
             android:textColor="@color/white"
-            app:backgroundTint="@color/color_background_gray"
+            android:background="@drawable/color_background_gray_corners"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/be_fit" />
 
-        <com.google.android.material.button.MaterialButton
+        <TextView
             android:id="@+id/next"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginBottom="30dp"
-            android:text="Вперед"
-            app:cornerRadius="10dp"
+            android:text="@string/next"
             android:textAllCaps="false"
+            android:gravity="center"
             android:textColor="@color/white"
-            app:backgroundTint="@color/color_background_gray"
+            android:background="@drawable/color_background_gray_corners"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

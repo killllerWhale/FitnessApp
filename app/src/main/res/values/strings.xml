@@ -2,4 +2,26 @@
     <string name="app_name">FitnessApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="talk_about">Расскажите о себе!</string>
+    <string name="target">Выберите цель</string>
+    <string name="lose_weight">Похудение</string>
+    <string name="be_fit">Поддержание массы</string>
+    <string name="muscles_up">Набор мышечной массы</string>
+    <string name="next">Вперед</string>
+    <string name="sex">Укажите пол</string>
+    <string name="male">Мужской</string>
+    <string name="female">Женский</string>
+    <string name="birthday">Укажите дату рождения</string>
+    <string name="day">День</string>
+    <string name="month">Месяц</string>
+    <string name="year">Год</string>
+    <string name="body_params">Укажите свой рост и вес</string>
+    <string name="height">Рост(см)</string>
+    <string name="weight">Вес(кг)</string>
+    <string name="create_account">Создать аккаунт</string>
+    <string name="last_step">Остался последний штрих</string>
+    <string name="name">Имя</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="password_repeat">Повторите пароль</string>
 </resources>

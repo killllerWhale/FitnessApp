@@ -19,13 +19,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.button.MaterialButton
+            <TextView
                 android:id="@+id/go_back"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
                 android:background="@drawable/icon_back"
-                app:backgroundTint="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -38,59 +37,59 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <com.google.android.material.button.MaterialButton
+                <TextView
                     android:id="@+id/start0"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    app:backgroundTint="@color/white"
+                    android:background="@drawable/not_selected_item_start"
                     app:cornerRadius="180dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.button.MaterialButton
+                <TextView
                     android:id="@+id/start1"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="10dp"
                     android:enabled="false"
-                    app:backgroundTint="@color/teal_700"
+                    android:background="@drawable/selected_item_start"
                     app:cornerRadius="180dp"
                     app:layout_constraintBottom_toBottomOf="@+id/start0"
                     app:layout_constraintStart_toEndOf="@+id/start0"
                     app:layout_constraintTop_toTopOf="@+id/start0" />
 
-                <com.google.android.material.button.MaterialButton
+                <TextView
                     android:id="@+id/start2"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="10dp"
                     android:enabled="false"
-                    app:backgroundTint="@color/white"
+                    android:background="@drawable/not_selected_item_start"
                     app:cornerRadius="180dp"
                     app:layout_constraintBottom_toBottomOf="@+id/start1"
                     app:layout_constraintStart_toEndOf="@+id/start1"
                     app:layout_constraintTop_toTopOf="@+id/start1" />
 
-                <com.google.android.material.button.MaterialButton
+                <TextView
                     android:id="@+id/start3"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="10dp"
                     android:enabled="false"
-                    app:backgroundTint="@color/white"
+                    android:background="@drawable/not_selected_item_start"
                     app:cornerRadius="180dp"
                     app:layout_constraintBottom_toBottomOf="@+id/start2"
                     app:layout_constraintStart_toEndOf="@+id/start2"
                     app:layout_constraintTop_toTopOf="@+id/start2" />
 
-                <com.google.android.material.button.MaterialButton
+                <TextView
                     android:id="@+id/start4"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="10dp"
                     android:enabled="false"
-                    app:backgroundTint="@color/white"
+                    android:background="@drawable/not_selected_item_start"
                     app:cornerRadius="180dp"
                     app:layout_constraintBottom_toBottomOf="@+id/start3"
                     app:layout_constraintStart_toEndOf="@+id/start3"
@@ -104,7 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Расскажите о себе!"
+            android:text="@string/talk_about"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -115,53 +114,56 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Укажите пол"
+            android:text="@string/sex"
             android:textColor="@color/white"
-            android:textSize="24dp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/static_text_1" />
 
-        <com.google.android.material.button.MaterialButton
+        <TextView
             android:id="@+id/male"
             android:layout_width="300dp"
             android:layout_height="80dp"
-            android:text="Мужской"
+            android:text="@string/male"
             app:cornerRadius="10dp"
+            android:gravity="center"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            app:backgroundTint="@color/color_background_gray"
+            android:background="@drawable/color_background_gray_corners"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.25" />
 
-        <com.google.android.material.button.MaterialButton
+        <TextView
             android:id="@+id/female"
             app:cornerRadius="10dp"
             android:layout_width="300dp"
             android:layout_height="80dp"
             android:layout_marginTop="30dp"
-            android:text="Женский"
+            android:text="@string/female"
             android:textAllCaps="false"
+            android:gravity="center"
             android:textColor="@color/white"
-            app:backgroundTint="@color/color_background_gray"
+            android:background="@drawable/color_background_gray_corners"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/male" />
 
 
-        <com.google.android.material.button.MaterialButton
+        <TextView
             android:id="@+id/next"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginBottom="30dp"
-            android:text="Вперед"
+            android:text="@string/next"
+            android:gravity="center"
             app:cornerRadius="10dp"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            app:backgroundTint="@color/color_background_gray"
+            android:background="@drawable/color_background_gray_corners"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
