@@ -61,7 +61,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             bindingDialog.waterGlass5.setOnClickListener(this)
             bindingDialog.waterGlass6.setOnClickListener(this)
             bindingDialog.waterGlass7.setOnClickListener(this)
-            bindingDialog.waterGlass8.setOnClickListener(this)
             dialog.show()
         }
     }
@@ -106,10 +105,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 bindingDialog.waterGlass6.setBackgroundResource(R.drawable.icon_water)
             }
             R.id.water_glass_7->{
-                bindingDialog.waterGlass6.setBackgroundResource(R.drawable.icon_water)
-            }
-            R.id.water_glass_8->{
-                bindingDialog.waterGlass6.setBackgroundResource(R.drawable.icon_water)
+                bindingDialog.waterGlass7.setBackgroundResource(R.drawable.icon_water)
             }
         }
     }

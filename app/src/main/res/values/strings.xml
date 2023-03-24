@@ -24,4 +24,22 @@
     <string name="email">Email</string>
     <string name="password">Пароль</string>
     <string name="password_repeat">Повторите пароль</string>
+    <string name="Water">Вода</string>
+    <string name="_250">250мл</string>
+    <string name="_500">500мл</string>
+    <string name="todo">TODO</string>
+    <string name="breakfast">Завтрак</string>
+    <string name="recommendations">рекомендуем:</string>
+    <string name="kkal">ккал</string>
+    <string name="lunch">Обед</string>
+    <string name="dinner">Ужин</string>
+    <string name="snack">Перекус</string>
+    <string name="workout">Тренировка</string>
+    <string name="minutes">минут</string>
+    <string name="today">cегодня,</string>
+    <string name="kkal_remains">ккал осталось</string>
+    <string name="consumption">потребление</string>
+    <string name="expenditure">расход</string>
+    <string name="fitbalance">FitBalance</string>
+    <string name="сarbohydrates">Углеводы</string>
 </resources>

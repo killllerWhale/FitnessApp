@@ -52,7 +52,7 @@
                 android:fontFamily="@font/lora"
                 android:text="2569"
                 android:textColor="@color/white"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/progress_bar"
                 app:layout_constraintStart_toStartOf="@+id/progress_bar"
                 app:layout_constraintTop_toTopOf="@+id/progress_bar" />
@@ -62,9 +62,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lora"
-                android:text="ккал осталось"
+                android:text="@string/kkal_remains"
                 android:textColor="@color/white"
-                android:textSize="10dp"
+                android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="@+id/text_view_progress"
                 app:layout_constraintStart_toStartOf="@+id/text_view_progress"
                 app:layout_constraintTop_toBottomOf="@+id/text_view_progress" />
@@ -85,9 +85,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/lora_bold"
-                    android:text="потребление"
+                    android:text="@string/consumption"
                     android:textColor="@color/white"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="@+id/consumption"
                     app:layout_constraintStart_toStartOf="@+id/consumption"
                     app:layout_constraintTop_toBottomOf="@+id/consumption" />
@@ -99,7 +99,7 @@
                     android:fontFamily="@font/lora_bold"
                     android:text="o"
                     android:textColor="@color/white"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -110,9 +110,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/lora_bold"
-                    android:text="расход"
+                    android:text="@string/expenditure"
                     android:textColor="@color/white"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="@+id/textView8"
                     app:layout_constraintStart_toStartOf="@+id/textView8"
                     app:layout_constraintTop_toBottomOf="@+id/textView8" />
@@ -125,7 +125,7 @@
                     android:fontFamily="@font/lora_bold"
                     android:text="o"
                     android:textColor="@color/white"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="@+id/static_text_20"
                     app:layout_constraintStart_toStartOf="@+id/static_text_20"
                     app:layout_constraintTop_toBottomOf="@+id/static_text_20" />
@@ -136,9 +136,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lora_bold"
-                android:text="FitBalance"
+                android:text="@string/fitbalance"
                 android:textColor="@color/white"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -150,13 +150,14 @@
                 android:layout_marginEnd="50dp"
                 app:layout_constraintBottom_toBottomOf="@+id/static_svg_8"
                 app:layout_constraintEnd_toStartOf="@+id/static_svg_8"
-                app:srcCompat="@drawable/icon_line" />
+                app:srcCompat="@drawable/icon_line"
+                android:contentDescription="@string/todo" />
 
             <ImageView
                 android:id="@+id/static_svg_7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:contentDescription="@string/todo"
                 android:layout_marginStart="50dp"
                 app:layout_constraintStart_toEndOf="@+id/static_svg_8"
                 app:layout_constraintTop_toTopOf="@+id/static_svg_8"
@@ -170,7 +171,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/progress_bar"
-                app:srcCompat="@drawable/icon_line" />
+                app:srcCompat="@drawable/icon_line"
+                android:contentDescription="@string/todo" />
 
             <TextView
                 android:id="@+id/static_text_22"
@@ -178,9 +180,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
                 android:fontFamily="@font/lora_bold"
-                android:text="Углеводы"
+                android:text="@string/сarbohydrates"
                 android:textColor="@color/white"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toTopOf="@+id/static_svg_6"
                 app:layout_constraintEnd_toEndOf="@+id/static_svg_6"
                 app:layout_constraintStart_toStartOf="@+id/static_svg_6" />
@@ -193,7 +195,7 @@
                 android:fontFamily="@font/lora_bold"
                 android:text="Белки"
                 android:textColor="@color/white"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toTopOf="@+id/static_svg_8"
                 app:layout_constraintEnd_toEndOf="@+id/static_svg_8"
                 app:layout_constraintStart_toStartOf="@+id/static_svg_8" />
@@ -206,7 +208,7 @@
                 android:fontFamily="@font/lora_bold"
                 android:text="Жиры"
                 android:textColor="@color/white"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toTopOf="@+id/static_svg_7"
                 app:layout_constraintEnd_toEndOf="@+id/static_svg_7"
                 app:layout_constraintStart_toStartOf="@+id/static_svg_7" />
@@ -287,512 +289,10 @@
                 android:fontFamily="@font/lora"
                 android:text="/ 319г"
                 android:textColor="@color/white"
-                android:textSize="10dp"
+                android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="@+id/static_svg_7"
                 app:layout_constraintStart_toStartOf="@+id/static_svg_7"
                 app:layout_constraintTop_toBottomOf="@+id/static_svg_7" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/one"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/rect_gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
-
-            <TextView
-                android:id="@+id/static_text_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:fontFamily="@font/lora"
-                android:text="Завтрак"
-                android:textColor="@color/white"
-                android:textSize="14dp"
-                app:layout_constraintStart_toEndOf="@+id/static_svg_0"
-                app:layout_constraintTop_toTopOf="@+id/static_svg_0" />
-
-            <TextView
-                android:id="@+id/static_text_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/lora"
-                android:text="рекомендуем: "
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="11dp"
-                app:layout_constraintStart_toStartOf="@+id/static_text_2"
-                app:layout_constraintTop_toBottomOf="@+id/static_text_2" />
-
-            <TextView
-                android:id="@+id/static_text_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:fontFamily="@font/lora"
-                android:text="ккал"
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="11dp"
-                app:layout_constraintBottom_toBottomOf="@+id/breakfast_recommendation"
-                app:layout_constraintStart_toEndOf="@+id/breakfast_recommendation"
-                app:layout_constraintTop_toTopOf="@+id/breakfast_recommendation" />
-
-            <TextView
-                android:id="@+id/breakfast_recommendation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lora"
-                android:text="660"
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="11dp"
-                app:layout_constraintBottom_toBottomOf="@+id/static_text_3"
-                app:layout_constraintStart_toEndOf="@+id/static_text_3"
-                app:layout_constraintTop_toTopOf="@+id/static_text_3" />
-
-            <ImageView
-                android:id="@+id/static_svg_0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/icon_breakfast" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_go_breakfast"
-                android:layout_width="18dp"
-                android:layout_height="14dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/icon_go"
-                app:backgroundTint="@null"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/two"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/rect_gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/one">
-
-            <TextView
-                android:id="@+id/static_text_5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:fontFamily="@font/lora"
-                android:text="Обед"
-                android:textColor="@color/white"
-                android:textSize="14dp"
-                app:layout_constraintStart_toEndOf="@+id/static_svg_1"
-                app:layout_constraintTop_toTopOf="@+id/static_svg_1" />
-
-            <TextView
-                android:id="@+id/static_text_6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/lora"
-                android:text="рекомендуем: "
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="11dp"
-                app:layout_constraintStart_toStartOf="@+id/static_text_5"
-                app:layout_constraintTop_toBottomOf="@+id/static_text_5" />
-
-            <TextView
-                android:id="@+id/static_text_7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:fontFamily="@font/lora"
-                android:text="ккал"
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="11dp"
-                app:layout_constraintBottom_toBottomOf="@+id/lunch_recommendation"
-                app:layout_constraintStart_toEndOf="@+id/lunch_recommendation"
-                app:layout_constraintTop_toTopOf="@+id/lunch_recommendation" />
-
-            <TextView
-                android:id="@+id/lunch_recommendation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lora"
-                android:text="660"
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="11dp"
-                app:layout_constraintBottom_toBottomOf="@+id/static_text_6"
-                app:layout_constraintStart_toEndOf="@+id/static_text_6"
-                app:layout_constraintTop_toTopOf="@+id/static_text_6" />
-
-            <ImageView
-                android:id="@+id/static_svg_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/icon_lunch" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_go_lunch"
-                android:layout_width="18dp"
-                android:layout_height="14dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/icon_go"
-                app:backgroundTint="@null"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/three"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/rect_gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/two">
-
-            <TextView
-                android:id="@+id/static_text_8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:fontFamily="@font/lora"
-                android:text="Ужин"
-                android:textColor="@color/white"
-                android:textSize="14dp"
-                app:layout_constraintStart_toEndOf="@+id/static_svg_2"
-                app:layout_constraintTop_toTopOf="@+id/static_svg_2" />
-
-            <TextView
-                android:id="@+id/static_text_9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/lora"
-                android:text="рекомендуем: "
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="11dp"
-                app:layout_constraintStart_toStartOf="@+id/static_text_8"
-                app:layout_constraintTop_toBottomOf="@+id/static_text_8" />
-
-            <TextView
-                android:id="@+id/static_text_10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:fontFamily="@font/lora"
-                android:text="ккал"
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="11dp"
-                app:layout_constraintBottom_toBottomOf="@+id/dinner_recommendation"
-                app:layout_constraintStart_toEndOf="@+id/dinner_recommendation"
-                app:layout_constraintTop_toTopOf="@+id/dinner_recommendation" />
-
-            <TextView
-                android:id="@+id/dinner_recommendation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lora"
-                android:text="660"
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="11dp"
-                app:layout_constraintBottom_toBottomOf="@+id/static_text_9"
-                app:layout_constraintStart_toEndOf="@+id/static_text_9"
-                app:layout_constraintTop_toTopOf="@+id/static_text_9" />
-
-            <ImageView
-                android:id="@+id/static_svg_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/icon_dinner" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_go_dinner"
-                android:layout_width="18dp"
-                android:layout_height="14dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/icon_go"
-                app:backgroundTint="@null"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/four"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/rect_gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/three">
-
-            <TextView
-                android:id="@+id/static_text_11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:fontFamily="@font/lora"
-                android:text="Перекус"
-                android:textColor="@color/white"
-                android:textSize="14dp"
-                app:layout_constraintStart_toEndOf="@+id/static_svg_3"
-                app:layout_constraintTop_toTopOf="@+id/static_svg_3" />
-
-            <TextView
-                android:id="@+id/static_text_12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/lora"
-                android:text="рекомендуем: "
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="11dp"
-                app:layout_constraintStart_toStartOf="@+id/static_text_11"
-                app:layout_constraintTop_toBottomOf="@+id/static_text_11" />
-
-            <TextView
-                android:id="@+id/static_text_13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:fontFamily="@font/lora"
-                android:text="ккал"
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="11dp"
-                app:layout_constraintBottom_toBottomOf="@+id/snack_recommendation"
-                app:layout_constraintStart_toEndOf="@+id/snack_recommendation"
-                app:layout_constraintTop_toTopOf="@+id/snack_recommendation" />
-
-            <TextView
-                android:id="@+id/snack_recommendation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lora"
-                android:text="660"
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="11dp"
-                app:layout_constraintBottom_toBottomOf="@+id/static_text_12"
-                app:layout_constraintStart_toEndOf="@+id/static_text_12"
-                app:layout_constraintTop_toTopOf="@+id/static_text_12" />
-
-            <ImageView
-                android:id="@+id/static_svg_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/icon_snack" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_go_snake"
-                android:layout_width="18dp"
-                android:layout_height="14dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/icon_go"
-                app:backgroundTint="@null"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/five"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/rect_gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/four">
-
-            <TextView
-                android:id="@+id/static_text_14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:fontFamily="@font/lora"
-                android:text="Вода"
-                android:textColor="@color/white"
-                android:textSize="14dp"
-                app:layout_constraintStart_toEndOf="@+id/static_svg_4"
-                app:layout_constraintTop_toTopOf="@+id/static_svg_4" />
-
-            <TextView
-                android:id="@+id/static_text_15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/lora"
-                android:text="рекомендуем: "
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="11dp"
-                app:layout_constraintStart_toStartOf="@+id/static_text_14"
-                app:layout_constraintTop_toBottomOf="@+id/static_text_14" />
-
-            <TextView
-                android:id="@+id/static_text_16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:fontFamily="@font/lora"
-                android:text="ккал"
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="11dp"
-                app:layout_constraintBottom_toBottomOf="@+id/water_recommendation"
-                app:layout_constraintStart_toEndOf="@+id/water_recommendation"
-                app:layout_constraintTop_toTopOf="@+id/water_recommendation" />
-
-            <TextView
-                android:id="@+id/water_recommendation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lora"
-                android:text="660"
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="11dp"
-                app:layout_constraintBottom_toBottomOf="@+id/static_text_15"
-                app:layout_constraintStart_toEndOf="@+id/static_text_15"
-                app:layout_constraintTop_toTopOf="@+id/static_text_15" />
-
-            <ImageView
-                android:id="@+id/static_svg_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/icon_water" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_go_water"
-                android:layout_width="18dp"
-                android:layout_height="14dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/icon_go"
-                app:backgroundTint="@null"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/six"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/rect_gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/five">
-
-            <TextView
-                android:id="@+id/static_text_17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:fontFamily="@font/lora"
-                android:text="Тренировка"
-                android:textColor="@color/white"
-                android:textSize="14dp"
-                app:layout_constraintStart_toEndOf="@+id/static_svg_5"
-                app:layout_constraintTop_toTopOf="@+id/static_svg_5" />
-
-            <TextView
-                android:id="@+id/static_text_18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/lora"
-                android:text="рекомендуем: "
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="11dp"
-                app:layout_constraintStart_toStartOf="@+id/static_text_17"
-                app:layout_constraintTop_toBottomOf="@+id/static_text_17" />
-
-            <TextView
-                android:id="@+id/static_text_19"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:fontFamily="@font/lora"
-                android:text="минут"
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="11dp"
-                app:layout_constraintBottom_toBottomOf="@+id/workout_recommendation"
-                app:layout_constraintStart_toEndOf="@+id/workout_recommendation"
-                app:layout_constraintTop_toTopOf="@+id/workout_recommendation" />
-
-            <TextView
-                android:id="@+id/workout_recommendation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lora"
-                android:text="660"
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="11dp"
-                app:layout_constraintBottom_toBottomOf="@+id/static_text_18"
-                app:layout_constraintStart_toEndOf="@+id/static_text_18"
-                app:layout_constraintTop_toTopOf="@+id/static_text_18" />
-
-            <ImageView
-                android:id="@+id/static_svg_5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/icon_workout" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_go_workout"
-                android:layout_width="18dp"
-                android:layout_height="14dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/icon_go"
-                app:backgroundTint="@null"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
@@ -802,12 +302,13 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="40dp"
             android:fontFamily="@font/lora"
-            android:text="cегодня, "
+            android:text="@string/today"
             android:textColor="@color/inconspicuous_shadow"
-            android:textSize="10dp"
+            android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            tools:ignore="SmallSp" />
 
         <TextView
             android:id="@+id/set_data_text"
@@ -816,10 +317,543 @@
             android:layout_marginStart="2dp"
             android:fontFamily="@font/lora"
             android:textColor="@color/inconspicuous_shadow"
-            android:textSize="10dp"
+            android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="@+id/static_text_28"
             app:layout_constraintStart_toEndOf="@+id/static_text_28"
-            app:layout_constraintTop_toTopOf="@+id/static_text_28" />
+            app:layout_constraintTop_toTopOf="@+id/static_text_28"
+            tools:ignore="SmallSp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/static_text_28">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/one"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/rect_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/static_text_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/lora"
+                        android:text="@string/breakfast"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/static_svg_0"
+                        app:layout_constraintTop_toTopOf="@+id/static_svg_0" />
+
+                    <TextView
+                        android:id="@+id/static_text_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/lora"
+                        android:text="@string/recommendations"
+                        android:textColor="@color/inconspicuous_shadow"
+                        android:textSize="11sp"
+                        app:layout_constraintStart_toStartOf="@+id/static_text_2"
+                        app:layout_constraintTop_toBottomOf="@+id/static_text_2" />
+
+                    <TextView
+                        android:id="@+id/static_text_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:fontFamily="@font/lora"
+                        android:text="@string/kkal"
+                        android:textColor="@color/inconspicuous_shadow"
+                        android:textSize="11sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/breakfast_recommendation"
+                        app:layout_constraintStart_toEndOf="@+id/breakfast_recommendation"
+                        app:layout_constraintTop_toTopOf="@+id/breakfast_recommendation" />
+
+                    <TextView
+                        android:id="@+id/breakfast_recommendation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:text="660"
+                        android:textColor="@color/inconspicuous_shadow"
+                        android:textSize="11sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/static_text_3"
+                        app:layout_constraintStart_toEndOf="@+id/static_text_3"
+                        app:layout_constraintTop_toTopOf="@+id/static_text_3" />
+
+                    <ImageView
+                        android:id="@+id/static_svg_0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:contentDescription="@string/todo"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/icon_breakfast" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_go_breakfast"
+                        android:layout_width="18dp"
+                        android:layout_height="14dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/icon_go"
+                        app:backgroundTint="@null"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/two"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/rect_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/one">
+
+                    <TextView
+                        android:id="@+id/static_text_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/lora"
+                        android:text="@string/lunch"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/static_svg_1"
+                        app:layout_constraintTop_toTopOf="@+id/static_svg_1" />
+
+                    <TextView
+                        android:id="@+id/static_text_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/lora"
+                        android:text="@string/recommendations"
+                        android:textColor="@color/inconspicuous_shadow"
+                        android:textSize="11sp"
+                        app:layout_constraintStart_toStartOf="@+id/static_text_5"
+                        app:layout_constraintTop_toBottomOf="@+id/static_text_5" />
+
+                    <TextView
+                        android:id="@+id/static_text_7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:fontFamily="@font/lora"
+                        android:text="@string/kkal"
+                        android:textColor="@color/inconspicuous_shadow"
+                        android:textSize="11sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/lunch_recommendation"
+                        app:layout_constraintStart_toEndOf="@+id/lunch_recommendation"
+                        app:layout_constraintTop_toTopOf="@+id/lunch_recommendation" />
+
+                    <TextView
+                        android:id="@+id/lunch_recommendation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:text="660"
+                        android:textColor="@color/inconspicuous_shadow"
+                        android:textSize="11sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/static_text_6"
+                        app:layout_constraintStart_toEndOf="@+id/static_text_6"
+                        app:layout_constraintTop_toTopOf="@+id/static_text_6" />
+
+                    <ImageView
+                        android:id="@+id/static_svg_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:contentDescription="@string/todo"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/icon_lunch" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_go_lunch"
+                        android:layout_width="18dp"
+                        android:layout_height="14dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/icon_go"
+                        app:backgroundTint="@null"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/three"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/rect_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/two">
+
+                    <TextView
+                        android:id="@+id/static_text_8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/lora"
+                        android:text="@string/dinner"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/static_svg_2"
+                        app:layout_constraintTop_toTopOf="@+id/static_svg_2" />
+
+                    <TextView
+                        android:id="@+id/static_text_9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/lora"
+                        android:text="@string/recommendations"
+                        android:textColor="@color/inconspicuous_shadow"
+                        android:textSize="11sp"
+                        app:layout_constraintStart_toStartOf="@+id/static_text_8"
+                        app:layout_constraintTop_toBottomOf="@+id/static_text_8" />
+
+                    <TextView
+                        android:id="@+id/static_text_10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:fontFamily="@font/lora"
+                        android:text="@string/kkal"
+                        android:textColor="@color/inconspicuous_shadow"
+                        android:textSize="11sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/dinner_recommendation"
+                        app:layout_constraintStart_toEndOf="@+id/dinner_recommendation"
+                        app:layout_constraintTop_toTopOf="@+id/dinner_recommendation" />
+
+                    <TextView
+                        android:id="@+id/dinner_recommendation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:text="660"
+                        android:textColor="@color/inconspicuous_shadow"
+                        android:textSize="11sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/static_text_9"
+                        app:layout_constraintStart_toEndOf="@+id/static_text_9"
+                        app:layout_constraintTop_toTopOf="@+id/static_text_9" />
+
+                    <ImageView
+                        android:id="@+id/static_svg_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:contentDescription="@string/todo"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/icon_dinner" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_go_dinner"
+                        android:layout_width="18dp"
+                        android:layout_height="14dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/icon_go"
+                        app:backgroundTint="@null"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/four"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/rect_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/three">
+
+                    <TextView
+                        android:id="@+id/static_text_11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/lora"
+                        android:text="@string/snack"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/static_svg_3"
+                        app:layout_constraintTop_toTopOf="@+id/static_svg_3" />
+
+                    <TextView
+                        android:id="@+id/static_text_12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/lora"
+                        android:text="@string/recommendations"
+                        android:textColor="@color/inconspicuous_shadow"
+                        android:textSize="11sp"
+                        app:layout_constraintStart_toStartOf="@+id/static_text_11"
+                        app:layout_constraintTop_toBottomOf="@+id/static_text_11" />
+
+                    <TextView
+                        android:id="@+id/static_text_13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:fontFamily="@font/lora"
+                        android:text="@string/kkal"
+                        android:textColor="@color/inconspicuous_shadow"
+                        android:textSize="11sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/snack_recommendation"
+                        app:layout_constraintStart_toEndOf="@+id/snack_recommendation"
+                        app:layout_constraintTop_toTopOf="@+id/snack_recommendation" />
+
+                    <TextView
+                        android:id="@+id/snack_recommendation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:text="660"
+                        android:textColor="@color/inconspicuous_shadow"
+                        android:textSize="11sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/static_text_12"
+                        app:layout_constraintStart_toEndOf="@+id/static_text_12"
+                        app:layout_constraintTop_toTopOf="@+id/static_text_12" />
+
+                    <ImageView
+                        android:id="@+id/static_svg_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:contentDescription="@string/todo"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/icon_snack" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_go_snake"
+                        android:layout_width="18dp"
+                        android:layout_height="14dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/icon_go"
+                        app:backgroundTint="@null"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/five"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/rect_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/four">
+
+                    <TextView
+                        android:id="@+id/static_text_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:fontFamily="@font/lora"
+                        android:text="@string/Water"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/static_svg_4"
+                        app:layout_constraintTop_toTopOf="@+id/static_svg_4" />
+
+                    <TextView
+                        android:id="@+id/static_text_15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/lora"
+                        android:text="@string/recommendations"
+                        android:textColor="@color/inconspicuous_shadow"
+                        android:textSize="11sp"
+                        app:layout_constraintStart_toStartOf="@+id/static_text_14"
+                        app:layout_constraintTop_toBottomOf="@+id/static_text_14" />
+
+                    <TextView
+                        android:id="@+id/static_text_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:fontFamily="@font/lora"
+                        android:text="@string/kkal"
+                        android:textColor="@color/inconspicuous_shadow"
+                        android:textSize="11sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/water_recommendation"
+                        app:layout_constraintStart_toEndOf="@+id/water_recommendation"
+                        app:layout_constraintTop_toTopOf="@+id/water_recommendation" />
+
+                    <TextView
+                        android:id="@+id/water_recommendation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:text="660"
+                        android:textColor="@color/inconspicuous_shadow"
+                        android:textSize="11sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/static_text_15"
+                        app:layout_constraintStart_toEndOf="@+id/static_text_15"
+                        app:layout_constraintTop_toTopOf="@+id/static_text_15" />
+
+                    <ImageView
+                        android:id="@+id/static_svg_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:contentDescription="@string/todo"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/icon_water" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_go_water"
+                        android:layout_width="18dp"
+                        android:layout_height="14dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/icon_go"
+                        app:backgroundTint="@null"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/six"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/rect_gray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/five">
+
+                    <TextView
+                        android:id="@+id/static_text_17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:fontFamily="@font/lora"
+                        android:text="@string/workout"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/static_svg_5"
+                        app:layout_constraintTop_toTopOf="@+id/static_svg_5" />
+
+                    <TextView
+                        android:id="@+id/static_text_18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/lora"
+                        android:text="@string/recommendations"
+                        android:textColor="@color/inconspicuous_shadow"
+                        android:textSize="11sp"
+                        app:layout_constraintStart_toStartOf="@+id/static_text_17"
+                        app:layout_constraintTop_toBottomOf="@+id/static_text_17" />
+
+                    <TextView
+                        android:id="@+id/static_text_19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:fontFamily="@font/lora"
+                        android:text="@string/minutes"
+                        android:textColor="@color/inconspicuous_shadow"
+                        android:textSize="11sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/workout_recommendation"
+                        app:layout_constraintStart_toEndOf="@+id/workout_recommendation"
+                        app:layout_constraintTop_toTopOf="@+id/workout_recommendation" />
+
+                    <TextView
+                        android:id="@+id/workout_recommendation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lora"
+                        android:text="660"
+                        android:textColor="@color/inconspicuous_shadow"
+                        android:textSize="11sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/static_text_18"
+                        app:layout_constraintStart_toEndOf="@+id/static_text_18"
+                        app:layout_constraintTop_toTopOf="@+id/static_text_18" />
+
+                    <ImageView
+                        android:id="@+id/static_svg_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:contentDescription="@string/todo"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/icon_workout" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_go_workout"
+                        android:layout_width="18dp"
+                        android:layout_height="14dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/icon_go"
+                        app:backgroundTint="@null"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
