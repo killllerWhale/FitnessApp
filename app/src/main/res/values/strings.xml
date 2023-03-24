@@ -53,4 +53,5 @@
     <string name="slogan">Здоровье для всех</string>
     <string name="is_account">Есть аккаунт?</string>
     <string name="enter">Войти</string>
+    <string name="Consumption_per_day">Потребление за день</string>
 </resources>

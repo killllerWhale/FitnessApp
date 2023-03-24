@@ -28,7 +28,7 @@ class FoodFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        loadFragment(FoodOneFragment())
         binding.productSearch.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 binding.staticMagnifier.visibility = View.GONE
@@ -46,5 +46,11 @@ class FoodFragment : Fragment() {
             inputMethodManager.hideSoftInputFromWindow(binding.productSearch.windowToken, 0)
 
         }
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        val transaction = parentFragmentManager.beginTransaction()
+        transaction.replace(R.id.container_food, fragment)
+        transaction.commit()
     }
 }
