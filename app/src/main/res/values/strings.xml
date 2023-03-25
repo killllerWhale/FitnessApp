@@ -63,4 +63,10 @@
     <string name="add_execution">Добавить выполнение</string>
     <string name="description">Описание</string>
     <string name="video_instructions">Видео инструкция</string>
+    <string name="mechanics">Механика</string>
+    <string name="benefits_of_exercise">Польза упражнения</string>
+    <string name="clarifications_on_the_exercise">Уточнения по упражнению</string>
+    <string name="number_of_approaches">количество подходов</string>
+    <string name="add_button">Добавить</string>
+    <string name="number_of_repetitions">количество повторений</string>
 </resources>

@@ -67,7 +67,7 @@
                 app:layout_constraintVertical_bias="0.8" />
 
             <TextView
-                android:id="@+id/consumption"
+                android:id="@+id/must_do"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -183,50 +183,54 @@
             <TextView
                 android:id="@+id/my_training"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                android:textSize="12sp"
                 android:background="@drawable/color_background_gray_corners"
                 android:gravity="center"
                 android:text="@string/my_training"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/constraintLayout5"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
 
             <TextView
                 android:id="@+id/workout_recommendation"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:textSize="12sp"
                 android:background="@drawable/color_background_gray_corners"
                 android:gravity="center"
                 android:text="@string/recommendation"
                 android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="@+id/constraintLayout5"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ScrollView
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <FrameLayout
+                android:id="@+id/container_training"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <FrameLayout
-                    android:id="@+id/container_training"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

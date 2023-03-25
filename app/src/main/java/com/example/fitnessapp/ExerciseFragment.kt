@@ -1,21 +1,27 @@
 package com.example.fitnessapp
 
+import android.app.Dialog
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
+import com.example.fitnessapp.databinding.DialogExerciseBinding
+import com.example.fitnessapp.databinding.DialogWaterBinding
 import com.example.fitnessapp.databinding.FragmentExerciseBinding
 import com.example.fitnessapp.pars.training.Exercise
 import com.google.gson.Gson
 import java.io.BufferedReader
-import java.io.File
 import java.io.InputStreamReader
 
 class ExerciseFragment : Fragment() {
 
     private lateinit var binding: FragmentExerciseBinding
+    private lateinit var bindingDialog: DialogExerciseBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +35,31 @@ class ExerciseFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         startParsing()
 
+        bindingDialog = DialogExerciseBinding.inflate(layoutInflater)
+        val context = requireContext()
+        val dialog = Dialog(context)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(bindingDialog.root)
+
+        loadFragment(DescriptionExerciseFragment())
+        binding.description.setBackgroundResource(R.drawable.choose_purple_corners)
+        binding.buttonAddExecution.setOnClickListener{
+            dialog.show()
+        }
+
+        binding.description.setOnClickListener{
+            loadFragment(DescriptionExerciseFragment())
+            binding.videoInstruction.setBackgroundResource(R.drawable.color_background_gray_corners)
+            binding.description.setBackgroundResource(R.drawable.choose_purple_corners)
+        }
+
+        binding.videoInstruction.setOnClickListener{
+            loadFragment(VideoInstructionFragment())
+            binding.videoInstruction.setBackgroundResource(R.drawable.choose_purple_corners)
+            binding.description.setBackgroundResource(R.drawable.color_background_gray_corners)
+        }
+
     }
 
     private fun startParsing(){
@@ -40,4 +71,10 @@ class ExerciseFragment : Fragment() {
         binding.nameExercise.text = post.exercise[prefs!!.getInt("training", 0)].name
     }
 
+
+    private fun loadFragment(fragment: Fragment) {
+        val transaction = parentFragmentManager.beginTransaction()
+        transaction.replace(R.id.container_exercise, fragment)
+        transaction.commit()
+    }
 }

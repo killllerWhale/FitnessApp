@@ -88,12 +88,12 @@
                     android:text="@string/consumption"
                     android:textColor="@color/white"
                     android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="@+id/consumption"
-                    app:layout_constraintStart_toStartOf="@+id/consumption"
-                    app:layout_constraintTop_toBottomOf="@+id/consumption" />
+                    app:layout_constraintEnd_toEndOf="@+id/must_do"
+                    app:layout_constraintStart_toStartOf="@+id/must_do"
+                    app:layout_constraintTop_toBottomOf="@+id/must_do" />
 
                 <TextView
-                    android:id="@+id/consumption"
+                    android:id="@+id/must_do"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora_bold"

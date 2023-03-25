@@ -236,7 +236,7 @@
         android:layout_marginBottom="10dp"
         android:backgroundTint="@color/teal_700"
         android:fontFamily="@font/lora_bold"
-        android:text="Добавить"
+        android:text="@string/add_button"
         android:textAllCaps="false"
         android:textSize="12sp"
         app:cornerRadius="10dp"

@@ -6,9 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import android.widget.TextView
 import com.example.fitnessapp.databinding.FragmentTrainingBinding
-import java.text.SimpleDateFormat
 import java.util.*
 
 class TrainingFragment : Fragment() {
@@ -28,6 +26,9 @@ class TrainingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         updateProgressBar()
 
+
+        loadFragment(WorkoutRecommendationFragment())
+        binding.workoutRecommendation.setBackgroundResource(R.drawable.choose_purple_corners)
         binding.buttonAddWorkout.setOnClickListener{
             val newFragment = AddWorkoutFragment()
             val transaction = parentFragmentManager.beginTransaction()
@@ -38,10 +39,14 @@ class TrainingFragment : Fragment() {
 
         binding.myTraining.setOnClickListener{
             loadFragment(MyTrainingFragment())
+            binding.workoutRecommendation.setBackgroundResource(R.drawable.color_background_gray_corners)
+            binding.myTraining.setBackgroundResource(R.drawable.choose_purple_corners)
         }
 
         binding.workoutRecommendation.setOnClickListener{
             loadFragment(WorkoutRecommendationFragment())
+            binding.workoutRecommendation.setBackgroundResource(R.drawable.choose_purple_corners)
+            binding.myTraining.setBackgroundResource(R.drawable.color_background_gray_corners)
         }
     }
 
