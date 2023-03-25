@@ -89,7 +89,7 @@
                         android:weightSum="2">
 
                         <ImageView
-                            android:id="@+id/training"
+                            android:id="@+id/training_bar"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -99,6 +99,7 @@
                             android:contentDescription="@string/todo" />
 
                         <ImageView
+                            android:id="@+id/training_bridge"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -117,6 +118,7 @@
                         android:weightSum="2">
 
                         <ImageView
+                            android:id="@+id/training_lunges"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -126,6 +128,7 @@
                             android:contentDescription="@string/todo" />
 
                         <ImageView
+                            android:id="@+id/training_lifts"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -145,6 +148,7 @@
                         android:weightSum="2">
 
                         <ImageView
+                            android:id="@+id/training_pull_ups"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -154,6 +158,7 @@
                             android:contentDescription="@string/todo" />
 
                         <ImageView
+                            android:id="@+id/training_push_ups"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -173,6 +178,7 @@
                         android:weightSum="2">
 
                         <ImageView
+                            android:id="@+id/training_running"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -182,6 +188,7 @@
                             android:contentDescription="@string/todo" />
 
                         <ImageView
+                            android:id="@+id/training_side_bar"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -201,6 +208,7 @@
                         android:weightSum="2">
 
                         <ImageView
+                            android:id="@+id/training_skaklka"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -210,6 +218,7 @@
                             android:contentDescription="@string/todo" />
 
                         <ImageView
+                            android:id="@+id/training_squat"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -229,6 +238,7 @@
                         android:weightSum="2">
 
                         <ImageView
+                            android:id="@+id/training_toe_lifts"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -238,6 +248,7 @@
                             android:contentDescription="@string/todo" />
 
                         <ImageView
+                            android:id="@+id/training_walking"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
