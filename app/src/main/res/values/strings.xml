@@ -59,4 +59,8 @@
     <string name="_0">0</string>
     <string name="my_training">Мои тренировки</string>
     <string name="recommendation">Рекомендации</string>
+    <string name="calories_burned">Каллорий сожжено</string>
+    <string name="add_execution">Добавить выполнение</string>
+    <string name="description">Описание</string>
+    <string name="video_instructions">Видео инструкция</string>
 </resources>
