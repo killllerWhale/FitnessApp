@@ -10,7 +10,6 @@ import com.example.fitnessapp.databinding.FragmentExerciseBinding
 import com.example.fitnessapp.pars.training.Exercise
 import com.google.gson.Gson
 import java.io.BufferedReader
-import java.io.File
 import java.io.InputStreamReader
 
 class ExerciseFragment : Fragment() {
@@ -28,7 +27,6 @@ class ExerciseFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         startParsing()
-
     }
 
     private fun startParsing(){
@@ -39,5 +37,4 @@ class ExerciseFragment : Fragment() {
         var post = gson.fromJson(inputString, Exercise::class.java)
         binding.nameExercise.text = post.exercise[prefs!!.getInt("training", 0)].name
     }
-
 }
