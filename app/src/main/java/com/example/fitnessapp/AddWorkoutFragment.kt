@@ -22,9 +22,6 @@ class AddWorkoutFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val prefs = context?.getSharedPreferences("themes", Context.MODE_PRIVATE)
-        prefs?.edit()?.putString("money", "6")?.apply()
-        System.out.println(prefs!!.getString("money", "0"))
 
         binding.goBack.setOnClickListener{
             loadFragment(TrainingFragment())
@@ -51,43 +48,45 @@ class AddWorkoutFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
+        val prefs = context?.getSharedPreferences("themes", Context.MODE_PRIVATE)
         when (v?.id) {
             R.id.training_bar -> {
-
+                prefs?.edit()?.putInt("training", 0)?.apply()
             }
             R.id.training_bridge -> {
-
+                prefs?.edit()?.putInt("training", 1)?.apply()
             }
             R.id.training_lunges -> {
-
+                prefs?.edit()?.putInt("training", 2)?.apply()
             }
             R.id.training_lifts -> {
-
+                prefs?.edit()?.putInt("training", 3)?.apply()
             }
             R.id.training_pull_ups -> {
-
+                prefs?.edit()?.putInt("training", 4)?.apply()
             }
             R.id.training_push_ups -> {
-
+                prefs?.edit()?.putInt("training", 5)?.apply()
             }
             R.id.training_running -> {
-
+                prefs?.edit()?.putInt("training", 6)?.apply()
             }
             R.id.training_side_bar -> {
-
+                prefs?.edit()?.putInt("training", 7)?.apply()
             }
             R.id.training_skaklka -> {
-
+                prefs?.edit()?.putInt("training", 8)?.apply()
             }
             R.id.training_squat -> {
-
+                prefs?.edit()?.putInt("training", 9)?.apply()
             }
             R.id.training_toe_lifts -> {
-
+                prefs?.edit()?.putInt("training", 10)?.apply()
             }
             R.id.training_walking -> {
-
+                prefs?.edit()?.putInt("training", 11)?.apply()
             }
         }
+        loadFragment(ExerciseFragment())
     }
 }
