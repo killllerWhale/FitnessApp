@@ -371,9 +371,8 @@
 
             <TextView
                 android:id="@+id/consumer_button"
-                android:layout_width="140dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="10dp"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/color_background_teal_700_corners"
@@ -384,15 +383,14 @@
                 android:textSize="12sp"
                 app:cornerRadius="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/progress_bar_carbohydrates"
                 app:layout_constraintTop_toBottomOf="@+id/progress_bar_carbohydrates" />
 
             <TextView
                 android:id="@+id/recommendation_button"
-                android:layout_width="140dp"
-                android:layout_height="40dp"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp"
                 android:background="@drawable/color_background_teal_700_corners"
                 android:gravity="center"
                 android:text="@string/recommendation"
@@ -400,7 +398,7 @@
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:cornerRadius="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/progress_bar_fats"
                 app:layout_constraintTop_toBottomOf="@+id/progress_bar_fats" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -57,7 +57,10 @@ class FoodFragment : Fragment() {
 
         // Hide the search view and show FoodOneFragment when the cancel button is clicked
         binding.buttonCancel.setOnClickListener {
-            binding.productSearch.setQuery(null, false)
+            binding.productSearch.apply {
+                setQuery("", false)
+                isIconified = true
+            }
             binding.productSearch.clearFocus()
             val inputMethodManager =
                 requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager

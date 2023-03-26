@@ -1,5 +1,6 @@
 package com.example.fitnessapp
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -30,12 +31,20 @@ class DescriptionExerciseFragment : Fragment() {
         startParsing()
 
     }
+    @SuppressLint("SetTextI18n")
     private fun startParsing(){
         val prefs = context?.getSharedPreferences("themes", Context.MODE_PRIVATE)
         var gson = Gson()
         val bufferedReader = BufferedReader(InputStreamReader(resources.openRawResource(R.raw.exercise)))
         val inputString = bufferedReader.use { it.readText() }
         var post = gson.fromJson(inputString, Exercise::class.java)
+        val exercise = post.exercise[prefs!!.getInt("training", 0)]
+        if (exercise.type == 0) {
+            binding.kkalBurned.text = "За каждый подход из 15 повторений будет сожжено калорий: " + (exercise.expenditure * 15).toString()
+        }else{
+//            binding.kkalBurned.text = binding.calculationWeightCol.text.toString().toInt()
+        }
+//        (binding.calculationWeightCol.text.toString().toInt()
         binding.mechanicsDescription.text = post.exercise[prefs!!.getInt("training", 0)].mechanics
         binding.benefitsOfExerciseDescription.text = post.exercise[prefs.getInt("training", 0)].description
     }

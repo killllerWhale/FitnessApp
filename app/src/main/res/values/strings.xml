@@ -70,4 +70,6 @@
     <string name="add_button">Добавить</string>
     <string name="number_of_repetitions">количество повторений</string>
     <string name="search">Поиск</string>
+    <string name="kg">кг</string>
+    <string name="calculation_weight">При весе:</string>
 </resources>

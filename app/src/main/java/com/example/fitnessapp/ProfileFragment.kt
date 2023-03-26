@@ -66,17 +66,14 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
 
     private fun updateProgressBar() {
-        val progressBar: ProgressBar = binding.progressBar
-        var textView: TextView = binding.textViewProgress
-        progressBar.progress = 50
+        binding.progressBar.progress = 50
     }
 
     private fun updateDateText() {
         val dateFormat = SimpleDateFormat("dd MMMM", Locale("ru"))
         val currentDate = Date()
         val formattedDate = dateFormat.format(currentDate)
-        var textView: TextView = binding.setDataText
-        textView.text = formattedDate
+        binding.setDataText.text = formattedDate
     }
 
     override fun onClick(v: View?) {
