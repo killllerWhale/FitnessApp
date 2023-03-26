@@ -32,17 +32,17 @@ class FoodOneFragment : Fragment() {
         updateProgressBarSquirrels()
         updateProgressBarCarbohydrates()
         loadFragment(FoodOneRecommendationsFragment())
-        binding.recommendationButton.isEnabled = false
+        binding.recommendationButton.setBackgroundResource(R.drawable.choose_purple_corners)
         binding.recommendationButton.setOnClickListener {
             loadFragment(FoodOneRecommendationsFragment())
-            binding.recommendationButton.isEnabled = false
-            binding.consumerButton.isEnabled = true
+            binding.recommendationButton.setBackgroundResource(R.drawable.choose_purple_corners)
+            binding.consumerButton.setBackgroundResource(R.drawable.color_background_teal_700_corners)
         }
 
         binding.consumerButton.setOnClickListener {
             loadFragment(FoodOneConsumedFragment())
-            binding.recommendationButton.isEnabled = true
-            binding.consumerButton.isEnabled = false
+            binding.consumerButton.setBackgroundResource(R.drawable.choose_purple_corners)
+            binding.recommendationButton.setBackgroundResource(R.drawable.color_background_teal_700_corners)
         }
     }
 

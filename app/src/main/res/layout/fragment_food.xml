@@ -54,27 +54,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_food_data_now">
 
-                <ImageView
-                    android:id="@+id/static_magnifier"
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:layout_marginStart="10dp"
-                    android:background="@drawable/icon_magnifier"
-                    android:contentDescription="@string/todo"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
+                <SearchView
                     android:id="@+id/product_search"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:textColor="@color/white"
-                    android:hint="     Введите продукт"
+                    android:backgroundTint="@color/white"
+                    android:queryHint="Введите продукт"
                     android:textSize="12sp"
-                    android:textColorHint="@color/inconspicuous_shadow"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

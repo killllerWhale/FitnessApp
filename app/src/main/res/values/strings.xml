@@ -69,4 +69,5 @@
     <string name="number_of_approaches">количество подходов</string>
     <string name="add_button">Добавить</string>
     <string name="number_of_repetitions">количество повторений</string>
+    <string name="search">Поиск</string>
 </resources>
