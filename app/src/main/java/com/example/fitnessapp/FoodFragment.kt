@@ -75,7 +75,7 @@ class FoodFragment : Fragment() {
         transaction.commit()
     }
 
-    private fun loadDataEat(){
+    private fun loadDataEat() {
         val currentTime = Calendar.getInstance(TimeZone.getTimeZone("Europe/Moscow"))
         val currentHour = currentTime.get(Calendar.HOUR_OF_DAY)
         System.out.println(currentHour)

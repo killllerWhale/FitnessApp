@@ -21,7 +21,7 @@ class DescriptionExerciseFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentDescriptionExerciseBinding.inflate(layoutInflater,container,false)
+        binding = FragmentDescriptionExerciseBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
@@ -31,21 +31,28 @@ class DescriptionExerciseFragment : Fragment() {
         startParsing()
 
     }
+
     @SuppressLint("SetTextI18n")
-    private fun startParsing(){
+    private fun startParsing() {
         val prefs = context?.getSharedPreferences("themes", Context.MODE_PRIVATE)
         var gson = Gson()
-        val bufferedReader = BufferedReader(InputStreamReader(resources.openRawResource(R.raw.exercise)))
+        val bufferedReader =
+            BufferedReader(InputStreamReader(resources.openRawResource(R.raw.exercise)))
         val inputString = bufferedReader.use { it.readText() }
         var post = gson.fromJson(inputString, Exercise::class.java)
         val exercise = post.exercise[prefs!!.getInt("training", 0)]
         if (exercise.type == 0) {
-            binding.kkalBurned.text = "За каждый подход из 15 повторений будет сожжено калорий: " + (exercise.expenditure * 15).toString()
-        }else{
-//            binding.kkalBurned.text = binding.calculationWeightCol.text.toString().toInt()
+            binding.kkalBurned.text =
+                "За каждый подход из 15 повторений будет сожжено калорий: " + (exercise.expenditure * 15).toString()
+        } else {
+            val result = binding.calculationWeightCol.text.toString().toInt() * exercise.expenditure * 10
+            val roundedResult = kotlin.math.round(result).toInt()
+            binding.kkalBurned.text =
+                "За десять минут повторения упражнения можно сжечь калорий: " + roundedResult.toString()
         }
 //        (binding.calculationWeightCol.text.toString().toInt()
         binding.mechanicsDescription.text = post.exercise[prefs!!.getInt("training", 0)].mechanics
-        binding.benefitsOfExerciseDescription.text = post.exercise[prefs.getInt("training", 0)].description
+        binding.benefitsOfExerciseDescription.text =
+            post.exercise[prefs.getInt("training", 0)].description
     }
 }

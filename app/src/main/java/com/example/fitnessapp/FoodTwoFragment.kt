@@ -39,7 +39,8 @@ class FoodTwoFragment : Fragment() {
         foodList.add("Dart")
         foodList.add("Kotlin")
         foodList.add("Typescript")
-        foodListAdapter = ArrayAdapter(requireContext(), R.layout.items_list_view_color, R.id.text_view, foodList)
+        foodListAdapter =
+            ArrayAdapter(requireContext(), R.layout.items_list_view_color, R.id.text_view, foodList)
         binding.listOfFood.adapter = foodListAdapter
     }
 
