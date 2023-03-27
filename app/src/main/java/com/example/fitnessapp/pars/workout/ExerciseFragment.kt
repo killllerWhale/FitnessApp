@@ -1,4 +1,4 @@
-package com.example.fitnessapp
+package com.example.fitnessapp.pars.workout
 
 import android.app.Dialog
 import android.content.Context
@@ -10,8 +10,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import com.example.fitnessapp.DescriptionExerciseFragment
+import com.example.fitnessapp.R
+import com.example.fitnessapp.SettingsFragment
 import com.example.fitnessapp.databinding.DialogExerciseBinding
-import com.example.fitnessapp.databinding.DialogWaterBinding
 import com.example.fitnessapp.databinding.FragmentExerciseBinding
 import com.example.fitnessapp.pars.training.Exercise
 import com.google.gson.Gson
@@ -58,6 +60,13 @@ class ExerciseFragment : Fragment() {
             loadFragment(VideoInstructionFragment())
             binding.videoInstruction.setBackgroundResource(R.drawable.choose_purple_corners)
             binding.description.setBackgroundResource(R.drawable.color_background_gray_corners)
+        }
+
+        binding.goBack.setOnClickListener{
+            val newFragment = AddWorkoutFragment()
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.container, newFragment)
+            transaction.commit()
         }
 
     }

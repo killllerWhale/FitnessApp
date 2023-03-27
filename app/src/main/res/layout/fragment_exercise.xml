@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/color_background"
-    tools:context=".ExerciseFragment">
+    tools:context=".pars.workout.ExerciseFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -23,9 +23,9 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/textView2"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:id="@+id/go_back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="10dp"
                 android:background="@drawable/icon_back"
                 app:layout_constraintBottom_toBottomOf="@+id/name_exercise"

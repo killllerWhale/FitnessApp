@@ -1,4 +1,4 @@
-package com.example.fitnessapp
+package com.example.fitnessapp.pars.workout
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import androidx.activity.OnBackPressedCallback
+import com.example.fitnessapp.MyTrainingFragment
+import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.FragmentTrainingBinding
-import java.util.*
 
 class TrainingFragment : Fragment() {
 
@@ -48,6 +50,14 @@ class TrainingFragment : Fragment() {
             binding.workoutRecommendation.setBackgroundResource(R.drawable.choose_purple_corners)
             binding.myTraining.setBackgroundResource(R.drawable.color_background_gray_corners)
         }
+
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // Ваш код обработки нажатия на кнопку назад
+            }
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     private fun updateProgressBar() {

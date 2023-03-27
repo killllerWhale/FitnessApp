@@ -1,10 +1,10 @@
 package com.example.fitnessapp
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.fitnessapp.databinding.ActivityMainBinding
+import com.example.fitnessapp.pars.workout.TrainingFragment
 
 class MainActivity : AppCompatActivity() {
 

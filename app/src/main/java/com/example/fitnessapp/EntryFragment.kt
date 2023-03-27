@@ -1,6 +1,5 @@
 package com.example.fitnessapp
 
-import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -11,8 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import com.example.fitnessapp.databinding.DialogEnterBinding
-import com.example.fitnessapp.databinding.DialogWaterBinding
 import com.example.fitnessapp.databinding.FragmentEntryBinding
+import com.example.fitnessapp.pars.start.Start0Fragment
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class EntryFragment : Fragment() {

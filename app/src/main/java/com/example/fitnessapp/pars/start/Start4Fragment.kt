@@ -1,4 +1,4 @@
-package com.example.fitnessapp
+package com.example.fitnessapp.pars.start
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.fitnessapp.MainActivity
+import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.FragmentStart4Binding
 
 class Start4Fragment : Fragment(), View.OnClickListener {
