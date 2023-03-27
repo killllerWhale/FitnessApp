@@ -25,7 +25,7 @@
     <string name="password">Пароль</string>
     <string name="password_repeat">Повторите пароль</string>
     <string name="personal_data">Личные данные</string>
-    <string name="Water">Вода</string>
+    <string name="water">Вода</string>
     <string name="_250">250мл</string>
     <string name="_500">500мл</string>
     <string name="todo">TODO</string>
@@ -43,7 +43,7 @@
     <string name="expenditure">расход</string>
     <string name="fitbalance">FitBalance</string>
     <string name="сarbohydrates">Углеводы</string>
-    <string name="squirrels">Белки</string>
+    <string name="protein">Белки</string>
     <string name="fats">Жиры</string>
     <string name="training_progress">прогресс тренировки</string>
     <string name="completed_exercises">выполнено упражнений</string>
@@ -72,4 +72,15 @@
     <string name="search">Поиск</string>
     <string name="kg">кг</string>
     <string name="calculation_weight">При весе:</string>
+    <string name="food_100">Порция (100г)</string>
+    <string name="set_portion">Настроить порцию</string>
+    <string name="calories">Калории</string>
+    <string name="ash">Зола</string>
+    <string name="sugar">Сахар</string>
+    <string name="fiber">Клетчатка</string>
+    <string name="cholesterol">Холестерин</string>
+    <string name="calcium">Кальций</string>
+    <string name="iron">Железо</string>
+    <string name="magnesium">Магний</string>
+    <string name="food_gram">Укажите кол-во грамм</string>
 </resources>

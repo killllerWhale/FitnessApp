@@ -1,4 +1,4 @@
-package com.example.fitnessapp.pars.workout
+package com.example.fitnessapp.workout
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.activity.OnBackPressedCallback
-import com.example.fitnessapp.MyTrainingFragment
 import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.FragmentTrainingBinding
 

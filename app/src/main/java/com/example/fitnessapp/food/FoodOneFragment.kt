@@ -1,4 +1,4 @@
-package com.example.fitnessapp
+package com.example.fitnessapp.food
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,9 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import android.widget.TextView
+import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.FragmentFoodOneBinding
-import com.example.fitnessapp.databinding.FragmentTrainingBinding
 
 
 class FoodOneFragment : Fragment() {

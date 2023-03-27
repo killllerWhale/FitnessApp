@@ -1,4 +1,4 @@
-package com.example.fitnessapp.pars.workout
+package com.example.fitnessapp.workout
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -1,4 +1,4 @@
-package com.example.fitnessapp
+package com.example.fitnessapp.workout
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.FragmentDescriptionExerciseBinding
 import com.example.fitnessapp.pars.training.Exercise
 import com.google.gson.Gson

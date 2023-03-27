@@ -1,7 +1,7 @@
 {
-  "exercise": [
+  "food": [
     {
-      "name": "Абрикос ",
+      "name": "Абрикос",
       "kkal": 4,
       "fats":  0.02,
       "proteins" :  0.07,
@@ -382,7 +382,7 @@
       "proteins": 0.24,
       "carbohydrates": 0.41,
       "water": 9.26,
-      "ash ": 0.06,
+      "ash": 0.06,
       "sakharov": 0.1,
       "fiber": 0.2,
       "cholesterol": 0.0,
@@ -472,7 +472,7 @@
       "proteins": 0.24,
       "carbohydrates": 2.86,
       "water": 6.86,
-      "ash ": 0.02,
+      "ash": 0.02,
       "sakharov": 0,
       "fiber": 0,
       "cholesterol": 0.0,
@@ -772,7 +772,7 @@
       "proteins" : 2.92,
       "carbohydrates": 0.0,
       "water": 6.24,
-      "ash ": 0.13,
+      "ash": 0.13,
       "sakharov": 0.0,
       "fiber": 0.0,
       "cholesterol": 7.2,
@@ -847,7 +847,7 @@
       "proteins" : 2.33,
       "carbohydrates": 0.0,
       "water": 6.64,
-      "ash ": 0.10,
+      "ash": 0.10,
       "sakharov": 0.0,
       "fiber": 0.0,
       "cholesterol": 13.0,

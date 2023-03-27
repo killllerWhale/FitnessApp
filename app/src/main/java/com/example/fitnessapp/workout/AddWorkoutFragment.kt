@@ -1,4 +1,4 @@
-package com.example.fitnessapp.pars.workout
+package com.example.fitnessapp.workout
 
 import android.content.Context
 import android.os.Bundle

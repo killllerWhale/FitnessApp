@@ -1,29 +1,26 @@
-package com.example.fitnessapp
+package com.example.fitnessapp.workout
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.fitnessapp.databinding.FragmentFoodOneConsumedBinding
-import com.example.fitnessapp.databinding.FragmentFoodTwoBinding
+import com.example.fitnessapp.databinding.FragmentMyTrainingBinding
 
-class FoodOneConsumedFragment : Fragment() {
+class MyTrainingFragment : Fragment() {
 
-    lateinit var binding: FragmentFoodOneConsumedBinding
+    private lateinit var binding: FragmentMyTrainingBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        binding = FragmentFoodOneConsumedBinding.inflate(layoutInflater, container, false)
+        binding = FragmentMyTrainingBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //присваиваем актуальную дату
 
     }
 }

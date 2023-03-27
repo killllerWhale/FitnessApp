@@ -1,4 +1,4 @@
-package com.example.fitnessapp
+package com.example.fitnessapp.start
 
 import android.content.Intent
 import android.graphics.Color
@@ -9,9 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import com.example.fitnessapp.MainActivity
+import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.DialogEnterBinding
 import com.example.fitnessapp.databinding.FragmentEntryBinding
-import com.example.fitnessapp.pars.start.Start0Fragment
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class EntryFragment : Fragment() {

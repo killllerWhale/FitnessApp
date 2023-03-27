@@ -1,4 +1,4 @@
-package com.example.fitnessapp
+package com.example.fitnessapp.food
 
 import android.content.Context
 import android.os.Bundle
@@ -8,15 +8,17 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.fragment.app.Fragment
+import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.FragmentFoodBinding
-import com.example.fitnessapp.databinding.FragmentFoodTwoBinding
 import java.util.*
 
 class FoodFragment : Fragment() {
 
     lateinit var binding: FragmentFoodBinding
 
-    lateinit var listFragment: FoodTwoFragment
+    lateinit var listFragmentTwo: FoodTwoFragment
+
+    private lateinit var listFragmentCard: FoodCardFragment
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -24,33 +26,50 @@ class FoodFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentFoodBinding.inflate(layoutInflater, container, false)
         // Load the FoodTwoFragment into the container_food FrameLayout
-        listFragment = FoodTwoFragment()
-        childFragmentManager.beginTransaction()
-            .replace(R.id.container_food, listFragment)
-            .commit()
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadFragment(FoodOneFragment())
+        val prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
+        if (prefs!!.getString("food_position", "") != ""){
+            loadFragment(FoodCardFragment())
+            listFragmentCard = FoodCardFragment()
+            childFragmentManager.beginTransaction()
+                .replace(R.id.container_food, listFragmentCard)
+                .commit()
+        }else{
+            loadFragment(FoodOneFragment())
+        }
         loadDataEat()
+
+        binding.goBack.setOnClickListener{
+            prefs.edit().putString("food_position", "").apply()
+            prefs.edit().putInt("gram", 100).apply()
+            loadFragment(FoodOneFragment())
+        }
 
         // Show the FoodTwoFragment when the search view is clicked
         binding.productSearch.setOnSearchClickListener {
             loadFragment(FoodTwoFragment())
+            listFragmentTwo = FoodTwoFragment()
+            val transaction = childFragmentManager.beginTransaction()
+            transaction.replace(R.id.container_food, listFragmentTwo)
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
 
         // Update the list in FoodTwoFragment based on search query
         binding.productSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                listFragment.updateList(query)
+                listFragmentTwo.updateList(query)
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                listFragment.updateList(newText)
+                if (newText != ""){
+                    listFragmentTwo.updateList(newText)
+                }
                 return false
             }
         })
@@ -65,7 +84,6 @@ class FoodFragment : Fragment() {
             val inputMethodManager =
                 requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(binding.productSearch.windowToken, 0)
-            loadFragment(FoodOneFragment())
         }
     }
 

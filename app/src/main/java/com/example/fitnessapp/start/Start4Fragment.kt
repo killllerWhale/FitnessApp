@@ -1,4 +1,4 @@
-package com.example.fitnessapp.pars.start
+package com.example.fitnessapp.start
 
 import android.content.Intent
 import android.os.Bundle
