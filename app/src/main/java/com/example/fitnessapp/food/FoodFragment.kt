@@ -84,6 +84,7 @@ class FoodFragment : Fragment() {
             val inputMethodManager =
                 requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(binding.productSearch.windowToken, 0)
+            loadFragment(FoodOneFragment())
         }
     }
 

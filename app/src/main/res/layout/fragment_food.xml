@@ -22,8 +22,8 @@
 
             <ImageView
                 android:id="@+id/go_back"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="10dp"
                 android:background="@drawable/icon_back"
                 android:contentDescription="@string/todo"
@@ -49,8 +49,7 @@
                 android:layout_height="40dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="10dp"
-
-                android:background="@drawable/rect_black"
+                android:background="@drawable/rect_white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/button_cancel"
                 app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +61,7 @@
                     android:layout_height="0dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
-                    android:backgroundTint="@color/white"
+
                     android:queryHint="Введите продукт"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"

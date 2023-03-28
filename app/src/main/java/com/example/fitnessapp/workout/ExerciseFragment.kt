@@ -22,6 +22,7 @@ class ExerciseFragment : Fragment() {
 
     private lateinit var binding: FragmentExerciseBinding
     private lateinit var bindingDialog: DialogExerciseBinding
+    private lateinit var result: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,26 +43,29 @@ class ExerciseFragment : Fragment() {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(bindingDialog.root)
 
-        bindingDialog.addExerciseButton.setOnClickListener {
-            val prefs = context.getSharedPreferences("themes", Context.MODE_PRIVATE)
-            val gson = Gson()
-            val bufferedReader =
-                BufferedReader(InputStreamReader(resources.openRawResource(R.raw.exercise)))
-            val inputString = bufferedReader.use { it.readText() }
-            val post = gson.fromJson(inputString, Exercise::class.java)
-            val exercise = post.exercise[prefs!!.getInt("training", 0)]
-            if (exercise.type == 0) {
-                val kkal = exercise.expenditure * bindingDialog.editText.text.toString()
-                    .toInt() * bindingDialog.editText2.text.toString().toInt()
-                val result = exercise.name +"^ подходов: "+ bindingDialog.editText2.text.toString() +", повторений: "+ bindingDialog.editText.text.toString()+"^ сожжено: " + kkal.toString() + " ккал"
-                val existingResult = prefs.getString("trainingStorage", "")
+        val prefs = context.getSharedPreferences("themes", Context.MODE_PRIVATE)
+        val gson = Gson()
+        val bufferedReader =
+            BufferedReader(InputStreamReader(resources.openRawResource(R.raw.exercise)))
+        val inputString = bufferedReader.use { it.readText() }
+        val post = gson.fromJson(inputString, Exercise::class.java)
+        val exercise = post.exercise[prefs!!.getInt("training", 0)]
 
-                if (existingResult.isNullOrEmpty()) {
-                    prefs.edit()?.putString("trainingStorage", result)?.apply()
-                } else {
-                    val updatedResult = "$existingResult;$result"
-                    prefs.edit()?.putString("trainingStorage", updatedResult)?.apply()
-                }
+        bindingDialog.addExerciseButton.setOnClickListener {
+            val kkal = exercise.expenditure * bindingDialog.editText.text.toString()
+                .toInt() * bindingDialog.editText2.text.toString().toInt() * 80
+            if (exercise.type == 0) {
+                result = exercise.name + "^ подходов: " + bindingDialog.editText2.text.toString() + ", повторений: " + bindingDialog.editText.text.toString() + "^ сожжено: " + kkal.toString() + " ккал"
+            } else {
+                result = exercise.name + "^ подходов: " + bindingDialog.editText2.text.toString() + ", время (мин): " + bindingDialog.editText.text.toString() + "^ сожжено: " + kkal.toString() + " ккал"
+            }
+            val existingResult = prefs.getString("trainingStorage", "")
+
+            if (existingResult.isNullOrEmpty()) {
+                prefs.edit()?.putString("trainingStorage", result)?.apply()
+            } else {
+                val updatedResult = "$existingResult;$result"
+                prefs.edit()?.putString("trainingStorage", updatedResult)?.apply()
             }
             dialog.dismiss()
         }
@@ -69,6 +73,10 @@ class ExerciseFragment : Fragment() {
         loadFragment(DescriptionExerciseFragment())
         binding.description.setBackgroundResource(R.drawable.choose_purple_corners)
         binding.buttonAddExecution.setOnClickListener {
+            if (exercise.type == 1) {
+                bindingDialog.editText.hint = "время (мин)"
+                bindingDialog.editText.requestLayout()
+            }
             dialog.show()
         }
 
