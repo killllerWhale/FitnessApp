@@ -1,5 +1,6 @@
 package com.example.fitnessapp.workout
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -26,7 +27,8 @@ class TrainingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         updateProgressBar()
-
+        val prefs = context?.getSharedPreferences("themes", Context.MODE_PRIVATE)
+        System.out.println(prefs!!.getString("trainingStorage", ""))
 
         loadFragment(WorkoutRecommendationFragment())
         binding.workoutRecommendation.setBackgroundResource(R.drawable.choose_purple_corners)
