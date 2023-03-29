@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessapp.adapter.traningAdapter
 import com.example.fitnessapp.databinding.FragmentMyTrainingBinding
 import com.example.fitnessapp.model.traningModel
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MyTrainingFragment : Fragment() {
 
@@ -30,8 +32,14 @@ class MyTrainingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val prefs = context?.getSharedPreferences("themes", Context.MODE_PRIVATE)
         existingResult = prefs!!.getString("trainingStorage", "").toString()
-        if (existingResult.isNullOrEmpty()) {
 
+        val moscowTimeZone = TimeZone.getTimeZone("Europe/Moscow")
+        val calendar = Calendar.getInstance(moscowTimeZone)
+        val currentDate = calendar.get(Calendar.DAY_OF_YEAR)
+        val lastUpdated = prefs.getInt("lastUpdated", 0)
+
+        if (existingResult.isNullOrEmpty() || currentDate > lastUpdated) {
+            binding.textViewNotTraning.text = "Вы не выполнили ни одного упражнения сегодня"
         } else {
             initial()
         }
