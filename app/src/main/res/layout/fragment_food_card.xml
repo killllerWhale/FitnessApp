@@ -417,6 +417,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/contains_iron" />
 
                     <TextView
+                        android:id="@+id/add_food"
                         android:layout_width="300dp"
                         android:layout_height="40dp"
                         android:layout_marginTop="30dp"

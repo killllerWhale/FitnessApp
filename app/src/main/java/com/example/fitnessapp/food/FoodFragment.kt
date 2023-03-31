@@ -1,6 +1,7 @@
 package com.example.fitnessapp.food
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,6 +32,7 @@ class FoodFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        loadDataEat()
         val prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
         if (prefs!!.getString("food_position", "") != ""){
             loadFragment(FoodCardFragment())
@@ -41,11 +43,9 @@ class FoodFragment : Fragment() {
         }else{
             loadFragment(FoodOneFragment())
         }
-        loadDataEat()
+
 
         binding.goBack.setOnClickListener{
-            prefs.edit().putString("food_position", "").apply()
-            prefs.edit().putInt("gram", 100).apply()
             loadFragment(FoodOneFragment())
         }
 
@@ -84,13 +84,21 @@ class FoodFragment : Fragment() {
             val inputMethodManager =
                 requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(binding.productSearch.windowToken, 0)
-            loadFragment(FoodOneFragment())
+            prefs.edit().putString("food_position", "").apply()
+            prefs.edit().putInt("gram", 100).apply()
+            loadParentFragment(FoodFragment())
         }
     }
 
     private fun loadFragment(fragment: Fragment) {
         val transaction = parentFragmentManager.beginTransaction()
         transaction.replace(R.id.container_food, fragment)
+        transaction.commit()
+    }
+
+    private fun loadParentFragment(fragment: Fragment) {
+        val transaction = parentFragmentManager.beginTransaction()
+        transaction.replace(R.id.container, fragment)
         transaction.commit()
     }
 

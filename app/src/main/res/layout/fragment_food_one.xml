@@ -45,17 +45,16 @@
                 android:text="@string/kkal"
                 android:textColor="@color/white"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@+id/chenge_text_0"
+                app:layout_constraintBottom_toBottomOf="@+id/must_have_kall_today"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/chenge_text_0" />
+                app:layout_constraintTop_toTopOf="@+id/must_have_kall_today" />
 
             <TextView
-                android:id="@+id/chenge_text_0"
+                android:id="@+id/must_have_kall_today"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
                 android:fontFamily="@font/lora_bold"
-                android:text="800"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/static_text_3"
@@ -70,19 +69,19 @@
                 android:text="/"
                 android:textColor="@color/white"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@+id/chenge_text_1"
-                app:layout_constraintEnd_toStartOf="@+id/chenge_text_0"
-                app:layout_constraintTop_toTopOf="@+id/chenge_text_1"
+                app:layout_constraintBottom_toBottomOf="@+id/have_kkal_today"
+                app:layout_constraintEnd_toStartOf="@+id/must_have_kall_today"
+                app:layout_constraintTop_toTopOf="@+id/have_kkal_today"
                 tools:ignore="HardcodedText" />
 
             <TextView
-                android:id="@+id/chenge_text_1"
+                android:id="@+id/have_kkal_today"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lora_bold"
-                android:text="200"
                 android:textColor="@color/white"
                 android:textSize="12sp"
+                android:text="0"
                 app:layout_constraintBottom_toBottomOf="@+id/static_text_0"
                 app:layout_constraintEnd_toStartOf="@+id/static_text_3"
                 app:layout_constraintTop_toTopOf="@+id/static_text_0" />
@@ -94,7 +93,7 @@
                 android:layout_height="10dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:max="100"
+                android:progress="0"
                 android:progressDrawable="@drawable/color_progress_food"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -108,11 +107,12 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:indeterminateOnly="false"
+                android:progress="0"
                 android:progressDrawable="@drawable/circle_progress"
                 android:rotation="0"
-                app:layout_constraintBottom_toBottomOf="@+id/progress_bar_squirrels"
+                app:layout_constraintBottom_toBottomOf="@+id/progress_bar_protein"
                 app:layout_constraintStart_toStartOf="@+id/progress_all_food"
-                app:layout_constraintTop_toTopOf="@+id/progress_bar_squirrels" />
+                app:layout_constraintTop_toTopOf="@+id/progress_bar_protein" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -137,11 +137,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView4">
 
                 <TextView
-                    android:id="@+id/chenge_text_2"
+                    android:id="@+id/must_have_carb_today"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora_bold"
-                    android:text="800"
                     android:textColor="@color/white"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="@+id/static_text_7"
@@ -156,9 +155,9 @@
                     android:text="/"
                     android:textColor="@color/white"
                     android:textSize="10sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/chenge_text_3"
-                    app:layout_constraintStart_toEndOf="@+id/chenge_text_3"
-                    app:layout_constraintTop_toTopOf="@+id/chenge_text_3"
+                    app:layout_constraintBottom_toBottomOf="@+id/have_carb_today"
+                    app:layout_constraintStart_toEndOf="@+id/have_carb_today"
+                    app:layout_constraintTop_toTopOf="@+id/have_carb_today"
                     tools:ignore="HardcodedText,SmallSp" />
 
                 <TextView
@@ -170,18 +169,18 @@
                     android:text="@string/g"
                     android:textColor="@color/white"
                     android:textSize="10sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/chenge_text_2"
-                    app:layout_constraintStart_toEndOf="@+id/chenge_text_2"
-                    app:layout_constraintTop_toTopOf="@+id/chenge_text_2"
+                    app:layout_constraintBottom_toBottomOf="@+id/must_have_carb_today"
+                    app:layout_constraintStart_toEndOf="@+id/must_have_carb_today"
+                    app:layout_constraintTop_toTopOf="@+id/must_have_carb_today"
                     tools:ignore="SmallSp" />
 
                 <TextView
-                    android:id="@+id/chenge_text_3"
+                    android:id="@+id/have_carb_today"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora_bold"
-                    android:text="200"
                     android:textColor="@color/white"
+                    android:text="0"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -191,12 +190,13 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ProgressBar
-                android:id="@+id/progress_bar_squirrels"
+                android:id="@+id/progress_bar_protein"
                 style="@style/CircularDeterminateProgressBar"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
                 android:indeterminateOnly="false"
+                android:progress="0"
                 android:progressDrawable="@drawable/circle_progress"
                 android:rotation="0"
                 app:layout_constraintEnd_toStartOf="@+id/progress_bar_fats"
@@ -211,10 +211,10 @@
                 android:text="@string/protein"
                 android:textColor="@color/white"
                 android:textSize="11sp"
-                app:layout_constraintBottom_toBottomOf="@+id/progress_bar_squirrels"
-                app:layout_constraintEnd_toEndOf="@+id/progress_bar_squirrels"
-                app:layout_constraintStart_toStartOf="@+id/progress_bar_squirrels"
-                app:layout_constraintTop_toTopOf="@+id/progress_bar_squirrels"
+                app:layout_constraintBottom_toBottomOf="@+id/progress_bar_protein"
+                app:layout_constraintEnd_toEndOf="@+id/progress_bar_protein"
+                app:layout_constraintStart_toStartOf="@+id/progress_bar_protein"
+                app:layout_constraintTop_toTopOf="@+id/progress_bar_protein"
                 app:layout_constraintVertical_bias="0.40"
                 tools:ignore="SmallSp" />
 
@@ -226,11 +226,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView5">
 
                 <TextView
-                    android:id="@+id/chenge_text_4"
+                    android:id="@+id/must_have_protein_today"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora_bold"
-                    android:text="800"
                     android:textColor="@color/white"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="@+id/static_text_8"
@@ -246,9 +245,9 @@
                     android:text="/"
                     android:textColor="@color/white"
                     android:textSize="10sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/chenge_text_5"
-                    app:layout_constraintStart_toEndOf="@+id/chenge_text_5"
-                    app:layout_constraintTop_toTopOf="@+id/chenge_text_5"
+                    app:layout_constraintBottom_toBottomOf="@+id/have_protein_today"
+                    app:layout_constraintStart_toEndOf="@+id/have_protein_today"
+                    app:layout_constraintTop_toTopOf="@+id/have_protein_today"
                     tools:ignore="HardcodedText,SmallSp" />
 
                 <TextView
@@ -260,18 +259,18 @@
                     android:text="@string/g"
                     android:textColor="@color/white"
                     android:textSize="10sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/chenge_text_4"
-                    app:layout_constraintStart_toEndOf="@+id/chenge_text_4"
-                    app:layout_constraintTop_toTopOf="@+id/chenge_text_4"
+                    app:layout_constraintBottom_toBottomOf="@+id/must_have_protein_today"
+                    app:layout_constraintStart_toEndOf="@+id/must_have_protein_today"
+                    app:layout_constraintTop_toTopOf="@+id/must_have_protein_today"
                     tools:ignore="SmallSp" />
 
                 <TextView
-                    android:id="@+id/chenge_text_5"
+                    android:id="@+id/have_protein_today"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora_bold"
-                    android:text="200"
                     android:textColor="@color/white"
+                    android:text="0"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -286,11 +285,12 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:indeterminateOnly="false"
+                android:progress="0"
                 android:progressDrawable="@drawable/circle_progress"
                 android:rotation="0"
-                app:layout_constraintBottom_toBottomOf="@+id/progress_bar_squirrels"
+                app:layout_constraintBottom_toBottomOf="@+id/progress_bar_protein"
                 app:layout_constraintEnd_toEndOf="@+id/progress_all_food"
-                app:layout_constraintTop_toTopOf="@+id/progress_bar_squirrels" />
+                app:layout_constraintTop_toTopOf="@+id/progress_bar_protein" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -315,11 +315,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView3">
 
                 <TextView
-                    android:id="@+id/chenge_text_6"
+                    android:id="@+id/must_have_fats_today"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora_bold"
-                    android:text="800"
                     android:textColor="@color/white"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="@+id/static_text_10"
@@ -335,9 +334,9 @@
                     android:text="/"
                     android:textColor="@color/white"
                     android:textSize="10sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/chenge_text_7"
-                    app:layout_constraintStart_toEndOf="@+id/chenge_text_7"
-                    app:layout_constraintTop_toTopOf="@+id/chenge_text_7"
+                    app:layout_constraintBottom_toBottomOf="@+id/have_fats_today"
+                    app:layout_constraintStart_toEndOf="@+id/have_fats_today"
+                    app:layout_constraintTop_toTopOf="@+id/have_fats_today"
                     tools:ignore="HardcodedText,SmallSp" />
 
                 <TextView
@@ -349,19 +348,19 @@
                     android:text="@string/g"
                     android:textColor="@color/white"
                     android:textSize="10sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/chenge_text_6"
-                    app:layout_constraintStart_toEndOf="@+id/chenge_text_6"
-                    app:layout_constraintTop_toTopOf="@+id/chenge_text_6"
+                    app:layout_constraintBottom_toBottomOf="@+id/must_have_fats_today"
+                    app:layout_constraintStart_toEndOf="@+id/must_have_fats_today"
+                    app:layout_constraintTop_toTopOf="@+id/must_have_fats_today"
                     tools:ignore="SmallSp" />
 
                 <TextView
-                    android:id="@+id/chenge_text_7"
+                    android:id="@+id/have_fats_today"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lora_bold"
-                    android:text="200"
                     android:textColor="@color/white"
                     android:textSize="10sp"
+                    android:text="0"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

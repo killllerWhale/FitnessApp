@@ -44,6 +44,7 @@ class FoodTwoFragment : Fragment() {
         binding.listOfFood.setOnItemClickListener { parent, view, position, id ->
             val prefs = context?.getSharedPreferences("themes", Context.MODE_PRIVATE)
             prefs!!.edit().putString("food_position", foodList[position].toString()).apply()
+            prefs.edit().putInt("gram", 100).apply()
             loadFragment(FoodFragment())
         }
     }
