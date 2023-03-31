@@ -49,10 +49,10 @@ class AddWorkoutFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        val prefs = context?.getSharedPreferences("themes", Context.MODE_PRIVATE)
+        val prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
         when (v?.id) {
             R.id.training_bar -> {
-                prefs?.edit()?.putInt("training", 0)?.apply()
+                prefs.edit().putInt("training", 0).apply()
             }
             R.id.training_bridge -> {
                 prefs?.edit()?.putInt("training", 1)?.apply()

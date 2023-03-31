@@ -36,6 +36,7 @@
     <string name="dinner">Ужин</string>
     <string name="snack">Перекус</string>
     <string name="workout">Тренировка</string>
+    <string name="workout_">тренировка</string>
     <string name="minutes">минут</string>
     <string name="today">cегодня,</string>
     <string name="kkal_remains">ккал осталось</string>
