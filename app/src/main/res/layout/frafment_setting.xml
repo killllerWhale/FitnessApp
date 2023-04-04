@@ -215,6 +215,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exit"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:fontFamily="@font/lora"
+                app:layout_constraintBottom_toBottomOf="@+id/static_text_0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.375"
+                app:layout_constraintStart_toEndOf="@+id/static_text_0"
+                app:layout_constraintTop_toTopOf="@+id/static_text_0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

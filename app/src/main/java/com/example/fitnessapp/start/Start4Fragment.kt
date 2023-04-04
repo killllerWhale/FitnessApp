@@ -181,6 +181,7 @@ class Start4Fragment : Fragment(), View.OnClickListener {
         )
             .addOnCompleteListener(OnCompleteListener<AuthResult?> { task ->
                 if (task.isSuccessful) {
+                    prefs.edit().putString("user_name", binding.editTextName.text.toString()).apply()
                     val user: FirebaseUser = mAuth!!.getCurrentUser()!!
                     val newUser = User(
                         id.toString(),
@@ -194,6 +195,10 @@ class Start4Fragment : Fragment(), View.OnClickListener {
                         prefs.getString("user_height", "0")!!
                     )
                     myDataBase!!.child(user.uid).setValue(newUser)
+                    //проверка на авторизацию
+                    prefs.edit().putString("password_user", binding.editTextPassword.text.toString()).apply()
+                    prefs.edit().putString("email_user", binding.editTextEmail.text.toString()).apply()
+                    prefs.edit().putInt("user", 1).apply()
                     startActivity(Intent(activity, MainActivity::class.java))
                 } else {
                     val toast = Toast.makeText(requireActivity(), "Сейчас на сервере неполадки, попробуйте позже", Toast.LENGTH_SHORT)

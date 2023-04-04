@@ -89,8 +89,8 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     }
 
     private fun updateDateText() {
-        val prefs = context?.getSharedPreferences("themes", Context.MODE_PRIVATE)
-        prefs?.edit()?.putString("saveDateToday", "26")?.apply()
+        val prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
+        prefs.edit().putString("saveDateToday", "26").apply()
         val dateFormat = SimpleDateFormat("dd MMMM", Locale("ru"))
         val currentDate = Date()
         val formattedDate = dateFormat.format(currentDate)
