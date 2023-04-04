@@ -1,0 +1,169 @@
+{
+  "nutrition": [
+    {
+      "general_indicators": [
+        {
+          "carbohydrates": 2.5,
+          "proteins": 1.5,
+          "fats": 1.2,
+          "kkal": 23.3,
+          "water": 41
+        }
+      ],
+      "breakfast": [
+        {
+          "carbohydrates": 1.5,
+          "proteins": 3,
+          "fats": 0.15,
+          "kkal": 6.6,
+          "recommendations": [
+            "Гречка варёная на воде" , "овсянка на воде c фруктами и орехами", "чай без сахара"
+            ]
+        }
+      ],
+      "Lunch": [
+        {
+          "carbohydrates": 0.84,
+          "proteins": 0.5,
+          "fats": 0.25,
+          "kkal": 8.3,
+          "recommendations": [
+            "индейка", "овощной салат", "отварное яйцо", "кусочек ржаного хлеба"
+          ]
+        }
+      ],
+      "Supper": [
+        {
+          "carbohydrates": 0.5,
+          "proteins": 0.33,
+          "fats": 0.16,
+          "kkal": 5,
+          "recommendations": [
+            "рыба", "овощной салат", "чай без сахара"
+          ]
+        }
+      ],
+      "Snack": [
+        {
+          "carbohydrates": 0.5,
+          "proteins": 0.33,
+          "fats": 0.08,
+          "kkal": 3.33,
+          "recommendations": [
+            "яблоко", "персик", "груша", "виноград"
+          ]
+        }
+      ]
+    },
+    {
+      "general_indicators": [
+        {
+          "carbohydrates": 2.8,
+          "proteins": 1.7,
+          "fats": 1,
+          "kkal": 31.4,
+          "water": 42.8
+        }
+      ],
+      "breakfast": [
+        {
+          "carbohydrates": 0.71,
+          "proteins": 0.42,
+          "fats": 0.21,
+          "kkal": 8.57,
+          "recommendations": [
+            "омлет из 3 яиц", "2 ломтика хлеба", "50 грамм курицы", "овощной салат" ,"чай без сахара"
+          ]
+        }
+      ],
+      "Lunch": [
+        {
+          "carbohydrates": 1,
+          "proteins": 0.57,
+          "fats": 0.35,
+          "kkal": 11.42,
+          "recommendations": [
+            "кусок печени", "овощной салат", "рис", "вода"
+          ]
+        }
+      ],
+      "Supper": [
+        {
+          "carbohydrates": 0.71,
+          "proteins": 0.42,
+          "fats": 0.28,
+          "kkal": 8.57,
+          "recommendations": [
+            "рыба", "овощной салат", "картофель"
+          ]
+        }
+      ],
+      "Snack": [
+        {
+          "carbohydrates": 0.42,
+          "proteins": 0.28,
+          "fats": 0.14,
+          "kkal": 4.28,
+          "recommendations": [
+            "яблоко", "персик", "орехи", "кефир"
+          ]
+        }
+      ]
+    },
+    {
+      "general_indicators": [
+        {
+          "carbohydrates": 4,
+          "proteins": 2.2,
+          "fats": 1,
+          "kkal": 30,
+          "water": 40
+        }
+      ],
+      "breakfast": [
+        {
+          "carbohydrates": 1,
+          "proteins": 0.4,
+          "fats": 0.25,
+          "kkal": 5,
+          "recommendations": [
+            "омлет из 3 яиц", "2 ломтика хлеба", "50 грамм курицы", "овощной салат" ,"чай без сахара"
+          ]
+        }
+      ],
+      "Lunch": [
+        {
+          "carbohydrates": 2,
+          "proteins": 0.4,
+          "fats": 0.15,
+          "kkal": 10.5,
+          "recommendations": [
+            "кусок печени", "овощной салат", "рис", "вода"
+          ]
+        }
+      ],
+      "Supper": [
+        {
+          "carbohydrates": 1,
+          "proteins": 0.4,
+          "fats": 0.25,
+          "kkal": 9.6,
+          "recommendations": [
+            "рыба", "овощной салат", "картофель"
+          ]
+        }
+      ],
+      "Snack": [
+        {
+          "carbohydrates": 1,
+          "proteins": 0.3,
+          "fats": 0.2,
+          "kkal": 3.9,
+          "recommendations": [
+            "яблоко", "персик", "орехи", "кефир"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -64,7 +64,7 @@ class SettingsFragment : Fragment() {
 
     }
 
-    private fun chengeDataBase() {
+    private fun changeDataBase() {
         mAuth!!.signInWithEmailAndPassword(prefs.getString("email_user", "0")!!, prefs.getString("password_user", "0")!!).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 currentUser = mAuth!!.currentUser
