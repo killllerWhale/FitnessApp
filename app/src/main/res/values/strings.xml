@@ -84,4 +84,5 @@
     <string name="iron">Железо</string>
     <string name="magnesium">Магний</string>
     <string name="food_gram">Укажите кол-во грамм</string>
+    <string name="Fix">Исправить</string>
 </resources>

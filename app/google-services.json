@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "379770275930",
+    "firebase_url": "https://fitbalance-289c4-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "fitbalance-289c4",
+    "storage_bucket": "fitbalance-289c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:379770275930:android:0407f67ec1151d4ae27063",
+        "android_client_info": {
+          "package_name": "com.example.fitnessapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "379770275930-a7jie94n4pc7mlv4joevc9q35jg4sf1q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpLNUQdWqX5qodXaOwSkKjmjla8MCIwAs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "379770275930-a7jie94n4pc7mlv4joevc9q35jg4sf1q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

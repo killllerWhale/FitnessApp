@@ -224,6 +224,26 @@
                 tools:ignore="LabelFor,TextFields"
                 android:autofillHints="" />
 
+            <TextView
+                android:id="@+id/checkProblem"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@color/color_background"
+                app:layout_constraintBottom_toBottomOf="@+id/editText_email"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/editText_email"
+                app:layout_constraintTop_toTopOf="@+id/editText_email" />
+
+            <TextView
+                android:id="@+id/checkProblem0"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@color/color_background"
+                app:layout_constraintBottom_toBottomOf="@+id/editText_password"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/editText_password"
+                app:layout_constraintTop_toTopOf="@+id/editText_password" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

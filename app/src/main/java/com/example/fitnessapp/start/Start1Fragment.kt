@@ -1,13 +1,19 @@
 package com.example.fitnessapp.start
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.FragmentStart1Binding
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseUser
 
 class Start1Fragment : Fragment(), View.OnClickListener {
 
@@ -33,15 +39,18 @@ class Start1Fragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(view: View?) {
+        val prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
         binding.male.setBackgroundResource(R.drawable.color_background_gray_corners)
         binding.female.setBackgroundResource(R.drawable.color_background_gray_corners)
         when (view?.id) {
             R.id.female -> {
+                prefs.edit().putInt("user_gender", 0).apply()
                 binding.female.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 binding.next.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 choose = 1
             }
             R.id.male -> {
+                prefs.edit().putInt("user_gender", 1).apply()
                 binding.male.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 binding.next.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 choose = 1
@@ -63,6 +72,7 @@ class Start1Fragment : Fragment(), View.OnClickListener {
             }
         }
     }
+
 
     private fun loadFragment(fragment: Fragment) {
         val transaction = parentFragmentManager.beginTransaction()

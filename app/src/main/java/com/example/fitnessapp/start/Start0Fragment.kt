@@ -1,5 +1,6 @@
 package com.example.fitnessapp.start
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -34,21 +35,25 @@ class Start0Fragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(view: View?) {
+        val prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
         binding.beFit.setBackgroundResource(R.drawable.color_background_gray_corners)
         binding.loseWeight.setBackgroundResource(R.drawable.color_background_gray_corners)
         binding.musclesUp.setBackgroundResource(R.drawable.color_background_gray_corners)
         when (view?.id) {
             R.id.be_fit -> {
+                prefs.edit().putInt("user_target", 0).apply()
                 binding.beFit.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 binding.next.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 choose = 1
             }
             R.id.muscles_up -> {
+                prefs.edit().putInt("user_target", 1).apply()
                 binding.musclesUp.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 binding.next.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 choose = 1
             }
             R.id.lose_weight -> {
+                prefs.edit().putInt("user_target", 2).apply()
                 binding.loseWeight.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 binding.next.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 choose = 1

@@ -1,5 +1,6 @@
 package com.example.fitnessapp.start
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -22,7 +23,7 @@ class Start3Fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
         binding.start0.setOnClickListener {
             loadFragment(Start0Fragment())
         }
@@ -37,6 +38,8 @@ class Start3Fragment : Fragment() {
         }
         binding.next.setOnClickListener {
             if (binding.editTextWeight.text.isNotEmpty() && binding.editTextHeight.text.isNotEmpty()) {
+                prefs.edit().putString("user_weight", binding.editTextWeight.text.toString()).apply()
+                prefs.edit().putString("user_height", binding.editTextHeight.text.toString()).apply()
                 loadFragment(Start4Fragment())
             } else {
                 val toast = Toast.makeText(requireActivity(), "Заполните поля", Toast.LENGTH_SHORT)
