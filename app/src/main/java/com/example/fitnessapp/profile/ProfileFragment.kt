@@ -119,15 +119,15 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         val recommendation = post.nutrition[target]
 
         with(binding) {
-            maxCarbs.text = (recommendation.generalIndicators[0].carbohydrates.toInt()*weightUser).toString()
-            maxProtein.text = (recommendation.generalIndicators[0].proteins.toInt()*weightUser).toString()
-            maxFats.text = (recommendation.generalIndicators[0].fats.toInt()*weightUser).toString()
-            textViewProgress.text = (recommendation.generalIndicators[0].kkal.toInt()*weightUser).toString()
-            progressBar.max = recommendation.generalIndicators[0].kkal.toInt()*weightUser
-            breakfastRecommendation.text = (recommendation.breakfast[0].kkal.toInt()*weightUser).toString()
-            lunchRecommendation.text = (recommendation.lunch[0].kkal.toInt()*weightUser).toString()
-            dinnerRecommendation.text = (recommendation.supper[0].kkal.toInt()*weightUser).toString()
-            snackRecommendation.text = (recommendation.snack[0].kkal.toInt()*weightUser).toString()
+            maxCarbs.text = (recommendation.generalIndicators[0].carbohydrates*weightUser).toInt().toString()
+            maxProtein.text = (recommendation.generalIndicators[0].proteins*weightUser).toInt().toString()
+            maxFats.text = (recommendation.generalIndicators[0].fats*weightUser).toInt().toString()
+            textViewProgress.text = (recommendation.generalIndicators[0].kkal*weightUser).toInt().toString()
+            progressBar.max = (recommendation.generalIndicators[0].kkal*weightUser).toInt()
+            breakfastRecommendation.text = (recommendation.breakfast[0].kkal*weightUser).toInt().toString()
+            lunchRecommendation.text = (recommendation.lunch[0].kkal*weightUser).toInt().toString()
+            dinnerRecommendation.text = (recommendation.supper[0].kkal*weightUser).toInt().toString()
+            snackRecommendation.text = (recommendation.snack[0].kkal*weightUser).toInt().toString()
             waterRecommendation.text = (recommendation.generalIndicators[0].water.toInt()*weightUser).toString()
         }
 

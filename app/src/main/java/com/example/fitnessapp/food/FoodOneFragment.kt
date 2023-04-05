@@ -13,12 +13,15 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.FragmentFoodOneBinding
+import com.example.fitnessapp.pars.nutrition.Recomend
+import com.google.gson.Gson
+import java.io.BufferedReader
+import java.io.InputStreamReader
 
 
 class FoodOneFragment : Fragment() {
 
     lateinit var binding: FragmentFoodOneBinding
-
     lateinit var prefs: SharedPreferences
 
     override fun onCreateView(
@@ -50,22 +53,77 @@ class FoodOneFragment : Fragment() {
         }
     }
 
-    private fun defaultMaxProgress(){
-        val maxProgress = prefs.getString("max_progress", "1000;300;500;60")
-        if (!maxProgress.isNullOrEmpty()){
-            val items = maxProgress.split(";")
-            binding.mustHaveKallToday.text = items[0]
-            binding.mustHaveCarbToday.text = items[1]
-            binding.mustHaveProteinToday.text = items[2]
-            binding.mustHaveFatsToday.text = items[3]
-            binding.progressAllFood.max = items[0].toInt()
-            binding.progressBarCarbohydrates.max = items[1].toInt()
-            binding.progressBarProtein.max = items[2].toInt()
-            binding.progressBarFats.max = items[3].toInt()
+
+    private fun defaultMaxProgress() {
+        val target = prefs.getInt("user_target", 0)
+        val dataToday = prefs.getInt("data_today", 0)
+        System.out.println(target)
+        System.out.println(dataToday)
+
+        val weightUser = prefs.getString("user_weight", "0").toString().toInt()
+        System.out.println(weightUser)
+        val gson = Gson()
+        val bufferedReader =
+            BufferedReader(InputStreamReader(resources.openRawResource(R.raw.nutrition)))
+        val inputString = bufferedReader.use { it.readText() }
+        val post = gson.fromJson(inputString, Recomend::class.java)
+
+
+        @Suppress("IMPLICIT_CAST_TO_ANY")
+        when (dataToday) {
+            0 -> {
+                val recommendation = post.nutrition[target].breakfast[0]
+                with(binding) {
+                    mustHaveKallToday.text = (recommendation.kkal * weightUser).toInt().toString()
+                    mustHaveCarbToday.text =
+                        (recommendation.carbohydrates * weightUser).toInt().toString()
+                    mustHaveProteinToday.text =
+                        (recommendation.proteins * weightUser).toInt().toString()
+                    mustHaveFatsToday.text = (recommendation.fats * weightUser).toInt().toString()
+                    progressAllFood.max = (recommendation.kkal * weightUser).toInt()
+                    progressBarCarbohydrates.max = (recommendation.carbohydrates * weightUser).toInt()
+                    progressBarProtein.max = (recommendation.proteins * weightUser).toInt()
+                    progressBarFats.max = (recommendation.fats * weightUser).toInt()
+                }
+            }
+            1 -> {
+                val recommendation = post.nutrition[target].lunch[0]
+                with(binding) {
+                    mustHaveKallToday.text = (recommendation.kkal * weightUser).toInt().toString()
+                    mustHaveCarbToday.text =
+                        (recommendation.carbohydrates * weightUser).toInt().toString()
+                    mustHaveProteinToday.text =
+                        (recommendation.proteins * weightUser).toInt().toString()
+                    mustHaveFatsToday.text = (recommendation.fats * weightUser).toInt().toString()
+                    progressAllFood.max = (recommendation.kkal * weightUser).toInt()
+                    progressBarCarbohydrates.max = (recommendation.carbohydrates * weightUser).toInt()
+                    progressBarProtein.max = (recommendation.proteins * weightUser).toInt()
+                    progressBarFats.max = (recommendation.fats * weightUser).toInt()
+                }
+            }
+            2 -> {
+                val recommendation = post.nutrition[target].supper[0]
+                with(binding) {
+                    mustHaveKallToday.text =
+                        (recommendation.kkal * weightUser).toInt().toString()
+                    mustHaveCarbToday.text =
+                        (recommendation.carbohydrates * weightUser).toInt().toString()
+                    mustHaveProteinToday.text =
+                        (recommendation.proteins * weightUser).toInt().toString()
+                    mustHaveFatsToday.text =
+                        (recommendation.fats * weightUser).toInt().toString()
+                    progressAllFood.max = (recommendation.kkal * weightUser).toInt()
+                    progressBarCarbohydrates.max =
+                        (recommendation.carbohydrates * weightUser).toInt()
+                    progressBarProtein.max = (recommendation.proteins * weightUser).toInt()
+                    progressBarFats.max = (recommendation.fats * weightUser).toInt()
+                }
+            }
         }
     }
 
-    private fun updateAllProgress(){
+
+    private fun updateAllProgress() {
         val foodProgress = prefs.getString("food_info", "0;0;0;0")
         val food = foodProgress!!.split(";")
         updateProgressBar(food[0])
