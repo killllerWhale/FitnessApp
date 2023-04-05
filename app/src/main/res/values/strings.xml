@@ -50,7 +50,7 @@
     <string name="completed_exercises">выполнено упражнений</string>
     <string name="required_perform">требуется выполнить</string>
     <string name="add_workout">Добавить тренировку</string>
-    <string name="cancellation">отмена</string>
+    <string name="cancellation">Отмена</string>
     <string name="slogan">Здоровье для всех</string>
     <string name="is_account">Есть аккаунт?</string>
     <string name="enter">Войти</string>
@@ -86,4 +86,7 @@
     <string name="food_gram">Укажите кол-во грамм</string>
     <string name="Fix">Исправить</string>
     <string name="exit">выход</string>
+    <string name="ml">мл</string>
+    <string name="new_text">Введите новое значение</string>
+    <string name="Insert">Внести</string>
 </resources>

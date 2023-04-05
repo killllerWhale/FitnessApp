@@ -1,32 +1,39 @@
-package com.example.fitnessapp
+package com.example.fitnessapp.profile
 
 import android.annotation.SuppressLint
 import android.app.Dialog
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
-import android.widget.ProgressBar
-import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
+import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.DialogWaterBinding
 import com.example.fitnessapp.databinding.FragmentProfileBinding
+import com.example.fitnessapp.pars.nutrition.Nutrition
+import com.example.fitnessapp.pars.nutrition.Recomend
+import com.example.fitnessapp.pars.training.Exercise
+import com.google.gson.Gson
+import kotlinx.android.synthetic.main.activity_entry.*
+import java.io.BufferedReader
+import java.io.InputStreamReader
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.properties.Delegates
 
 class ProfileFragment : Fragment(), View.OnClickListener {
 
-    lateinit var binding: FragmentProfileBinding
-    lateinit var bindingDialog: DialogWaterBinding
+    private val binding: FragmentProfileBinding by lazy {
+        FragmentProfileBinding.inflate(layoutInflater, container, false)
+    }
+    private val bindingDialog: DialogWaterBinding by lazy {
+        DialogWaterBinding.inflate(layoutInflater)
+    }
 
     lateinit var prefs: SharedPreferences
     private lateinit var boolArrayGlass: BooleanArray
@@ -37,7 +44,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentProfileBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
@@ -54,12 +60,12 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         //присваиваем актуальную дату
         updateDateText()
 
-        bindingDialog = DialogWaterBinding.inflate(layoutInflater)
-        val context = requireContext()
-        dialog = Dialog(context)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(bindingDialog.root)
+        dialog = Dialog(requireContext()).apply {
+            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            requestWindowFeature(Window.FEATURE_NO_TITLE)
+            setContentView(bindingDialog.root)
+        }
+
         if (water != null) {
             drawingWater(water)
         }
@@ -101,14 +107,31 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
 
+        //достаем цель и вес пользователя
+        val target = prefs.getInt("user_target", 0)
+        val weightUser = prefs.getString("user_weight", "0").toString().toInt()
 
-        val maxProgress = prefs.getString("max_progress", "1000;300;500;60")
-        val maximumProgress = maxProgress!!.split(";")
-        binding.maxCarbs.text = maximumProgress[1]
-        binding.maxProtein.text = maximumProgress[2]
-        binding.maxFats.text = maximumProgress[3]
-        binding.textViewProgress.text = maximumProgress[0]
-        binding.progressBar.max = maximumProgress[0].toInt()
+        val gson = Gson()
+        val bufferedReader =
+            BufferedReader(InputStreamReader(resources.openRawResource(R.raw.nutrition)))
+        val inputString = bufferedReader.use { it.readText() }
+        val post = gson.fromJson(inputString, Recomend::class.java)
+        val recommendation = post.nutrition[target]
+
+        with(binding) {
+            maxCarbs.text = (recommendation.generalIndicators[0].carbohydrates.toInt()*weightUser).toString()
+            maxProtein.text = (recommendation.generalIndicators[0].proteins.toInt()*weightUser).toString()
+            maxFats.text = (recommendation.generalIndicators[0].fats.toInt()*weightUser).toString()
+            textViewProgress.text = (recommendation.generalIndicators[0].kkal.toInt()*weightUser).toString()
+            progressBar.max = recommendation.generalIndicators[0].kkal.toInt()*weightUser
+            breakfastRecommendation.text = (recommendation.breakfast[0].kkal.toInt()*weightUser).toString()
+            lunchRecommendation.text = (recommendation.lunch[0].kkal.toInt()*weightUser).toString()
+            dinnerRecommendation.text = (recommendation.supper[0].kkal.toInt()*weightUser).toString()
+            snackRecommendation.text = (recommendation.snack[0].kkal.toInt()*weightUser).toString()
+            waterRecommendation.text = (recommendation.generalIndicators[0].water.toInt()*weightUser).toString()
+        }
+
+
         val foodProgress = prefs.getString("food_info", "0;0;0;0")
         val food = foodProgress!!.split(";")
         updateProgressBar(food[0])

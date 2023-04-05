@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsFragment">
+    tools:context=".profile.SettingsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -48,18 +48,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
             <TextView
-                android:id="@+id/static_text_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/lora"
-                android:text="Вес"
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="12dp"
-                app:layout_constraintStart_toStartOf="@+id/static_text_1"
-                app:layout_constraintTop_toBottomOf="@+id/static_text_1" />
-
-            <TextView
                 android:id="@+id/static_text_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -68,8 +56,8 @@
                 android:text="Рост"
                 android:textColor="@color/inconspicuous_shadow"
                 android:textSize="12dp"
-                app:layout_constraintStart_toStartOf="@+id/static_text_2"
-                app:layout_constraintTop_toBottomOf="@+id/static_text_2" />
+                app:layout_constraintStart_toStartOf="@+id/static_text_1"
+                app:layout_constraintTop_toBottomOf="@+id/static_text_1" />
 
             <TextView
                 android:id="@+id/static_text_4"
@@ -88,12 +76,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
                 android:fontFamily="@font/lora"
                 android:text="Пол"
                 android:textColor="@color/inconspicuous_shadow"
                 android:textSize="12dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/static_text_4"
                 app:layout_constraintTop_toBottomOf="@+id/static_text_4" />
 
@@ -111,7 +97,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
             <TextView
-                android:id="@+id/set_weight_text"
+                android:id="@+id/set_height_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -121,18 +107,6 @@
                 android:textSize="12dp"
                 app:layout_constraintEnd_toEndOf="@+id/set_name_text"
                 app:layout_constraintTop_toBottomOf="@+id/set_name_text" />
-
-            <TextView
-                android:id="@+id/set_height_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/lora"
-                android:text="111"
-                android:textColor="@color/inconspicuous_shadow"
-                android:textSize="12dp"
-                app:layout_constraintEnd_toEndOf="@+id/set_weight_text"
-                app:layout_constraintTop_toBottomOf="@+id/set_weight_text" />
 
             <TextView
                 android:id="@+id/set_birth_text"
@@ -151,12 +125,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
                 android:fontFamily="@font/lora"
                 android:text="111"
                 android:textColor="@color/inconspicuous_shadow"
                 android:textSize="12dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/set_birth_text"
                 app:layout_constraintTop_toBottomOf="@+id/set_birth_text" />
 
@@ -216,19 +188,49 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/exit"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/lora"
                 android:text="@string/exit"
                 android:textColor="@color/white"
                 android:textSize="12sp"
-                android:fontFamily="@font/lora"
                 app:layout_constraintBottom_toBottomOf="@+id/static_text_0"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.375"
                 app:layout_constraintStart_toEndOf="@+id/static_text_0"
                 app:layout_constraintTop_toTopOf="@+id/static_text_0" />
+
+            <TextView
+                android:id="@+id/static_text_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/lora"
+                android:text="Вес"
+                android:textColor="@color/inconspicuous_shadow"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/static_text_5"
+                app:layout_constraintTop_toBottomOf="@+id/static_text_5" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/set_weight_text"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:fontFamily="@font/lora"
+                android:text="111"
+                android:textColor="@color/inconspicuous_shadow"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="@+id/static_text_2"
+                app:layout_constraintEnd_toEndOf="@+id/set_sex_text"
+                app:layout_constraintStart_toStartOf="@+id/set_sex_text"
+                app:layout_constraintTop_toTopOf="@+id/static_text_2" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

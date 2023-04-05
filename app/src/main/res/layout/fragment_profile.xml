@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    tools:context=".profile.ProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -230,7 +230,7 @@
                 android:id="@+id/max_carbs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
+                android:layout_marginStart="14dp"
                 android:layout_marginTop="1dp"
                 android:fontFamily="@font/lora"
                 android:textColor="@color/white"
@@ -256,7 +256,7 @@
                 android:id="@+id/max_protein"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
+                android:layout_marginStart="14dp"
                 android:layout_marginTop="1dp"
                 android:fontFamily="@font/lora"
                 android:textColor="@color/white"
@@ -282,7 +282,7 @@
                 android:id="@+id/max_fats"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
+                android:layout_marginStart="14dp"
                 android:layout_marginTop="1dp"
                 android:fontFamily="@font/lora"
                 android:textColor="@color/white"
@@ -388,6 +388,7 @@
                         android:id="@+id/breakfast_recommendation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="3dp"
                         android:fontFamily="@font/lora"
                         android:text="660"
                         android:textColor="@color/inconspicuous_shadow"
@@ -474,6 +475,7 @@
                         android:id="@+id/lunch_recommendation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="3dp"
                         android:fontFamily="@font/lora"
                         android:text="660"
                         android:textColor="@color/inconspicuous_shadow"
@@ -559,6 +561,7 @@
                         android:id="@+id/dinner_recommendation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="3dp"
                         android:fontFamily="@font/lora"
                         android:text="660"
                         android:textColor="@color/inconspicuous_shadow"
@@ -644,6 +647,7 @@
                         android:id="@+id/snack_recommendation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="3dp"
                         android:fontFamily="@font/lora"
                         android:text="660"
                         android:textColor="@color/inconspicuous_shadow"
@@ -718,7 +722,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="2dp"
                         android:fontFamily="@font/lora"
-                        android:text="@string/kkal"
+                        android:text="@string/ml"
                         android:textColor="@color/inconspicuous_shadow"
                         android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="@+id/water_recommendation"
@@ -729,6 +733,7 @@
                         android:id="@+id/water_recommendation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="3dp"
                         android:fontFamily="@font/lora"
                         android:text="660"
                         android:textColor="@color/inconspicuous_shadow"
@@ -758,6 +763,33 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/water_ml"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/lora"
+                        android:text="0"
+                        android:textColor="@color/color_blue"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/static_text_14"
+                        app:layout_constraintStart_toEndOf="@+id/static_text_14"
+                        app:layout_constraintTop_toTopOf="@+id/static_text_14" />
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/lora"
+                        android:text="@string/ml"
+                        android:textColor="@color/color_blue"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/water_ml"
+                        app:layout_constraintStart_toEndOf="@+id/water_ml"
+                        app:layout_constraintTop_toTopOf="@+id/water_ml"
+                        app:layout_constraintVertical_bias="0.0" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -816,6 +848,7 @@
                         android:id="@+id/workout_recommendation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="3dp"
                         android:fontFamily="@font/lora"
                         android:text="660"
                         android:textColor="@color/inconspicuous_shadow"

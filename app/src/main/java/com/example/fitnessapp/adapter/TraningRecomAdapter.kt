@@ -6,10 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessapp.R
-import com.example.fitnessapp.SettingsFragment
 import com.example.fitnessapp.model.TraningRecomModel
-import com.example.fitnessapp.model.traningModel
-import com.example.fitnessapp.workout.ExerciseWorkoutFragment
 import kotlinx.android.synthetic.main.item_traning_layout.view.*
 
 class TraningRecomAdapter(private val onItemClickListener: (position: Int) -> Unit): RecyclerView.Adapter<TraningRecomAdapter.TraningRecomViewHolder>() {

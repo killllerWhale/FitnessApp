@@ -13,11 +13,10 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.fitnessapp.MainActivity
+import com.example.fitnessapp.activity.MainActivity
 import com.example.fitnessapp.R
-import com.example.fitnessapp.User
+import com.example.fitnessapp.profile.User
 import com.example.fitnessapp.databinding.DialogErrorBinding
-import com.example.fitnessapp.databinding.DialogWaterBinding
 import com.example.fitnessapp.databinding.FragmentStart4Binding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult

@@ -9,13 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessapp.R
-import com.example.fitnessapp.SettingsFragment
 import com.example.fitnessapp.adapter.TraningRecomAdapter
-import com.example.fitnessapp.adapter.traningAdapter
 import com.example.fitnessapp.databinding.FragmentWorkoutRecommendationBinding
 import com.example.fitnessapp.model.TraningRecomModel
-import com.example.fitnessapp.model.traningModel
-import com.example.fitnessapp.pars.training.Exercise
 import com.example.fitnessapp.pars.traningRecommendation.plan
 import com.google.gson.Gson
 import java.io.BufferedReader

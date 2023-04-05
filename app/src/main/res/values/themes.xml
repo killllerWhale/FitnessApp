@@ -26,6 +26,13 @@
         <item name="android:editTextColor">@android:color/white</item>
     </style>
 
+    <style name="AppTheme.Transparent" parent="Theme.FitnessApp">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">#FFFFFFFF</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
 
 
 

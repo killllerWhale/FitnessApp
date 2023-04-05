@@ -1,8 +1,11 @@
-package com.example.fitnessapp
+package com.example.fitnessapp.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.fitnessapp.profile.ProfileFragment
+import com.example.fitnessapp.profile.ProgressFragment
+import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.ActivityMainBinding
 import com.example.fitnessapp.food.FoodFragment
 import com.example.fitnessapp.workout.TrainingFragment

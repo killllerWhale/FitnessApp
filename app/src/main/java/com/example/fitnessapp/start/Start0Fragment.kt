@@ -41,19 +41,19 @@ class Start0Fragment : Fragment(), View.OnClickListener {
         binding.musclesUp.setBackgroundResource(R.drawable.color_background_gray_corners)
         when (view?.id) {
             R.id.be_fit -> {
-                prefs.edit().putInt("user_target", 0).apply()
+                prefs.edit().putInt("user_target", 1).apply()
                 binding.beFit.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 binding.next.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 choose = 1
             }
             R.id.muscles_up -> {
-                prefs.edit().putInt("user_target", 1).apply()
+                prefs.edit().putInt("user_target", 2).apply()
                 binding.musclesUp.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 binding.next.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 choose = 1
             }
             R.id.lose_weight -> {
-                prefs.edit().putInt("user_target", 2).apply()
+                prefs.edit().putInt("user_target", 0).apply()
                 binding.loseWeight.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 binding.next.setBackgroundResource(R.drawable.color_background_teal_700_corners)
                 choose = 1

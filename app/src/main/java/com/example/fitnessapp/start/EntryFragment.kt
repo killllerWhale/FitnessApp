@@ -13,7 +13,7 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.fitnessapp.MainActivity
+import com.example.fitnessapp.activity.MainActivity
 import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.DialogEnterBinding
 import com.example.fitnessapp.databinding.FragmentEntryBinding

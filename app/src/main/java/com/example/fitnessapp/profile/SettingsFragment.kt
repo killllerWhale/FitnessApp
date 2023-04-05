@@ -1,13 +1,21 @@
-package com.example.fitnessapp
+package com.example.fitnessapp.profile
 
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.fitnessapp.activity.EntryActivity
+import com.example.fitnessapp.R
+import com.example.fitnessapp.databinding.DialogChangeWeightBinding
 import com.example.fitnessapp.databinding.FrafmentSettingBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -17,10 +25,14 @@ import com.google.firebase.database.FirebaseDatabase
 class SettingsFragment : Fragment() {
 
     lateinit var binding: FrafmentSettingBinding
+    private val bindingDialog: DialogChangeWeightBinding by lazy {
+        DialogChangeWeightBinding.inflate(layoutInflater)
+    }
     lateinit var prefs: SharedPreferences
     var mAuth: FirebaseAuth? = null
     var currentUser: FirebaseUser? = null
     var myDataBase: DatabaseReference? = null
+    lateinit var dialog: Dialog
     var USER_KEY = "User"
 
     override fun onCreateView(
@@ -34,6 +46,12 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
+
+        dialog = Dialog(requireContext()).apply {
+            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            requestWindowFeature(Window.FEATURE_NO_TITLE)
+            setContentView(bindingDialog.root)
+        }
 
         myDataBase = FirebaseDatabase.getInstance().getReference(USER_KEY)
         mAuth = FirebaseAuth.getInstance()
@@ -62,16 +80,38 @@ class SettingsFragment : Fragment() {
             startActivity(Intent(activity, EntryActivity::class.java))
         }
 
+        binding.setWeightText.setOnClickListener {
+            dialog.show()
+        }
+
+        bindingDialog.cancellation.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        bindingDialog.enter.setOnClickListener {
+            val weight = bindingDialog.editText3.text.toString()
+            if (weight.isEmpty()) {
+                Toast.makeText(requireContext(), "Пожалуйста, введите действительный вес", Toast.LENGTH_SHORT).show()
+            } else {
+                changeDataBase("weight", weight)
+                binding.setWeightText.text = weight
+                prefs.edit().putString("user_weight", weight).apply()
+                dialog.dismiss()
+            }
+        }
+
     }
 
-    private fun changeDataBase() {
+    private fun changeDataBase( text: String, textChange: String) {
         mAuth!!.signInWithEmailAndPassword(prefs.getString("email_user", "0")!!, prefs.getString("password_user", "0")!!).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 currentUser = mAuth!!.currentUser
                 val user_id = currentUser!!.uid
-                myDataBase!!.child(user_id).child("progress")
-                    .setValue(prefs.getString("progress", "0"))
-
+                myDataBase!!.child(user_id).child(text)
+                    .setValue(textChange)
+                System.out.println("rrr")
+            }else{
+                System.out.println("r")
             }
         }
     }

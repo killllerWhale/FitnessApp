@@ -6,12 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessapp.R
-import com.example.fitnessapp.SettingsFragment
-import com.example.fitnessapp.adapter.TraningRecomAdapter
 import com.example.fitnessapp.databinding.FragmentExerciseWorkoutBinding
-import com.example.fitnessapp.model.TraningRecomModel
 import com.example.fitnessapp.pars.traningRecommendation.plan
 import com.google.gson.Gson
 import java.io.BufferedReader

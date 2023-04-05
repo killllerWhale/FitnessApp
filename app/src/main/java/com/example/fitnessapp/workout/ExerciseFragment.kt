@@ -42,14 +42,15 @@ class ExerciseFragment : Fragment() {
         prefs = context?.getSharedPreferences("themes", Context.MODE_PRIVATE)!!
 
         //создание диалога
-        val context = requireContext()
-        val dialog = Dialog(context)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(bindingDialog.root)
+        var dialog = Dialog(requireContext()).apply {
+            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            requestWindowFeature(Window.FEATURE_NO_TITLE)
+            setContentView(bindingDialog.root)
+        }
+
 
         //чтение json
-        val prefs = context.getSharedPreferences("themes", Context.MODE_PRIVATE)
+        val prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
         val gson = Gson()
         val bufferedReader =
             BufferedReader(InputStreamReader(resources.openRawResource(R.raw.exercise)))
@@ -57,6 +58,8 @@ class ExerciseFragment : Fragment() {
         val post = gson.fromJson(inputString, Exercise::class.java)
         val exercise = post.exercise[prefs!!.getInt("training", 0)]
         var kkal = 0
+
+        binding.nameExercise.text = exercise.name
 
         bindingDialog.addExerciseButton.setOnClickListener {
             //обработка инфы с диалога
