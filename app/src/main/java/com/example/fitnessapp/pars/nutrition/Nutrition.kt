@@ -8,10 +8,10 @@ data class Nutrition(
     val breakfast: List<Breakfast>,
     @SerializedName("general_indicators")
     val generalIndicators: List<GeneralIndicator>,
-    @SerializedName("Lunch")
+    @SerializedName("lunch")
     val lunch: List<Lunch>,
-    @SerializedName("Snack")
+    @SerializedName("snack")
     val snack: List<Snack>,
-    @SerializedName("Supper")
+    @SerializedName("supper")
     val supper: List<Supper>
 )

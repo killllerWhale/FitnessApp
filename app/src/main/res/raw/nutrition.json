@@ -21,7 +21,7 @@
             ]
         }
       ],
-      "Lunch": [
+      "lunch": [
         {
           "carbohydrates": 0.84,
           "proteins": 0.5,
@@ -32,7 +32,7 @@
           ]
         }
       ],
-      "Supper": [
+      "supper": [
         {
           "carbohydrates": 0.5,
           "proteins": 0.33,
@@ -43,7 +43,7 @@
           ]
         }
       ],
-      "Snack": [
+      "snack": [
         {
           "carbohydrates": 0.5,
           "proteins": 0.33,
@@ -76,7 +76,7 @@
           ]
         }
       ],
-      "Lunch": [
+      "lunch": [
         {
           "carbohydrates": 1,
           "proteins": 0.57,
@@ -87,7 +87,7 @@
           ]
         }
       ],
-      "Supper": [
+      "supper": [
         {
           "carbohydrates": 0.71,
           "proteins": 0.42,
@@ -98,7 +98,7 @@
           ]
         }
       ],
-      "Snack": [
+      "snack": [
         {
           "carbohydrates": 0.42,
           "proteins": 0.28,
@@ -131,7 +131,7 @@
           ]
         }
       ],
-      "Lunch": [
+      "lunch": [
         {
           "carbohydrates": 2,
           "proteins": 0.4,
@@ -142,7 +142,7 @@
           ]
         }
       ],
-      "Supper": [
+      "supper": [
         {
           "carbohydrates": 1,
           "proteins": 0.4,
@@ -153,7 +153,7 @@
           ]
         }
       ],
-      "Snack": [
+      "snack": [
         {
           "carbohydrates": 1,
           "proteins": 0.3,

@@ -7,24 +7,21 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessapp.R
 import com.example.fitnessapp.model.FoodRecomModel
-import com.example.fitnessapp.model.foodModel
-import kotlinx.android.synthetic.main.item_food_layout.view.*
+import kotlinx.android.synthetic.main.item_food_recommendation_layout.view.*
 
-class foodAdapter: RecyclerView.Adapter<foodAdapter.FoodViewHolder>() {
+class FoodRecomAdapter: RecyclerView.Adapter<FoodRecomAdapter.FoodViewHolder>() {
 
-    private var foodList = emptyList<foodModel>()
+    private var foodList = emptyList<FoodRecomModel>()
 
     class FoodViewHolder(view: View): RecyclerView.ViewHolder(view)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_food_layout, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_food_recommendation_layout, parent, false)
         return FoodViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
         holder.itemView.tv_name.text = foodList[position].name
-        holder.itemView.tv_kkal.text = foodList[position].kkal
-        holder.itemView.tv_gram.text = foodList[position].gram
     }
 
     override fun getItemCount(): Int {
@@ -32,7 +29,7 @@ class foodAdapter: RecyclerView.Adapter<foodAdapter.FoodViewHolder>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setList(list: List<foodModel>){
+    fun setList(list: List<FoodRecomModel>){
         foodList = list
         notifyDataSetChanged()
     }

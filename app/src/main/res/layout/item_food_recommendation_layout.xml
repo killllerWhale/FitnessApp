@@ -1,32 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".food.FoodOneRecommendationsFragment">
-
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/color_background">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_food"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:text="имя"
+            android:fontFamily="@font/lora"
+            android:textColor="@color/white"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_food_recommendation_layout" />
-
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+</androidx.cardview.widget.CardView>

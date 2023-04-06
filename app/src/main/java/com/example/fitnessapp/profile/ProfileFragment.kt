@@ -16,9 +16,7 @@ import androidx.activity.OnBackPressedCallback
 import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.DialogWaterBinding
 import com.example.fitnessapp.databinding.FragmentProfileBinding
-import com.example.fitnessapp.pars.nutrition.Nutrition
 import com.example.fitnessapp.pars.nutrition.Recomend
-import com.example.fitnessapp.pars.training.Exercise
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_entry.*
 import java.io.BufferedReader
@@ -56,6 +54,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
         prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
         val water = prefs.getString("water", "0;0")
+        updateWater()
 
         //присваиваем актуальную дату
         updateDateText()
@@ -168,12 +167,18 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
 
     private fun updateDateText() {
-        val prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
         prefs.edit().putString("saveDateToday", "26").apply()
         val dateFormat = SimpleDateFormat("dd MMMM", Locale("ru"))
         val currentDate = Date()
         val formattedDate = dateFormat.format(currentDate)
         binding.setDataText.text = formattedDate
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun updateWater(){
+        val water = prefs.getString("water", "0;0").toString()
+        val waters = water.split(";")
+        binding.waterMl.text = (waters[0].toInt() * 250 + waters[1].toInt() * 500).toString()
     }
 
     private fun drawingWater(water:String){
@@ -538,6 +543,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 }
                 prefs.edit().putString("water", "$glassOk;$bottleOk").apply()
                 dialog.hide()
+                updateWater()
             }
         }
     }

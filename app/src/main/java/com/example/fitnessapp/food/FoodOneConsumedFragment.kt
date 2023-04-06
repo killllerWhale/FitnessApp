@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessapp.adapter.foodAdapter
 import com.example.fitnessapp.databinding.FragmentFoodOneConsumedBinding
 import com.example.fitnessapp.model.foodModel
-import com.example.fitnessapp.model.traningModel
 import java.util.*
 import kotlin.collections.ArrayList
 
