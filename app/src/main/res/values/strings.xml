@@ -89,4 +89,5 @@
     <string name="ml">мл</string>
     <string name="new_text">Введите новое значение</string>
     <string name="Insert">Внести</string>
+    <string name="Select_new_value">Выберети новое значение</string>
 </resources>

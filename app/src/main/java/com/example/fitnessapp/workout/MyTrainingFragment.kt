@@ -7,15 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.fitnessapp.adapter.traningAdapter
+import com.example.fitnessapp.adapter.TraningAdapter
 import com.example.fitnessapp.databinding.FragmentMyTrainingBinding
-import com.example.fitnessapp.model.traningModel
+import com.example.fitnessapp.model.TraningModel
 import java.util.*
 import kotlin.collections.ArrayList
 
 class MyTrainingFragment : Fragment() {
 
-    private lateinit var adapter: traningAdapter
+    private lateinit var adapter: TraningAdapter
     private lateinit var recyclerView: RecyclerView
     private lateinit var binding: FragmentMyTrainingBinding
     private lateinit var existingResult: String
@@ -38,7 +38,7 @@ class MyTrainingFragment : Fragment() {
         val currentDate = calendar.get(Calendar.DAY_OF_YEAR)
         val lastUpdated = prefs.getInt("lastUpdated", 0)
 
-        if (existingResult.isNullOrEmpty() || currentDate > lastUpdated) {
+        if (existingResult.isEmpty() || currentDate > lastUpdated) {
             binding.textViewNotTraning.text = "Вы не выполнили ни одного упражнения сегодня"
         } else {
             initial()
@@ -48,22 +48,21 @@ class MyTrainingFragment : Fragment() {
 
     private fun initial() {
         recyclerView = binding.rvTraning
-        adapter = traningAdapter()
+        adapter = TraningAdapter()
         recyclerView.adapter = adapter
         adapter.setList(myTraning())
     }
 
-    private fun myTraning(): ArrayList<traningModel> {
+    private fun myTraning(): ArrayList<TraningModel> {
         val items = existingResult.split(";")
-        val traningList = ArrayList<traningModel>()
+        val traningList = ArrayList<TraningModel>()
 
         items.forEach { item ->
             val values = item.split("^")
-            val name = values[0]
-            val koll = values[1]
-            val kkal = values[2]
+            val (name, koll, kkal) = values
 
-            val trainingModel = traningModel(name, koll, kkal)
+
+            val trainingModel = TraningModel(name, koll, kkal)
             traningList.add(trainingModel)
         }
 

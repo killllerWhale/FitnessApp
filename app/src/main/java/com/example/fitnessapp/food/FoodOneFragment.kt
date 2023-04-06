@@ -57,8 +57,6 @@ class FoodOneFragment : Fragment() {
     private fun defaultMaxProgress() {
         val target = prefs.getInt("user_target", 0)
         val dataToday = prefs.getInt("data_today", 0)
-        System.out.println(target)
-        System.out.println(dataToday)
 
         val weightUser = prefs.getString("user_weight", "0").toString().toInt()
         System.out.println(weightUser)

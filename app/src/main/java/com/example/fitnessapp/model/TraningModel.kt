@@ -1,6 +1,6 @@
 package com.example.fitnessapp.model
 
-class traningModel (
+class TraningModel (
     val name: String,
     val koll: String,
     val kkal: String

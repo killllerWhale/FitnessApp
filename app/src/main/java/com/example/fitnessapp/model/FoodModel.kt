@@ -1,6 +1,6 @@
 package com.example.fitnessapp.model
 
-class foodModel (
+class FoodModel (
     val name: String,
     val gram: String,
     val kkal: String

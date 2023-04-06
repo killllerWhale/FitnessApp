@@ -36,11 +36,11 @@ class DescriptionExerciseFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     private fun startParsing() {
         val prefs = context?.getSharedPreferences("themes", Context.MODE_PRIVATE)
-        var gson = Gson()
+        val gson = Gson()
         val bufferedReader =
             BufferedReader(InputStreamReader(resources.openRawResource(R.raw.exercise)))
         val inputString = bufferedReader.use { it.readText() }
-        var post = gson.fromJson(inputString, Exercise::class.java)
+        val post = gson.fromJson(inputString, Exercise::class.java)
         val exercise = post.exercise[prefs!!.getInt("training", 0)]
         if (exercise.type == 0) {
             binding.kkalBurned.text =
@@ -49,10 +49,10 @@ class DescriptionExerciseFragment : Fragment() {
             val result = binding.calculationWeightCol.text.toString().toInt() * exercise.expenditure * 10
             val roundedResult = kotlin.math.round(result).toInt()
             binding.kkalBurned.text =
-                "За десять минут повторения упражнения можно сжечь калорий: " + roundedResult.toString()
+                "За десять минут повторения упражнения можно сжечь калорий: $roundedResult"
         }
 //        (binding.calculationWeightCol.text.toString().toInt()
-        binding.mechanicsDescription.text = post.exercise[prefs!!.getInt("training", 0)].mechanics
+        binding.mechanicsDescription.text = post.exercise[prefs.getInt("training", 0)].mechanics
         binding.benefitsOfExerciseDescription.text =
             post.exercise[prefs.getInt("training", 0)].description
     }

@@ -54,17 +54,29 @@ class WorkoutRecommendationFragment : Fragment() {
     }
 
     private fun myTraning(): ArrayList<TraningRecomModel> {
+        val target = prefs.getInt("user_target", 0)
+
         val gson = Gson()
-        val bufferedReader =
-            BufferedReader(InputStreamReader(resources.openRawResource(R.raw.workout_recommendation)))
+        val bufferedReader = BufferedReader(InputStreamReader(resources.openRawResource(R.raw.workout_recommendation)))
         val inputString = bufferedReader.use { it.readText() }
         val post = gson.fromJson(inputString, plan::class.java)
-        val plan = post.plan[0].losingWeight
-        var one = TraningRecomModel(plan[0].name,"800 ккал")
-        var two = TraningRecomModel(plan[1].name,"960 ккал")
+
         val traningList = ArrayList<TraningRecomModel>()
-        traningList.add(one)
-        traningList.add(two)
+        when (target) {
+            0 -> {
+                traningList.add(TraningRecomModel(post.plan[0].losingWeight[0].name,post.plan[0].losingWeight[0].kkal))
+                traningList.add(TraningRecomModel(post.plan[0].losingWeight[1].name,post.plan[0].losingWeight[1].kkal))
+            }
+            1 -> {
+                traningList.add(TraningRecomModel(post.plan[1].maintenance[0].name,post.plan[1].maintenance[0].kkal))
+                traningList.add(TraningRecomModel(post.plan[1].maintenance[1].name,post.plan[1].maintenance[1].kkal))
+            }
+            2 -> {
+                traningList.add(TraningRecomModel(post.plan[2].weightGain[0].name,post.plan[2].weightGain[0].kkal))
+                traningList.add(TraningRecomModel(post.plan[2].weightGain[1].name,post.plan[2].weightGain[1].kkal))
+            }
+        }
+
         return traningList
     }
 }
