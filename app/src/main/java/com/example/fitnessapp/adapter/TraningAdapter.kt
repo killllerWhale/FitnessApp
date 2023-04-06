@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessapp.R
-import com.example.fitnessapp.model.traningModel
+import com.example.fitnessapp.model.TraningModel
 import kotlinx.android.synthetic.main.item_traning_layout.view.*
 
-class traningAdapter: RecyclerView.Adapter<traningAdapter.TraningViewHolder>() {
+class TraningAdapter: RecyclerView.Adapter<TraningAdapter.TraningViewHolder>() {
 
-    private var traninfList = emptyList<traningModel>()
+    private var traninfList = emptyList<TraningModel>()
 
     class TraningViewHolder(view: View): RecyclerView.ViewHolder(view)
 
@@ -31,7 +31,7 @@ class traningAdapter: RecyclerView.Adapter<traningAdapter.TraningViewHolder>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setList(list: List<traningModel>){
+    fun setList(list: List<TraningModel>){
         traninfList = list
         notifyDataSetChanged()
     }

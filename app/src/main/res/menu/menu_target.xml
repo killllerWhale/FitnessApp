@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/lose_weight"
+        android:title="@string/lose_weight" />
+    <item
+        android:id="@+id/be_fit"
+        android:title="@string/be_fit" />
+    <item
+        android:id="@+id/muscles_up"
+        android:title="@string/muscles_up" />
+</menu>

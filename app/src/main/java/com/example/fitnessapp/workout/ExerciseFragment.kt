@@ -73,7 +73,6 @@ class ExerciseFragment : Fragment() {
                 result = exercise.name + "^ подходов: " + bindingDialog.editText2.text.toString() + ", время (мин): " + bindingDialog.editText.text.toString() + "^ сожжено: " + kkal.toString() + " ккал"
             }
             val existingResult = prefs.getString("trainingStorage", "")
-            val checkData = prefs.getString("saveDateToday", "")
 
             //проверка даты
             val moscowTimeZone = TimeZone.getTimeZone("Europe/Moscow")

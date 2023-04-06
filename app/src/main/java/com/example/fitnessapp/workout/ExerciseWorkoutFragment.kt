@@ -31,7 +31,7 @@ class ExerciseWorkoutFragment : Fragment() {
         binding.description.setBackgroundResource(R.drawable.choose_purple_corners)
 
         val prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
-        var position = prefs.getInt("position", 0)
+        val position = prefs.getInt("position", 0)
         val gson = Gson()
         val bufferedReader =
             BufferedReader(InputStreamReader(resources.openRawResource(R.raw.workout_recommendation)))

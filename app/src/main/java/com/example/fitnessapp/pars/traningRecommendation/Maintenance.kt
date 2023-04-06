@@ -8,6 +8,8 @@ data class Maintenance(
     val description: String,
     @SerializedName("name")
     val name: String,
+    @SerializedName("kkal")
+    val kkal: String,
     @SerializedName("workout")
     val workout: List<Workout>
 )

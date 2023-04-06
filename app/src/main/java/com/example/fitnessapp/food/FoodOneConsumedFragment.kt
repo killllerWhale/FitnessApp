@@ -7,10 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.fitnessapp.adapter.foodAdapter
+import com.example.fitnessapp.adapter.FoodAdapter
 import com.example.fitnessapp.databinding.FragmentFoodOneConsumedBinding
-import com.example.fitnessapp.model.foodModel
-import com.example.fitnessapp.model.traningModel
+import com.example.fitnessapp.model.FoodModel
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -18,7 +17,7 @@ class FoodOneConsumedFragment : Fragment() {
 
     lateinit var binding: FragmentFoodOneConsumedBinding
     private lateinit var existingResult: String
-    private lateinit var adapter: foodAdapter
+    private lateinit var adapter: FoodAdapter
     private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
@@ -49,14 +48,14 @@ class FoodOneConsumedFragment : Fragment() {
 
     private fun initial() {
         recyclerView = binding.rvFood
-        adapter = foodAdapter()
+        adapter = FoodAdapter()
         recyclerView.adapter = adapter
         adapter.setList(myFood())
     }
 
-    private fun myFood(): ArrayList<foodModel> {
+    private fun myFood(): ArrayList<FoodModel> {
         val items = existingResult.split(";")
-        val foodList = ArrayList<foodModel>()
+        val foodList = ArrayList<FoodModel>()
 
         items.forEach { item ->
             val values = item.split("^")
@@ -64,7 +63,7 @@ class FoodOneConsumedFragment : Fragment() {
             val gram = values[1]
             val kkal = values[2]
 
-            val foodModel = foodModel(name, gram, kkal)
+            val foodModel = FoodModel(name, gram, kkal)
             foodList.add(foodModel)
         }
 
