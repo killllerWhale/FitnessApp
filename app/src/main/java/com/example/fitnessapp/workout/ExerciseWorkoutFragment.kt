@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.FragmentExerciseWorkoutBinding
-import com.example.fitnessapp.model.TraningRecomModel
 import com.example.fitnessapp.pars.traningRecommendation.plan
 import com.google.gson.Gson
 import java.io.BufferedReader

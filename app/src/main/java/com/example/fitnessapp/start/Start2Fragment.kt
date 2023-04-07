@@ -25,23 +25,21 @@ class Start2Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
-        binding.goBack.setOnClickListener {
-            loadFragment(Start1Fragment())
-        }
-        binding.start0.setOnClickListener {
-            loadFragment(Start0Fragment())
-        }
-        binding.start1.setOnClickListener {
-            loadFragment(Start1Fragment())
-        }
-        binding.next.setOnClickListener {
-            if (binding.editTextDay.text.isNotEmpty() && binding.editTextMonth.text.isNotEmpty() && binding.editTextYear.text.isNotEmpty()) {
-                val result = binding.editTextDay.text.toString() + "." + binding.editTextMonth.text.toString() + "." + binding.editTextYear.text.toString()
-                prefs.edit().putString("user_birthday", result).apply()
-                loadFragment(Start3Fragment())
-            } else {
-                val toast = Toast.makeText(requireActivity(), "Заполните поля", Toast.LENGTH_SHORT)
-                toast.show()
+        binding.apply {
+            goBack.setOnClickListener { loadFragment(Start1Fragment()) }
+            start0.setOnClickListener { loadFragment(Start0Fragment()) }
+            start1.setOnClickListener { loadFragment(Start1Fragment()) }
+            next.setOnClickListener {
+                val day = editTextDay.text.toString()
+                val month = editTextMonth.text.toString()
+                val year = editTextYear.text.toString()
+                if (day.isNotEmpty() && month.isNotEmpty() && year.isNotEmpty()) {
+                    val result = "$day.$month.$year"
+                    prefs.edit().putString("user_birthday", result).apply()
+                    loadFragment(Start3Fragment())
+                } else {
+                    toast("Заполните поля")
+                }
             }
         }
 
@@ -52,4 +50,7 @@ class Start2Fragment : Fragment() {
         transaction.replace(R.id.container, fragment)
         transaction.commit()
     }
+
+    fun Fragment.toast(message: String?, duration: Int = Toast.LENGTH_SHORT) =
+        Toast.makeText(activity, message, duration).show()
 }

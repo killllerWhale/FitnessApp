@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessapp.adapter.FoodAdapter
 import com.example.fitnessapp.databinding.FragmentFoodOneConsumedBinding
 import com.example.fitnessapp.model.FoodModel

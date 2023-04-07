@@ -1,16 +1,13 @@
 package com.example.fitnessapp.food
 
 import android.annotation.SuppressLint
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.FragmentFoodOneBinding
 import com.example.fitnessapp.pars.nutrition.Recomend
@@ -59,7 +56,6 @@ class FoodOneFragment : Fragment() {
         val dataToday = prefs.getInt("data_today", 0)
 
         val weightUser = prefs.getString("user_weight", "0").toString().toInt()
-        System.out.println(weightUser)
         val gson = Gson()
         val bufferedReader =
             BufferedReader(InputStreamReader(resources.openRawResource(R.raw.nutrition)))

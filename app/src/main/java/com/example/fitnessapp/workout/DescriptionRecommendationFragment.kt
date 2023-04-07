@@ -39,22 +39,33 @@ class DescriptionRecommendationFragment : Fragment() {
         val inputString = bufferedReader.use { it.readText() }
         val post = gson.fromJson(inputString, plan::class.java)
 
-        val target = prefs.getInt("user_target", 0)
-        when (target) {
+        when (prefs.getInt("user_target", 0)) {
             0 -> {
                 val plan = post.plan[0].losingWeight
-                binding.kkalBurned.text = getString(R.string.Text3) + (plan[position].kkal.toInt() * prefs.getString("user_weight", "0")!!.toInt()).toString()
+                binding.kkalBurned.text =
+                    getString(R.string.Text3) + (plan[position].kkal.toInt() * prefs.getString(
+                        "user_weight",
+                        "0"
+                    )!!.toInt()).toString()
                 binding.mechanicsDescription.text = plan[position].description
             }
             1 -> {
                 val plan = post.plan[0].maintenance
                 binding.mechanicsDescription.text = plan[position].description
-                binding.kkalBurned.text = getString(R.string.Text3) + (plan[position].kkal.toInt() * prefs.getString("user_weight", "0")!!.toInt()).toString()
+                binding.kkalBurned.text =
+                    getString(R.string.Text3) + (plan[position].kkal.toInt() * prefs.getString(
+                        "user_weight",
+                        "0"
+                    )!!.toInt()).toString()
             }
             2 -> {
                 val plan = post.plan[0].weightGain
                 binding.mechanicsDescription.text = plan[position].description
-                binding.kkalBurned.text = getString(R.string.Text3) + (plan[position].kkal.toInt() * prefs.getString("user_weight", "0")!!.toInt()).toString()
+                binding.kkalBurned.text =
+                    getString(R.string.Text3) + (plan[position].kkal.toInt() * prefs.getString(
+                        "user_weight",
+                        "0"
+                    )!!.toInt()).toString()
             }
         }
 

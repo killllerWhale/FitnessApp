@@ -65,9 +65,7 @@ class Start0Fragment : Fragment(), View.OnClickListener {
                 if (choose == 1) {
                     loadFragment(Start1Fragment())
                 } else {
-                    val toast =
-                        Toast.makeText(requireActivity(), "Сделайте выбор", Toast.LENGTH_SHORT)
-                    toast.show()
+                    toast("Сделайте выбор")
                 }
             }
         }
@@ -78,4 +76,7 @@ class Start0Fragment : Fragment(), View.OnClickListener {
         transaction.replace(R.id.container, fragment)
         transaction.commit()
     }
+
+    fun Fragment.toast(message: String?, duration: Int = Toast.LENGTH_SHORT) =
+        Toast.makeText(activity, message, duration).show()
 }

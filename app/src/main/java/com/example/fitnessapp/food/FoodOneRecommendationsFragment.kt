@@ -38,8 +38,6 @@ class FoodOneRecommendationsFragment : Fragment() {
         val prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
         val target = prefs.getInt("user_target", 0)
         val dataToday = prefs.getInt("data_today", 0)
-        System.out.println(target)
-        System.out.println(dataToday)
         val gson = Gson()
         val bufferedReader =
             BufferedReader(InputStreamReader(resources.openRawResource(R.raw.nutrition)))
@@ -49,30 +47,22 @@ class FoodOneRecommendationsFragment : Fragment() {
         when (dataToday) {
             0 -> {
                 val recommendation = post.nutrition[target].breakfast[0]
-                with(binding) {
-                    adapter.setList(myFood(recommendation.recommendations))
-                }
+                adapter.setList(myFood(recommendation.recommendations))
             }
             1 -> {
                 val recommendation = post.nutrition[target].lunch[0]
-                with(binding) {
-                    adapter.setList(myFood(recommendation.recommendations))
-                }
+                adapter.setList(myFood(recommendation.recommendations))
             }
             2 -> {
                 val recommendation = post.nutrition[target].supper[0]
-                with(binding) {
-                    adapter.setList(myFood(recommendation.recommendations))
-
-                }
+                adapter.setList(myFood(recommendation.recommendations))
             }
         }
     }
 
     private fun initial() {
-        recyclerView = binding.rvFood
         adapter = FoodRecomAdapter()
-        recyclerView.adapter = adapter
+        binding.rvFood.adapter = adapter
     }
 
     private fun myFood(recom : List<String>): ArrayList<FoodRecomModel> {

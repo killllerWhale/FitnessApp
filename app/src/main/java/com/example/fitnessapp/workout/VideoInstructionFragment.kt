@@ -43,54 +43,29 @@ class VideoInstructionFragment : Fragment() {
 
     private fun createUrl() {
         val prefs = context?.getSharedPreferences("themes", Context.MODE_PRIVATE)
-        val flag = prefs!!.getInt("training", 0)
-        when (flag) {
-            0 -> {
-                videoUrl =
-                    "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1cTOPbac8cH68DzP6VXhY-cdOajlb-FQc"
-            }
-            1 -> {
-                videoUrl =
-                    "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1zpl4EONNkCjv7s4ZRfUxKEgNRVIeSSyU"
-            }
-            2 -> {
-                videoUrl =
-                    "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1y4qqeVvVZdF1wUi9f3FsMHaEvfVXU351"
-            }
-            3 -> {
-                videoUrl =
-                    "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1pUo5AR4iHuRfJ-eMykTQFUeGVSRdVjMI"
-            }
-            4 -> {
-                videoUrl =
-                    "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1YrHfrktlVXSn_ugPrXz2qmRhlRfR7HuF"
-            }
-            5 -> {
-                videoUrl =
-                    "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1FnRUP_pRSDvnMgZwMOV0yzGQSgdhVsAx"
-            }
-            6 -> {
-                videoUrl = ""
-            }
-            7 -> {
-                videoUrl =
-                    "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1cw7H2fJcnnW6tSLBXTceGGvJhLw3sU8S"
-            }
-            8 -> {
-                videoUrl =
-                    "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1_LxJjc1UPqWc8rVRT3bKztvCfrqQ_uuY"
-            }
-            9 -> {
-                videoUrl =
-                    "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1OSeOYjFSssuaeodAGkHAH_lZ8vrZo49j"
-            }
-            10 -> {
-                videoUrl =
-                    "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1GekZsTKsMdrndnJZLTFxD4TIGw_sRU4o"
-            }
-            11 -> {
-                videoUrl = ""
-            }
+        when (prefs!!.getInt("training", 0)) {
+            0 -> videoUrl =
+                "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1cTOPbac8cH68DzP6VXhY-cdOajlb-FQc"
+            1 -> videoUrl =
+                "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1zpl4EONNkCjv7s4ZRfUxKEgNRVIeSSyU"
+            2 -> videoUrl =
+                "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1y4qqeVvVZdF1wUi9f3FsMHaEvfVXU351"
+            3 -> videoUrl =
+                "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1pUo5AR4iHuRfJ-eMykTQFUeGVSRdVjMI"
+            4 -> videoUrl =
+                "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1YrHfrktlVXSn_ugPrXz2qmRhlRfR7HuF"
+            5 -> videoUrl =
+                "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1FnRUP_pRSDvnMgZwMOV0yzGQSgdhVsAx"
+            6 -> videoUrl = ""
+            7 -> videoUrl =
+                "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1cw7H2fJcnnW6tSLBXTceGGvJhLw3sU8S"
+            8 -> videoUrl =
+                "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1_LxJjc1UPqWc8rVRT3bKztvCfrqQ_uuY"
+            9 -> videoUrl =
+                "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1OSeOYjFSssuaeodAGkHAH_lZ8vrZo49j"
+            10 -> videoUrl =
+                "https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1GekZsTKsMdrndnJZLTFxD4TIGw_sRU4o"
+            11 -> videoUrl = ""
         }
     }
 

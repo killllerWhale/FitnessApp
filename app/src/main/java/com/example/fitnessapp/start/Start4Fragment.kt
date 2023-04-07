@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class Start4Fragment : Fragment(), View.OnClickListener {
+class Start4Fragment : Fragment(){
 
     private lateinit var binding: FragmentStart4Binding
     lateinit var bindingDialog: DialogErrorBinding
@@ -47,10 +47,12 @@ class Start4Fragment : Fragment(), View.OnClickListener {
 
         bindingDialog = DialogErrorBinding.inflate(layoutInflater)
         val context = requireContext()
-        dialog = Dialog(context)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(bindingDialog.root)
+
+        dialog = Dialog(requireContext()).apply {
+            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            requestWindowFeature(Window.FEATURE_NO_TITLE)
+            setContentView(bindingDialog.root)
+        }
 
         binding.checkProblem.isEnabled = false
         binding.checkProblem0.isEnabled = false
@@ -58,13 +60,35 @@ class Start4Fragment : Fragment(), View.OnClickListener {
         myDataBase = FirebaseDatabase.getInstance().getReference(USER_KEY)
         mAuth = FirebaseAuth.getInstance()
 
-        binding.next.setOnClickListener(this)
-        binding.goBack.setOnClickListener(this)
-        binding.start1.setOnClickListener(this)
-        binding.start2.setOnClickListener(this)
-        binding.start3.setOnClickListener(this)
-        binding.start4.setOnClickListener(this)
-        binding.start0.setOnClickListener(this)
+
+        binding.run {
+            listOf(start0, start1, start2, start3, goBack).forEach {
+                it.setOnClickListener { view ->
+                    when (view.id) {
+                        R.id.start0 -> loadFragment(Start0Fragment())
+                        R.id.start1 -> loadFragment(Start1Fragment())
+                        R.id.start2 -> loadFragment(Start2Fragment())
+                        R.id.start3 -> loadFragment(Start3Fragment())
+                        R.id.go_back -> loadFragment(Start3Fragment())
+                    }
+                }
+            }
+            next.setOnClickListener {
+                if (editTextName.text.isNotEmpty() && editTextEmail.text.isNotEmpty() && editTextPassword.text.isNotEmpty() && editTextPasswordRepeat.text.isNotEmpty() && (editTextPassword.text.toString() == editTextPasswordRepeat.text.toString())) {
+                    if (capchaCheck()) {
+                        registration()
+                    }
+                } else {
+                    if (editTextName.text.isEmpty() || editTextEmail.text.isEmpty() || editTextPassword.text.isEmpty() || editTextPasswordRepeat.text.isEmpty()) {
+                        val toast = Toast.makeText(requireActivity(), "Введите данные", Toast.LENGTH_SHORT)
+                        toast.show()
+                    } else {
+                        val toast = Toast.makeText(requireActivity(), "Пароли не совпадают", Toast.LENGTH_SHORT)
+                        toast.show()
+                    }
+                }
+            }
+        }
 
         binding.checkProblem.setOnClickListener {
             dialog.show()
@@ -76,45 +100,7 @@ class Start4Fragment : Fragment(), View.OnClickListener {
 
     }
 
-    override fun onClick(v: View?) {
-        when (v?.id) {
-            R.id.start0 -> {
-                loadFragment(Start0Fragment())
-            }
-            R.id.start1 -> {
-                loadFragment(Start1Fragment())
-            }
-            R.id.start2 -> {
-                loadFragment(Start2Fragment())
-            }
-            R.id.start3 -> {
-                loadFragment(Start3Fragment())
-            }
-            R.id.go_back -> {
-                loadFragment(Start3Fragment())
-            }
-            R.id.next -> {
-                if (binding.editTextName.text.isNotEmpty() && binding.editTextEmail.text.isNotEmpty() && binding.editTextPassword.text.isNotEmpty() && binding.editTextPasswordRepeat.text.isNotEmpty() && (binding.editTextPassword.text.toString() == binding.editTextPasswordRepeat.text.toString())) {
-                    if (capchaCheck()) {
-                        registration()
-                    }
-                } else {
-                    if (binding.editTextName.text.isEmpty() || binding.editTextEmail.text.isEmpty() || binding.editTextPassword.text.isEmpty() || binding.editTextPasswordRepeat.text.isEmpty()) {
-                        val toast =
-                            Toast.makeText(requireActivity(), "Введите данные", Toast.LENGTH_SHORT)
-                        toast.show()
-                    } else {
-                        val toast = Toast.makeText(
-                            requireActivity(),
-                            "Пароли не совпадают",
-                            Toast.LENGTH_SHORT
-                        )
-                        toast.show()
-                    }
-                }
-            }
-        }
-    }
+
 
     private fun capchaCheck(): Boolean {
         val emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$".toRegex()
@@ -132,14 +118,12 @@ class Start4Fragment : Fragment(), View.OnClickListener {
                 true
             }else{
                 creteMassenge(1)
-                val toast = Toast.makeText(requireActivity(), "Некорректный пароль", Toast.LENGTH_SHORT)
-                toast.show()
+                toast("Некорректный пароль")
                 false
             }
         } else {
             creteMassenge(0)
-            val toast = Toast.makeText(requireActivity(), "Некорректный email", Toast.LENGTH_SHORT)
-            toast.show()
+            toast("Некорректный email")
             false
         }
     }
@@ -200,8 +184,7 @@ class Start4Fragment : Fragment(), View.OnClickListener {
                     prefs.edit().putInt("user", 1).apply()
                     startActivity(Intent(activity, MainActivity::class.java))
                 } else {
-                    val toast = Toast.makeText(requireActivity(), "Сейчас на сервере неполадки, попробуйте позже", Toast.LENGTH_SHORT)
-                    toast.show()
+                    toast("Сейчас на сервере неполадки, попробуйте позже")
                 }
             })
 
@@ -212,4 +195,7 @@ class Start4Fragment : Fragment(), View.OnClickListener {
         transaction.replace(R.id.container, fragment)
         transaction.commit()
     }
+
+    fun Fragment.toast(message: String?, duration: Int = Toast.LENGTH_SHORT) =
+        Toast.makeText(activity, message, duration).show()
 }

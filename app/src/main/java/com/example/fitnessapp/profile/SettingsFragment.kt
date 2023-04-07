@@ -32,13 +32,12 @@ class SettingsFragment : Fragment() {
         DialogChangeWeightBinding.inflate(layoutInflater)
     }
 
-    lateinit var prefs: SharedPreferences
-    var mAuth: FirebaseAuth? = null
-    var currentUser: FirebaseUser? = null
-    var myDataBase: DatabaseReference? = null
-    lateinit var dialog: Dialog
-    lateinit var dialogTarget: Dialog
-    var USER_KEY = "User"
+    private lateinit var prefs: SharedPreferences
+    private var mAuth: FirebaseAuth? = null
+    private var currentUser: FirebaseUser? = null
+    private var myDataBase: DatabaseReference? = null
+    private lateinit var dialog: Dialog
+    private var USER_KEY = "User"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -175,7 +174,4 @@ class SettingsFragment : Fragment() {
     fun Fragment.toast(message: String?, duration: Int = Toast.LENGTH_SHORT) =
         Toast.makeText(activity, message, duration).show()
 
-    fun Fragment.toast(@StringRes messageId: Int?, duration: Int = Toast.LENGTH_SHORT) = messageId?.also {
-        Toast.makeText(activity, it, duration).show()
-    }
 }

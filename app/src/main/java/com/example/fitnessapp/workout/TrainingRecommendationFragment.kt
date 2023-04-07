@@ -9,11 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.fitnessapp.R
 import com.example.fitnessapp.adapter.FoodAdapter
-import com.example.fitnessapp.adapter.TraningRecomAdapter
 import com.example.fitnessapp.databinding.FragmentTrainingRecommendationBinding
 import com.example.fitnessapp.model.FoodModel
 import com.example.fitnessapp.pars.traningRecommendation.plan
-import com.example.fitnessapp.profile.SettingsFragment
 import com.google.gson.Gson
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -64,54 +62,57 @@ class TrainingRecommendationFragment : Fragment() {
             BufferedReader(InputStreamReader(resources.openRawResource(R.raw.workout_recommendation)))
         val inputString = bufferedReader.use { it.readText() }
         val post = gson.fromJson(inputString, plan::class.java)
-        val target = prefs.getInt("user_target", 0)
 
-        if (target == 0) {
-            val items = post.plan[0].losingWeight[position].workout
-            val trainingList = ArrayList<FoodModel>()
-            items.forEach { item ->
-                val name = item.name
-                val gram =
-                    if (item.type == 0) getString(R.string.number_of_repetitions) + ": " + item.coll.toString() else getString(
-                        R.string.number_of_repetitions_time
-                    ) + ": " + item.coll.toString() + " мин"
-                val kkal = getString(R.string.number_of_approaches) + ": " + item.collB.toString()
+        when (prefs.getInt("user_target", 0)) {
+            0 -> {
+                val items = post.plan[0].losingWeight[position].workout
+                val trainingList = ArrayList<FoodModel>()
+                items.forEach { item ->
+                    val name = item.name
+                    val gram =
+                        if (item.type == 0) getString(R.string.number_of_repetitions) + ": " + item.coll.toString() else getString(
+                            R.string.number_of_repetitions_time
+                        ) + ": " + item.coll.toString() + " мин"
+                    val kkal = getString(R.string.number_of_approaches) + ": " + item.collB.toString()
 
-                val foodModel = FoodModel(name, gram, kkal)
-                trainingList.add(foodModel)
+                    val foodModel = FoodModel(name, gram, kkal)
+                    trainingList.add(foodModel)
+                }
+                result = post.plan[0].losingWeight[position].kkal.toInt()
+                return trainingList
             }
-            result = post.plan[0].losingWeight[position].kkal.toInt()
-            return trainingList
-        } else if (target == 1) {
-            val items = post.plan[0].maintenance[position].workout
-            val trainingList = ArrayList<FoodModel>()
-            items.forEach { item ->
-                val name = item.name
-                val gram =
-                    if (item.type == 0) getString(R.string.number_of_repetitions) + ": " + item.coll.toString() else getString(
-                        R.string.number_of_repetitions_time
-                    ) + ": " + item.coll.toString() + " мин"
-                val kkal = getString(R.string.number_of_approaches) + ": " + item.collB.toString()
-                val foodModel = FoodModel(name, gram, kkal)
-                trainingList.add(foodModel)
+            1 -> {
+                val items = post.plan[0].maintenance[position].workout
+                val trainingList = ArrayList<FoodModel>()
+                items.forEach { item ->
+                    val name = item.name
+                    val gram =
+                        if (item.type == 0) getString(R.string.number_of_repetitions) + ": " + item.coll.toString() else getString(
+                            R.string.number_of_repetitions_time
+                        ) + ": " + item.coll.toString() + " мин"
+                    val kkal = getString(R.string.number_of_approaches) + ": " + item.collB.toString()
+                    val foodModel = FoodModel(name, gram, kkal)
+                    trainingList.add(foodModel)
+                }
+                result = post.plan[0].maintenance[position].kkal.toInt()
+                return trainingList
             }
-            result = post.plan[0].maintenance[position].kkal.toInt()
-            return trainingList
-        } else {
-            val items = post.plan[0].weightGain[position].workout
-            val trainingList = ArrayList<FoodModel>()
-            items.forEach { item ->
-                val name = item.name
-                val gram =
-                    if (item.type == 0) getString(R.string.number_of_repetitions) + ": " + item.coll.toString() else getString(
-                        R.string.number_of_repetitions_time
-                    ) + ": " + item.coll.toString() + " мин"
-                val kkal = getString(R.string.number_of_approaches) + ": " + item.collB.toString()
-                val foodModel = FoodModel(name, gram, kkal)
-                trainingList.add(foodModel)
+            else -> {
+                val items = post.plan[0].weightGain[position].workout
+                val trainingList = ArrayList<FoodModel>()
+                items.forEach { item ->
+                    val name = item.name
+                    val gram =
+                        if (item.type == 0) getString(R.string.number_of_repetitions) + ": " + item.coll.toString() else getString(
+                            R.string.number_of_repetitions_time
+                        ) + ": " + item.coll.toString() + " мин"
+                    val kkal = getString(R.string.number_of_approaches) + ": " + item.collB.toString()
+                    val foodModel = FoodModel(name, gram, kkal)
+                    trainingList.add(foodModel)
+                }
+                result = post.plan[0].weightGain[position].kkal.toInt()
+                return trainingList
             }
-            result = post.plan[0].weightGain[position].kkal.toInt()
-            return trainingList
         }
     }
 

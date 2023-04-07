@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.StringRes
 import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.FragmentStart3Binding
 
@@ -24,26 +25,22 @@ class Start3Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
-        binding.start0.setOnClickListener {
-            loadFragment(Start0Fragment())
-        }
-        binding.start1.setOnClickListener {
-            loadFragment(Start1Fragment())
-        }
-        binding.start2.setOnClickListener {
-            loadFragment(Start2Fragment())
-        }
-        binding.goBack.setOnClickListener {
-            loadFragment(Start2Fragment())
-        }
-        binding.next.setOnClickListener {
-            if (binding.editTextWeight.text.isNotEmpty() && binding.editTextHeight.text.isNotEmpty()) {
-                prefs.edit().putString("user_weight", binding.editTextWeight.text.toString()).apply()
-                prefs.edit().putString("user_height", binding.editTextHeight.text.toString()).apply()
-                loadFragment(Start4Fragment())
-            } else {
-                val toast = Toast.makeText(requireActivity(), "Заполните поля", Toast.LENGTH_SHORT)
-                toast.show()
+        binding.apply {
+            start0.setOnClickListener { loadFragment(Start0Fragment()) }
+            start1.setOnClickListener { loadFragment(Start1Fragment()) }
+            start2.setOnClickListener { loadFragment(Start2Fragment()) }
+            goBack.setOnClickListener { loadFragment(Start2Fragment()) }
+            next.setOnClickListener {
+                if (editTextWeight.text.isNotEmpty() && editTextHeight.text.isNotEmpty()) {
+                    with(prefs.edit()) {
+                        putString("user_weight", editTextWeight.text.toString())
+                        putString("user_height", editTextHeight.text.toString())
+                        apply()
+                    }
+                    loadFragment(Start4Fragment())
+                } else {
+                    toast("Заполните поля")
+                }
             }
         }
 
@@ -54,4 +51,8 @@ class Start3Fragment : Fragment() {
         transaction.replace(R.id.container, fragment)
         transaction.commit()
     }
+
+    fun Fragment.toast(message: String?, duration: Int = Toast.LENGTH_SHORT) =
+        Toast.makeText(activity, message, duration).show()
+
 }

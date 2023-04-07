@@ -3,7 +3,7 @@ package com.example.fitnessapp.pars.food
 
 import com.google.gson.annotations.SerializedName
 
-data class FoodX(
+data class FoodParameters(
     @SerializedName("ash")
     val ash: Double,
     @SerializedName("calcium")

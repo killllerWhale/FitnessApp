@@ -42,7 +42,7 @@ class ExerciseFragment : Fragment() {
         prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
 
         //создание диалога
-        var dialog = Dialog(requireContext()).apply {
+        val dialog = Dialog(requireContext()).apply {
             window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             requestWindowFeature(Window.FEATURE_NO_TITLE)
             setContentView(bindingDialog.root)

@@ -18,7 +18,7 @@ import androidx.fragment.app.Fragment
 import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.DialogFoodGramBinding
 import com.example.fitnessapp.databinding.FragmentFoodCardBinding
-import com.example.fitnessapp.pars.food.Food
+import com.example.fitnessapp.pars.food.FoodCardsList
 import com.google.gson.Gson
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -58,12 +58,14 @@ class FoodCardFragment : Fragment() {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(bindingDialog.root)
 
-        bindingDialog.addFoodGram.setOnClickListener{
-            if (bindingDialog.editText.text.toString() != "" && bindingDialog.editText.text.toString().isDigitsOnly()){
+        bindingDialog.addFoodGram.setOnClickListener {
+            if (bindingDialog.editText.text.toString() != "" && bindingDialog.editText.text.toString()
+                    .isDigitsOnly()
+            ) {
                 prefs.edit().putInt("gram", bindingDialog.editText.text.toString().toInt()).apply()
                 gram = prefs.getInt("gram", 100)
                 binding.textPortion.text = "Порция $gram грамм"
-            }else{
+            } else {
                 binding.textPortion.text = "Порция $gram грамм"
             }
             bindingDialog.editText.setText("")
@@ -71,19 +73,24 @@ class FoodCardFragment : Fragment() {
             updateFoodInfo()
         }
 
-        binding.setPortion.setOnClickListener{
+        binding.setPortion.setOnClickListener {
             dialog.show()
         }
 
-        binding.addFood.setOnClickListener{
+        binding.addFood.setOnClickListener {
             val foodProgress = prefs.getString("food_info", "0;0;0;0")
-            Log.d(TAG, foodProgress.toString())
             val food = foodProgress!!.split(";")
-            val info = (food[0].toDouble().toInt() + binding.containsKkal.text.toString().toDouble().toInt()).toString() + ";" + (food[1].toDouble().toInt() + binding.containsArbohydrates.text.toString().toDouble().toInt()).toString() + ";" + (food[2].toDouble().toInt() + binding.containsProtein.text.toString().toDouble().toInt()).toString() + ";" + (food[3].toDouble().toInt() + binding.containsFats.text.toString().toDouble().toInt()).toString()
-            Log.d(TAG, info)
-            result = binding.foodName.text.toString() + "^" + binding.textPortion.text + "^потреблено: " + binding.containsKkal.text + " ккал"
+            val info = (food[0].toDouble().toInt() + binding.containsKkal.text.toString().toDouble()
+                .toInt()).toString() + ";" + (food[1].toDouble()
+                .toInt() + binding.containsArbohydrates.text.toString().toDouble()
+                .toInt()).toString() + ";" + (food[2].toDouble()
+                .toInt() + binding.containsProtein.text.toString().toDouble()
+                .toInt()).toString() + ";" + (food[3].toDouble()
+                .toInt() + binding.containsFats.text.toString().toDouble().toInt()).toString()
+            result =
+                binding.foodName.text.toString() + "^" + binding.textPortion.text + "^потреблено: " + binding.containsKkal.text + " ккал"
             val existingResult = prefs.getString("foodStorage", "")
-            val checkData = prefs.getString("saveDateToday", "")
+            prefs.getString("saveDateToday", "")
 
             //проверка даты
             val moscowTimeZone = TimeZone.getTimeZone("Europe/Moscow")
@@ -106,11 +113,12 @@ class FoodCardFragment : Fragment() {
         }
 
         val gson = Gson()
-        val bufferedReader = BufferedReader(InputStreamReader(resources.openRawResource(R.raw.product_contents)))
+        val bufferedReader =
+            BufferedReader(InputStreamReader(resources.openRawResource(R.raw.product_contents)))
         val inputString = bufferedReader.use { it.readText() }
-        val post = gson.fromJson(inputString, Food::class.java)
-        for (i in 0..66){
-            if (prefs.getString("food_position", "") == post.food[i].name){
+        val post = gson.fromJson(inputString, FoodCardsList::class.java)
+        for (i in 0..66) {
+            if (prefs.getString("food_position", "") == post.food[i].name) {
                 position = i
                 Log.d(TAG, position.toString())
             }
@@ -119,27 +127,46 @@ class FoodCardFragment : Fragment() {
         updateFoodInfo()
 
     }
-    fun updateFoodInfo(){
+
+    private fun updateFoodInfo() {
         val prefs = context?.getSharedPreferences("themes", Context.MODE_PRIVATE)
         val gram = prefs!!.getInt("gram", 100)
         val gson = Gson()
         val bufferedReader =
             BufferedReader(InputStreamReader(resources.openRawResource(R.raw.product_contents)))
         val inputString = bufferedReader.use { it.readText() }
-        val post = gson.fromJson(inputString, Food::class.java)
-        binding.containsKkal.text = ((post.food[position].kkal / 10.0) * gram).toBigDecimal().setScale(2, RoundingMode.UP).toDouble().toString()
-        binding.containsCalcium.text = ((post.food[position].calcium / 10.0) * gram).toBigDecimal().setScale(2, RoundingMode.UP).toDouble().toString()
-        binding.containsAsh.text = ((post.food[position].ash / 10.0) * gram).toBigDecimal().setScale(2, RoundingMode.UP).toDouble().toString()
-        binding.containsFats.text = ((post.food[position].fats / 10.0) * gram).toBigDecimal().setScale(2, RoundingMode.UP).toDouble().toString()
-        binding.containsCholesterol.text = ((post.food[position].cholesterol / 10.0) * gram).toBigDecimal().setScale(2, RoundingMode.UP).toDouble().toString()
-        binding.containsFiber.text = ((post.food[position].fiber / 10.0) * gram).toBigDecimal().setScale(2, RoundingMode.UP).toDouble().toString()
-        binding.containsMagnesium.text = ((post.food[position].magnesium / 10.0) * gram).toBigDecimal().setScale(2, RoundingMode.UP).toDouble().toString()
-        binding.containsProtein.text = ((post.food[position].proteins / 10.0) * gram).toBigDecimal().setScale(2, RoundingMode.UP).toDouble().toString()
-        binding.containsArbohydrates.text = ((post.food[position].carbohydrates / 10.0) * gram).toBigDecimal().setScale(2, RoundingMode.UP).toDouble().toString()
-        binding.containsSakharov.text = ((post.food[position].sakharov / 10.0) * gram).toBigDecimal().setScale(2, RoundingMode.UP).toDouble().toString()
-        binding.containsWater.text = ((post.food[position].water / 10.0) * gram).toBigDecimal().setScale(2, RoundingMode.UP).toDouble().toString()
-        binding.containsIron.text = ((post.food[position].iron / 10.0) * gram).toBigDecimal().setScale(2, RoundingMode.UP).toDouble().toString()
+        val post = gson.fromJson(inputString, FoodCardsList::class.java)
+        with(binding) {
+            containsKkal.text = ((post.food[position].kkal / 10.0) * gram).toBigDecimal()
+                .setScale(2, RoundingMode.UP).toDouble().toString()
+            containsCalcium.text = ((post.food[position].calcium / 10.0) * gram).toBigDecimal()
+                .setScale(2, RoundingMode.UP).toDouble().toString()
+            containsAsh.text = ((post.food[position].ash / 10.0) * gram).toBigDecimal()
+                .setScale(2, RoundingMode.UP).toDouble().toString()
+            containsFats.text = ((post.food[position].fats / 10.0) * gram).toBigDecimal()
+                .setScale(2, RoundingMode.UP).toDouble().toString()
+            containsCholesterol.text =
+                ((post.food[position].cholesterol / 10.0) * gram).toBigDecimal()
+                    .setScale(2, RoundingMode.UP).toDouble().toString()
+            containsFiber.text = ((post.food[position].fiber / 10.0) * gram).toBigDecimal()
+                .setScale(2, RoundingMode.UP).toDouble().toString()
+            containsMagnesium.text = ((post.food[position].magnesium / 10.0) * gram).toBigDecimal()
+                .setScale(2, RoundingMode.UP).toDouble().toString()
+            containsProtein.text = ((post.food[position].proteins / 10.0) * gram).toBigDecimal()
+                .setScale(2, RoundingMode.UP).toDouble().toString()
+            containsArbohydrates.text =
+                ((post.food[position].carbohydrates / 10.0) * gram).toBigDecimal()
+                    .setScale(2, RoundingMode.UP).toDouble().toString()
+            containsSakharov.text = ((post.food[position].sakharov / 10.0) * gram).toBigDecimal()
+                .setScale(2, RoundingMode.UP).toDouble().toString()
+            containsWater.text = ((post.food[position].water / 10.0) * gram).toBigDecimal()
+                .setScale(2, RoundingMode.UP).toDouble().toString()
+            containsIron.text = ((post.food[position].iron / 10.0) * gram).toBigDecimal()
+                .setScale(2, RoundingMode.UP).toDouble().toString()
+        }
+
     }
+
     private fun loadFragment(fragment: Fragment) {
         val transaction = parentFragmentManager.beginTransaction()
         transaction.replace(R.id.container_food, fragment)

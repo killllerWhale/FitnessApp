@@ -70,7 +70,6 @@ class TrainingFragment : Fragment() {
     private fun updateProgressBar() {
         val progressBar: ProgressBar = binding.progressBar
         val caloriesBurned = prefs.getString("caloriesBurned", "0")
-        System.out.println(caloriesBurned!!.toInt())
         progressBar.progress = caloriesBurned!!.toInt()
         binding.kcal.text = caloriesBurned
     }
@@ -91,17 +90,20 @@ class TrainingFragment : Fragment() {
         val target = prefs.getInt("user_target", 0)
         val weightUser = prefs.getString("user_weight", "0").toString().toInt()
 
-        if (target == 0) {
-            binding.mustDo.text = (post.plan[0].losingWeight[position].kkal.toInt() * weightUser).toString()
-            binding.progressBar.max = post.plan[0].losingWeight[position].kkal.toInt() * weightUser
-        } else if (target == 1) {
-            binding.mustDo.text = (post.plan[0].maintenance[position].kkal.toInt() * weightUser).toString()
-            binding.progressBar.max = post.plan[0].maintenance[position].kkal.toInt() * weightUser
-        } else {
-            binding.mustDo.text = (post.plan[0].weightGain[position].kkal.toInt() * weightUser).toString()
-            binding.progressBar.max = post.plan[0].weightGain[position].kkal.toInt() * weightUser
+        when (target) {
+            0 -> {
+                binding.mustDo.text = (post.plan[0].losingWeight[position].kkal.toInt() * weightUser).toString()
+                binding.progressBar.max = post.plan[0].losingWeight[position].kkal.toInt() * weightUser
+            }
+            1 -> {
+                binding.mustDo.text = (post.plan[0].maintenance[position].kkal.toInt() * weightUser).toString()
+                binding.progressBar.max = post.plan[0].maintenance[position].kkal.toInt() * weightUser
+            }
+            else -> {
+                binding.mustDo.text = (post.plan[0].weightGain[position].kkal.toInt() * weightUser).toString()
+                binding.progressBar.max = post.plan[0].weightGain[position].kkal.toInt() * weightUser
+            }
         }
-        System.out.println(binding.progressBar.max.toString() + "llll")
     }
 
 }

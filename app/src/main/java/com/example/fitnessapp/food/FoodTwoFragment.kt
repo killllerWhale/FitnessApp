@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.FragmentFoodTwoBinding
-import com.example.fitnessapp.pars.food.Food
+import com.example.fitnessapp.pars.food.FoodCardsList
 import com.google.gson.Gson
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -19,7 +19,7 @@ class FoodTwoFragment : Fragment() {
 
     private lateinit var binding: FragmentFoodTwoBinding
 
-    private lateinit var foodList: ArrayList<String>;
+    private lateinit var foodList: ArrayList<String>
 
     private lateinit var foodListAdapter: ArrayAdapter<String>
 
@@ -43,7 +43,7 @@ class FoodTwoFragment : Fragment() {
         binding.listOfFood.adapter = foodListAdapter
         binding.listOfFood.setOnItemClickListener { parent, view, position, id ->
             val prefs = context?.getSharedPreferences("themes", Context.MODE_PRIVATE)
-            prefs!!.edit().putString("food_position", foodList[position].toString()).apply()
+            prefs!!.edit().putString("food_position", foodList[position]).apply()
             prefs.edit().putInt("gram", 100).apply()
             loadFragment(FoodFragment())
         }
@@ -67,7 +67,7 @@ class FoodTwoFragment : Fragment() {
         val gson = Gson()
         val bufferedReader = BufferedReader(InputStreamReader(resources.openRawResource(R.raw.product_contents)))
         val inputString = bufferedReader.use { it.readText() }
-        val post = gson.fromJson(inputString, Food::class.java)
+        val post = gson.fromJson(inputString, FoodCardsList::class.java)
         for (i in 0..66){
             foodList.add(post.food[i].name)
         }

@@ -39,7 +39,7 @@ class FoodFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
         loadDataEat()
-        if (prefs!!.getString("food_position", "") != "") {
+        if (prefs.getString("food_position", "") != "") {
             loadFragment(FoodCardFragment())
             listFragmentCard = FoodCardFragment()
             childFragmentManager.beginTransaction()
@@ -110,7 +110,6 @@ class FoodFragment : Fragment() {
     private fun loadDataEat() {
         val currentTime = Calendar.getInstance(TimeZone.getTimeZone("Europe/Moscow"))
         val currentHour = currentTime.get(Calendar.HOUR_OF_DAY)
-        System.out.println(currentHour)
 
         val textView = binding.textFoodDataNow
 
