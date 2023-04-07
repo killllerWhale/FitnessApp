@@ -166,9 +166,10 @@ class SettingsFragment : Fragment() {
     }
 
     private fun loadFragment(fragment: Fragment) {
-        val transaction = parentFragmentManager.beginTransaction()
-        transaction.replace(R.id.container, fragment)
-        transaction.commit()
+        parentFragmentManager.beginTransaction().apply {
+            replace(R.id.container, fragment)
+            commit()
+        }
     }
 
     fun Fragment.toast(message: String?, duration: Int = Toast.LENGTH_SHORT) =

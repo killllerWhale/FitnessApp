@@ -8,18 +8,18 @@ import android.os.Bundle
 import com.example.fitnessapp.R
 
 lateinit var prefs: SharedPreferences
+
 class LoadActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_load)
 
         prefs = getSharedPreferences("themes", Context.MODE_PRIVATE)
-        if (prefs.getInt("user", 0) == 1) {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }else{
-            val intent = Intent(this, EntryActivity::class.java)
-            startActivity(intent)
+        val intent = if (prefs.getInt("user", 0) == 1) {
+            Intent(this, MainActivity::class.java)
+        } else {
+            Intent(this, EntryActivity::class.java)
         }
+        startActivity(intent)
     }
 }

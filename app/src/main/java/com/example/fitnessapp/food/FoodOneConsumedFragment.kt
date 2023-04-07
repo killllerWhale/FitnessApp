@@ -16,7 +16,7 @@ class FoodOneConsumedFragment : Fragment() {
 
     lateinit var binding: FragmentFoodOneConsumedBinding
     private lateinit var existingResult: String
-    private var adapter = FoodAdapter{}
+    private var adapter = FoodAdapter {}
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,10 +55,7 @@ class FoodOneConsumedFragment : Fragment() {
 
         items.forEach { item ->
             val values = item.split("^")
-            val name = values[0]
-            val gram = values[1]
-            val kkal = values[2]
-
+            val (name, gram, kkal) = values
             val foodModel = FoodModel(name, gram, kkal)
             foodList.add(foodModel)
         }

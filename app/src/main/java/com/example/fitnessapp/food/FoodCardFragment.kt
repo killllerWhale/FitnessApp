@@ -168,8 +168,9 @@ class FoodCardFragment : Fragment() {
     }
 
     private fun loadFragment(fragment: Fragment) {
-        val transaction = parentFragmentManager.beginTransaction()
-        transaction.replace(R.id.container_food, fragment)
-        transaction.commit()
+        parentFragmentManager.beginTransaction().apply {
+            replace(R.id.container_food, fragment)
+            commit()
+        }
     }
 }

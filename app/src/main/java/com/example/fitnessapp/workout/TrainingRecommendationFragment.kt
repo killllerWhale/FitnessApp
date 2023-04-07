@@ -42,11 +42,10 @@ class TrainingRecommendationFragment : Fragment() {
                     .toInt()) + caloriesBurned!!.toInt()).toString()
             )?.apply()
 
-            val newFragment = TrainingFragment()
-            val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.container, newFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container, TrainingFragment())
+                .addToBackStack(null)
+                .commit()
         }
     }
 
@@ -73,7 +72,8 @@ class TrainingRecommendationFragment : Fragment() {
                         if (item.type == 0) getString(R.string.number_of_repetitions) + ": " + item.coll.toString() else getString(
                             R.string.number_of_repetitions_time
                         ) + ": " + item.coll.toString() + " мин"
-                    val kkal = getString(R.string.number_of_approaches) + ": " + item.collB.toString()
+                    val kkal =
+                        getString(R.string.number_of_approaches) + ": " + item.collB.toString()
 
                     val foodModel = FoodModel(name, gram, kkal)
                     trainingList.add(foodModel)
@@ -90,7 +90,8 @@ class TrainingRecommendationFragment : Fragment() {
                         if (item.type == 0) getString(R.string.number_of_repetitions) + ": " + item.coll.toString() else getString(
                             R.string.number_of_repetitions_time
                         ) + ": " + item.coll.toString() + " мин"
-                    val kkal = getString(R.string.number_of_approaches) + ": " + item.collB.toString()
+                    val kkal =
+                        getString(R.string.number_of_approaches) + ": " + item.collB.toString()
                     val foodModel = FoodModel(name, gram, kkal)
                     trainingList.add(foodModel)
                 }
@@ -106,7 +107,8 @@ class TrainingRecommendationFragment : Fragment() {
                         if (item.type == 0) getString(R.string.number_of_repetitions) + ": " + item.coll.toString() else getString(
                             R.string.number_of_repetitions_time
                         ) + ": " + item.coll.toString() + " мин"
-                    val kkal = getString(R.string.number_of_approaches) + ": " + item.collB.toString()
+                    val kkal =
+                        getString(R.string.number_of_approaches) + ": " + item.collB.toString()
                     val foodModel = FoodModel(name, gram, kkal)
                     trainingList.add(foodModel)
                 }

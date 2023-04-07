@@ -20,26 +20,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         loadFragment(ProfileFragment())
-        binding.bottomNavigation.selectedItemId = R.id.profile
-        binding.bottomNavigation.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.training -> {
-                    loadFragment(TrainingFragment())
-                    true
+        binding.bottomNavigation.apply {
+            setOnItemSelectedListener {
+                val fragment = when (it.itemId) {
+                    R.id.training -> TrainingFragment()
+                    R.id.food -> FoodFragment()
+                    R.id.progress -> ProgressFragment()
+                    else -> ProfileFragment()
                 }
-                R.id.food -> {
-                    loadFragment(FoodFragment())
-                    true
-                }
-                R.id.progress -> {
-                    loadFragment(ProgressFragment())
-                    true
-                }
-                else -> {
-                    loadFragment(ProfileFragment())
-                    true
-                }
+                loadFragment(fragment)
+                true
             }
+            selectedItemId = R.id.profile
         }
     }
 

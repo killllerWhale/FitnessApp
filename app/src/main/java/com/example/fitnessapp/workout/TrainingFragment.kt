@@ -39,11 +39,10 @@ class TrainingFragment : Fragment() {
         loadFragment(WorkoutRecommendationFragment())
         binding.workoutRecommendation.setBackgroundResource(R.drawable.choose_purple_corners)
         binding.buttonAddWorkout.setOnClickListener{
-            val newFragment = AddWorkoutFragment()
-            val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.container, newFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container, AddWorkoutFragment())
+                .addToBackStack(null)
+                .commit()
         }
 
         binding.myTraining.setOnClickListener{

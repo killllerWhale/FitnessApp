@@ -40,11 +40,10 @@ class WorkoutRecommendationFragment : Fragment() {
     private fun initial() {
         adapter = TraningRecomAdapter { position ->
             prefs.edit().putInt("position", position).apply()
-            val newFragment = ExerciseWorkoutFragment()
-            val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.container, newFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container, ExerciseWorkoutFragment())
+                .addToBackStack(null)
+                .commit()
         }
         binding.rvTraningRec.adapter = adapter
         adapter.setList(myTraning())

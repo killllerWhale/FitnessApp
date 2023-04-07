@@ -67,10 +67,9 @@ class ExerciseWorkoutFragment : Fragment() {
         }
 
         binding.goBack.setOnClickListener {
-            val newFragment = TrainingFragment()
-            val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.container, newFragment)
-            transaction.commit()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container, TrainingFragment())
+                .commit()
         }
 
     }

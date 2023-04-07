@@ -17,6 +17,7 @@ import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.DialogWaterBinding
 import com.example.fitnessapp.databinding.FragmentProfileBinding
 import com.example.fitnessapp.pars.nutrition.Recomend
+import com.example.fitnessapp.workout.ExerciseWorkoutFragment
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_entry.*
 import java.io.BufferedReader
@@ -68,11 +69,10 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         }
 
         binding.goSettings.setOnClickListener {
-            val newFragment = SettingsFragment()
-            val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.container, newFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container, SettingsFragment())
+                .addToBackStack(null)
+                .commit()
         }
 
         binding.buttonGoWater.setOnClickListener {

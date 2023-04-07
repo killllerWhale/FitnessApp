@@ -116,12 +116,11 @@ class ExerciseFragment : Fragment() {
             binding.videoInstruction.setBackgroundResource(R.drawable.choose_purple_corners)
             binding.description.setBackgroundResource(R.drawable.color_background_gray_corners)
         }
-
+        
         binding.goBack.setOnClickListener {
-            val newFragment = AddWorkoutFragment()
-            val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.container, newFragment)
-            transaction.commit()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container, AddWorkoutFragment())
+                .commit()
         }
 
     }

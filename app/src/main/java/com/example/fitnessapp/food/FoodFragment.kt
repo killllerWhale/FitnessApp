@@ -20,10 +20,8 @@ import java.util.*
 class FoodFragment : Fragment() {
 
     lateinit var binding: FragmentFoodBinding
-
     lateinit var listFragmentTwo: FoodTwoFragment
     lateinit var prefs: SharedPreferences
-
     private lateinit var listFragmentCard: FoodCardFragment
 
     override fun onCreateView(
@@ -96,15 +94,15 @@ class FoodFragment : Fragment() {
     }
 
     private fun loadFragment(fragment: Fragment) {
-        val transaction = parentFragmentManager.beginTransaction()
-        transaction.replace(R.id.container_food, fragment)
-        transaction.commit()
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.container_food, fragment)
+            .commit()
     }
 
     private fun loadParentFragment(fragment: Fragment) {
-        val transaction = parentFragmentManager.beginTransaction()
-        transaction.replace(R.id.container, fragment)
-        transaction.commit()
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.container, fragment)
+            .commit()
     }
 
     private fun loadDataEat() {
