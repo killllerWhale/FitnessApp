@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.FragmentExerciseWorkoutBinding
-import com.example.fitnessapp.pars.traningRecommendation.plan
+import com.example.fitnessapp.pars.traningRecommendation.TrainingRecommendationsList
 import com.google.gson.Gson
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -36,7 +36,7 @@ class ExerciseWorkoutFragment : Fragment() {
         val bufferedReader =
             BufferedReader(InputStreamReader(resources.openRawResource(R.raw.workout_recommendation)))
         val inputString = bufferedReader.use { it.readText() }
-        val post = gson.fromJson(inputString, plan::class.java)
+        val post = gson.fromJson(inputString, TrainingRecommendationsList::class.java)
 
         val target = prefs.getInt("user_target", 0)
         when (target) {

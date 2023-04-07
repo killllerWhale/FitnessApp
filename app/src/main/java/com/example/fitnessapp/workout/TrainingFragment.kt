@@ -12,7 +12,7 @@ import android.widget.ProgressBar
 import androidx.activity.OnBackPressedCallback
 import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.FragmentTrainingBinding
-import com.example.fitnessapp.pars.traningRecommendation.plan
+import com.example.fitnessapp.pars.traningRecommendation.TrainingRecommendationsList
 import com.google.gson.Gson
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -86,7 +86,7 @@ class TrainingFragment : Fragment() {
         val bufferedReader =
             BufferedReader(InputStreamReader(resources.openRawResource(R.raw.workout_recommendation)))
         val inputString = bufferedReader.use { it.readText() }
-        val post = gson.fromJson(inputString, plan::class.java)
+        val post = gson.fromJson(inputString, TrainingRecommendationsList::class.java)
         val target = prefs.getInt("user_target", 0)
         val weightUser = prefs.getString("user_weight", "0").toString().toInt()
 

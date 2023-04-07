@@ -11,7 +11,7 @@ import com.example.fitnessapp.R
 import com.example.fitnessapp.adapter.TraningRecomAdapter
 import com.example.fitnessapp.databinding.FragmentWorkoutRecommendationBinding
 import com.example.fitnessapp.model.TraningRecomModel
-import com.example.fitnessapp.pars.traningRecommendation.plan
+import com.example.fitnessapp.pars.traningRecommendation.TrainingRecommendationsList
 import com.google.gson.Gson
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -55,7 +55,7 @@ class WorkoutRecommendationFragment : Fragment() {
         val bufferedReader =
             BufferedReader(InputStreamReader(resources.openRawResource(R.raw.workout_recommendation)))
         val inputString = bufferedReader.use { it.readText() }
-        val post = gson.fromJson(inputString, plan::class.java)
+        val post = gson.fromJson(inputString, TrainingRecommendationsList::class.java)
 
         val traningList = ArrayList<TraningRecomModel>()
         when (prefs.getInt("user_target", 0)) {

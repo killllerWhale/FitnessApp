@@ -11,5 +11,5 @@ data class WeightGain(
     @SerializedName("kkal")
     val kkal: String,
     @SerializedName("workout")
-    val workout: List<Workout>
+    val workout: List<TrainingContent>
 )
