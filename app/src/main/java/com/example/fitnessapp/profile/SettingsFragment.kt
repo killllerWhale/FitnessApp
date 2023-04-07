@@ -18,7 +18,6 @@ import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import com.example.fitnessapp.activity.EntryActivity
 import com.example.fitnessapp.R
-import com.example.fitnessapp.databinding.DialogChangeTargetBinding
 import com.example.fitnessapp.databinding.DialogChangeWeightBinding
 import com.example.fitnessapp.databinding.FrafmentSettingBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -32,9 +31,7 @@ class SettingsFragment : Fragment() {
     private val bindingDialog: DialogChangeWeightBinding by lazy {
         DialogChangeWeightBinding.inflate(layoutInflater)
     }
-    private val bindingDialogTarget: DialogChangeTargetBinding by lazy {
-        DialogChangeTargetBinding.inflate(layoutInflater)
-    }
+
     lateinit var prefs: SharedPreferences
     var mAuth: FirebaseAuth? = null
     var currentUser: FirebaseUser? = null
@@ -60,12 +57,6 @@ class SettingsFragment : Fragment() {
             setContentView(bindingDialog.root)
         }
 
-        dialogTarget = Dialog(requireContext()).apply {
-            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            requestWindowFeature(Window.FEATURE_NO_TITLE)
-            setContentView(bindingDialogTarget.root)
-        }
-
 
         myDataBase = FirebaseDatabase.getInstance().getReference(USER_KEY)
         mAuth = FirebaseAuth.getInstance()
@@ -85,7 +76,6 @@ class SettingsFragment : Fragment() {
         }
 
         binding.changeTarget.setOnClickListener {
-            dialogTarget.show()
             chengrTarget()
         }
 
@@ -102,9 +92,6 @@ class SettingsFragment : Fragment() {
             dialog.dismiss()
         }
 
-        bindingDialogTarget.cancellation.setOnClickListener {
-            dialogTarget.dismiss()
-        }
 
         bindingDialog.enter.setOnClickListener {
             val weight = bindingDialog.editText3.text.toString()
@@ -122,11 +109,11 @@ class SettingsFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun chengrTarget() {
-        val popupMenu = PopupMenu(requireContext(), bindingDialogTarget.targetButtonGroup)
-        popupMenu.menuInflater.inflate(R.menu.menu_target, popupMenu.menu)
+        val popupMenu = PopupMenu(requireContext(), binding.changeTarget)
+        popupMenu.inflate(R.menu.menu_target)
 
         // Get the MaterialButton view for the popup menu
-        val targetButton = bindingDialogTarget.targetButtonGroup
+        val targetButton = binding.changeTarget
 
         // Attach the popup menu to the MaterialButton view
         popupMenu.setOnMenuItemClickListener { menuItem ->

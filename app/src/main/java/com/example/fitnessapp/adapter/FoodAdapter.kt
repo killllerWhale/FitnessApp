@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.item_traning_layout.view.*
 import kotlinx.android.synthetic.main.item_traning_layout.view.tv_kkal
 import kotlinx.android.synthetic.main.item_traning_layout.view.tv_name
 
-class FoodAdapter: RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
+class FoodAdapter(private val onItemClickListener: (position: Int) -> Unit): RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
 
     private var foodList = emptyList<FoodModel>()
 
@@ -27,6 +27,9 @@ class FoodAdapter: RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
         holder.itemView.tv_name.text = foodList[position].name
         holder.itemView.tv_kkal.text = foodList[position].kkal
         holder.itemView.tv_gram.text = foodList[position].gram
+        holder.itemView.setOnClickListener {
+            onItemClickListener.invoke(position)
+        }
     }
 
     override fun getItemCount(): Int {

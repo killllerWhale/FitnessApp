@@ -28,7 +28,8 @@ class DescriptionExerciseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
+        binding.calculationWeightCol.text = prefs.getString("user_weight", "0")
         startParsing()
 
     }
@@ -44,12 +45,12 @@ class DescriptionExerciseFragment : Fragment() {
         val exercise = post.exercise[prefs!!.getInt("training", 0)]
         if (exercise.type == 0) {
             binding.kkalBurned.text =
-                "За каждый подход из 15 повторений будет сожжено калорий: " + (exercise.expenditure * 15).toString()
+                getString(R.string.Text1) + (exercise.expenditure * 15).toString()
         } else {
             val result = binding.calculationWeightCol.text.toString().toInt() * exercise.expenditure * 10
             val roundedResult = kotlin.math.round(result).toInt()
             binding.kkalBurned.text =
-                "За десять минут повторения упражнения можно сжечь калорий: $roundedResult"
+                getString(R.string.Text2) + "$roundedResult"
         }
 //        (binding.calculationWeightCol.text.toString().toInt()
         binding.mechanicsDescription.text = post.exercise[prefs.getInt("training", 0)].mechanics

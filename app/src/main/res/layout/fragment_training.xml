@@ -54,17 +54,15 @@
                 android:id="@+id/static_text_20"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:breakStrategy="high_quality"
                 android:fontFamily="@font/lora_bold"
                 android:gravity="center"
-                android:text="@string/required_perform"
+                android:text="@string/required_perform_recom"
                 android:textColor="@color/white"
-                android:breakStrategy="high_quality"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@+id/progress_bar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/progress_bar"
-                app:layout_constraintTop_toTopOf="@+id/progress_bar"
-                app:layout_constraintVertical_bias="0.8" />
+                app:layout_constraintTop_toTopOf="@+id/static_text_21" />
 
             <TextView
                 android:id="@+id/must_do"
@@ -85,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lora_bold"
                 android:gravity="center"
-                android:text="@string/completed_exercises"
+                android:text="@string/required_perform_kcal"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 android:breakStrategy="high_quality"
@@ -96,7 +94,7 @@
                 app:layout_constraintVertical_bias="0.8" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/kcal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -137,12 +135,12 @@
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="40dp"
                 android:background="@drawable/rect_gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/progress_bar">
+                app:layout_constraintTop_toBottomOf="@+id/static_text_20">
 
                 <ImageView
                     android:id="@+id/static_svg_0"

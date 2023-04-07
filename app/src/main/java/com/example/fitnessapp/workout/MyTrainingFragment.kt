@@ -16,7 +16,6 @@ import kotlin.collections.ArrayList
 class MyTrainingFragment : Fragment() {
 
     private lateinit var adapter: TraningAdapter
-    private lateinit var recyclerView: RecyclerView
     private lateinit var binding: FragmentMyTrainingBinding
     private lateinit var existingResult: String
 
@@ -47,9 +46,8 @@ class MyTrainingFragment : Fragment() {
     }
 
     private fun initial() {
-        recyclerView = binding.rvTraning
         adapter = TraningAdapter()
-        recyclerView.adapter = adapter
+        binding.rvTraning.adapter = adapter
         adapter.setList(myTraning())
     }
 

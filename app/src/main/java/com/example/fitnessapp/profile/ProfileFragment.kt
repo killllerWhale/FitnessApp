@@ -26,12 +26,9 @@ import java.util.*
 
 class ProfileFragment : Fragment(), View.OnClickListener {
 
-    private val binding: FragmentProfileBinding by lazy {
-        FragmentProfileBinding.inflate(layoutInflater, container, false)
-    }
-    private val bindingDialog: DialogWaterBinding by lazy {
-        DialogWaterBinding.inflate(layoutInflater)
-    }
+    private lateinit var binding: FragmentProfileBinding
+    private lateinit var bindingDialog: DialogWaterBinding
+
 
     lateinit var prefs: SharedPreferences
     private lateinit var boolArrayGlass: BooleanArray
@@ -42,12 +39,13 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
+        binding = FragmentProfileBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        bindingDialog = DialogWaterBinding.inflate(layoutInflater)
         boolArrayGlass = BooleanArray(8)
         boolArrayBottle = BooleanArray(8)
 
@@ -118,16 +116,25 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         val recommendation = post.nutrition[target]
 
         with(binding) {
-            maxCarbs.text = (recommendation.generalIndicators[0].carbohydrates*weightUser).toInt().toString()
-            maxProtein.text = (recommendation.generalIndicators[0].proteins*weightUser).toInt().toString()
-            maxFats.text = (recommendation.generalIndicators[0].fats*weightUser).toInt().toString()
-            textViewProgress.text = (recommendation.generalIndicators[0].kkal*weightUser).toInt().toString()
-            progressBar.max = (recommendation.generalIndicators[0].kkal*weightUser).toInt()
-            breakfastRecommendation.text = (recommendation.breakfast[0].kkal*weightUser).toInt().toString()
-            lunchRecommendation.text = (recommendation.lunch[0].kkal*weightUser).toInt().toString()
-            dinnerRecommendation.text = (recommendation.supper[0].kkal*weightUser).toInt().toString()
-            snackRecommendation.text = (recommendation.snack[0].kkal*weightUser).toInt().toString()
-            waterRecommendation.text = (recommendation.generalIndicators[0].water.toInt()*weightUser).toString()
+            maxCarbs.text =
+                (recommendation.generalIndicators[0].carbohydrates * weightUser).toInt().toString()
+            maxProtein.text =
+                (recommendation.generalIndicators[0].proteins * weightUser).toInt().toString()
+            maxFats.text =
+                (recommendation.generalIndicators[0].fats * weightUser).toInt().toString()
+            textViewProgress.text =
+                (recommendation.generalIndicators[0].kkal * weightUser).toInt().toString()
+            progressBar.max = (recommendation.generalIndicators[0].kkal * weightUser).toInt()
+            breakfastRecommendation.text =
+                (recommendation.breakfast[0].kkal * weightUser).toInt().toString()
+            lunchRecommendation.text =
+                (recommendation.lunch[0].kkal * weightUser).toInt().toString()
+            dinnerRecommendation.text =
+                (recommendation.supper[0].kkal * weightUser).toInt().toString()
+            snackRecommendation.text =
+                (recommendation.snack[0].kkal * weightUser).toInt().toString()
+            waterRecommendation.text =
+                (recommendation.generalIndicators[0].water.toInt() * weightUser).toString()
         }
 
 
@@ -141,11 +148,11 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     private fun updateProgressBar(s: String) {
         binding.setKkal.text = s
-        if ((binding.textViewProgress.text.toString().toInt() - s.toInt()) < 0){
+        if ((binding.textViewProgress.text.toString().toInt() - s.toInt()) < 0) {
             binding.textViewProgress.text = "0"
-        }
-        else{
-            binding.textViewProgress.text = (binding.textViewProgress.text.toString().toInt() - s.toInt()).toString()
+        } else {
+            binding.textViewProgress.text =
+                (binding.textViewProgress.text.toString().toInt() - s.toInt()).toString()
         }
         binding.progressBar.progress = s.toInt()
     }
@@ -175,26 +182,26 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun updateWater(){
+    private fun updateWater() {
         val water = prefs.getString("water", "0;0").toString()
         val waters = water.split(";")
         binding.waterMl.text = (waters[0].toInt() * 250 + waters[1].toInt() * 500).toString()
     }
 
-    private fun drawingWater(water:String){
+    private fun drawingWater(water: String) {
         val array = water.split(";")
-        when (array[0].toInt()){
-            1 ->{
+        when (array[0].toInt()) {
+            1 -> {
                 bindingDialog.waterGlass0.setBackgroundResource(R.drawable.icon_water)
                 boolArrayGlass[0] = true
             }
-            2 ->{
+            2 -> {
                 bindingDialog.waterGlass0.setBackgroundResource(R.drawable.icon_water)
                 bindingDialog.waterGlass1.setBackgroundResource(R.drawable.icon_water)
                 boolArrayGlass[0] = true
                 boolArrayGlass[1] = true
             }
-            3 ->{
+            3 -> {
                 bindingDialog.waterGlass0.setBackgroundResource(R.drawable.icon_water)
                 bindingDialog.waterGlass1.setBackgroundResource(R.drawable.icon_water)
                 bindingDialog.waterGlass2.setBackgroundResource(R.drawable.icon_water)
@@ -202,7 +209,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 boolArrayGlass[1] = true
                 boolArrayGlass[2] = true
             }
-            4 ->{
+            4 -> {
                 bindingDialog.waterGlass0.setBackgroundResource(R.drawable.icon_water)
                 bindingDialog.waterGlass1.setBackgroundResource(R.drawable.icon_water)
                 bindingDialog.waterGlass2.setBackgroundResource(R.drawable.icon_water)
@@ -212,7 +219,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 boolArrayGlass[2] = true
                 boolArrayGlass[3] = true
             }
-            5 ->{
+            5 -> {
                 bindingDialog.waterGlass0.setBackgroundResource(R.drawable.icon_water)
                 bindingDialog.waterGlass1.setBackgroundResource(R.drawable.icon_water)
                 bindingDialog.waterGlass2.setBackgroundResource(R.drawable.icon_water)
@@ -224,7 +231,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 boolArrayGlass[3] = true
                 boolArrayGlass[4] = true
             }
-            6 ->{
+            6 -> {
                 bindingDialog.waterGlass0.setBackgroundResource(R.drawable.icon_water)
                 bindingDialog.waterGlass1.setBackgroundResource(R.drawable.icon_water)
                 bindingDialog.waterGlass2.setBackgroundResource(R.drawable.icon_water)
@@ -238,7 +245,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 boolArrayGlass[4] = true
                 boolArrayGlass[5] = true
             }
-            7 ->{
+            7 -> {
                 bindingDialog.waterGlass0.setBackgroundResource(R.drawable.icon_water)
                 bindingDialog.waterGlass1.setBackgroundResource(R.drawable.icon_water)
                 bindingDialog.waterGlass2.setBackgroundResource(R.drawable.icon_water)
@@ -254,7 +261,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 boolArrayGlass[5] = true
                 boolArrayGlass[6] = true
             }
-            8 ->{
+            8 -> {
                 bindingDialog.waterGlass0.setBackgroundResource(R.drawable.icon_water)
                 bindingDialog.waterGlass1.setBackgroundResource(R.drawable.icon_water)
                 bindingDialog.waterGlass2.setBackgroundResource(R.drawable.icon_water)
@@ -273,18 +280,18 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 boolArrayGlass[7] = true
             }
         }
-        when (array[1].toInt()){
-            1 ->{
+        when (array[1].toInt()) {
+            1 -> {
                 bindingDialog.waterBottle0.setBackgroundResource(R.drawable.icon_bottle_water)
                 boolArrayBottle[0] = true
             }
-            2 ->{
+            2 -> {
                 bindingDialog.waterBottle0.setBackgroundResource(R.drawable.icon_bottle_water)
                 bindingDialog.waterBottle1.setBackgroundResource(R.drawable.icon_bottle_water)
                 boolArrayBottle[0] = true
                 boolArrayBottle[1] = true
             }
-            3 ->{
+            3 -> {
                 bindingDialog.waterBottle0.setBackgroundResource(R.drawable.icon_bottle_water)
                 bindingDialog.waterBottle1.setBackgroundResource(R.drawable.icon_bottle_water)
                 bindingDialog.waterBottle2.setBackgroundResource(R.drawable.icon_bottle_water)
@@ -292,7 +299,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 boolArrayBottle[1] = true
                 boolArrayBottle[2] = true
             }
-            4 ->{
+            4 -> {
                 bindingDialog.waterBottle0.setBackgroundResource(R.drawable.icon_bottle_water)
                 bindingDialog.waterBottle1.setBackgroundResource(R.drawable.icon_bottle_water)
                 bindingDialog.waterBottle2.setBackgroundResource(R.drawable.icon_bottle_water)
@@ -302,7 +309,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 boolArrayBottle[2] = true
                 boolArrayBottle[3] = true
             }
-            5 ->{
+            5 -> {
                 bindingDialog.waterBottle0.setBackgroundResource(R.drawable.icon_bottle_water)
                 bindingDialog.waterBottle1.setBackgroundResource(R.drawable.icon_bottle_water)
                 bindingDialog.waterBottle2.setBackgroundResource(R.drawable.icon_bottle_water)
@@ -314,7 +321,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 boolArrayBottle[3] = true
                 boolArrayBottle[4] = true
             }
-            6 ->{
+            6 -> {
                 bindingDialog.waterBottle0.setBackgroundResource(R.drawable.icon_bottle_water)
                 bindingDialog.waterBottle1.setBackgroundResource(R.drawable.icon_bottle_water)
                 bindingDialog.waterBottle2.setBackgroundResource(R.drawable.icon_bottle_water)
@@ -328,7 +335,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 boolArrayBottle[4] = true
                 boolArrayBottle[5] = true
             }
-            7 ->{
+            7 -> {
                 bindingDialog.waterBottle0.setBackgroundResource(R.drawable.icon_bottle_water)
                 bindingDialog.waterBottle1.setBackgroundResource(R.drawable.icon_bottle_water)
                 bindingDialog.waterBottle2.setBackgroundResource(R.drawable.icon_bottle_water)
@@ -344,7 +351,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 boolArrayBottle[5] = true
                 boolArrayBottle[6] = true
             }
-            8 ->{
+            8 -> {
                 bindingDialog.waterBottle0.setBackgroundResource(R.drawable.icon_bottle_water)
                 bindingDialog.waterBottle1.setBackgroundResource(R.drawable.icon_bottle_water)
                 bindingDialog.waterBottle2.setBackgroundResource(R.drawable.icon_bottle_water)
@@ -369,175 +376,175 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.water_glass_0 -> {
-                val value = if (!boolArrayGlass[0]){
+                val value = if (!boolArrayGlass[0]) {
                     bindingDialog.waterGlass0.setBackgroundResource(R.drawable.icon_water)
                     true
-                }else{
+                } else {
                     bindingDialog.waterGlass0.setBackgroundResource(R.drawable.icon_glass_water_null)
                     false
                 }
                 boolArrayGlass[0] = value
             }
             R.id.water_glass_1 -> {
-                val value = if (!boolArrayGlass[1]){
+                val value = if (!boolArrayGlass[1]) {
                     bindingDialog.waterGlass1.setBackgroundResource(R.drawable.icon_water)
                     true
-                }else{
+                } else {
                     bindingDialog.waterGlass1.setBackgroundResource(R.drawable.icon_glass_water_null)
                     false
                 }
                 boolArrayGlass[1] = value
             }
             R.id.water_glass_2 -> {
-                val value = if (!boolArrayGlass[2]){
+                val value = if (!boolArrayGlass[2]) {
                     bindingDialog.waterGlass2.setBackgroundResource(R.drawable.icon_water)
                     true
-                }else{
+                } else {
                     bindingDialog.waterGlass2.setBackgroundResource(R.drawable.icon_glass_water_null)
                     false
                 }
                 boolArrayGlass[2] = value
             }
             R.id.water_glass_3 -> {
-                val value = if (!boolArrayGlass[3]){
+                val value = if (!boolArrayGlass[3]) {
                     bindingDialog.waterGlass3.setBackgroundResource(R.drawable.icon_water)
                     true
-                }else{
+                } else {
                     bindingDialog.waterGlass3.setBackgroundResource(R.drawable.icon_glass_water_null)
                     false
                 }
                 boolArrayGlass[3] = value
             }
             R.id.water_glass_4 -> {
-                val value = if (!boolArrayGlass[4]){
+                val value = if (!boolArrayGlass[4]) {
                     bindingDialog.waterGlass4.setBackgroundResource(R.drawable.icon_water)
                     true
-                }else{
+                } else {
                     bindingDialog.waterGlass4.setBackgroundResource(R.drawable.icon_glass_water_null)
                     false
                 }
                 boolArrayGlass[4] = value
             }
             R.id.water_glass_5 -> {
-                val value = if (!boolArrayGlass[5]){
+                val value = if (!boolArrayGlass[5]) {
                     bindingDialog.waterGlass5.setBackgroundResource(R.drawable.icon_water)
                     true
-                }else{
+                } else {
                     bindingDialog.waterGlass5.setBackgroundResource(R.drawable.icon_glass_water_null)
                     false
                 }
                 boolArrayGlass[5] = value
             }
             R.id.water_glass_6 -> {
-                val value = if (!boolArrayGlass[6]){
+                val value = if (!boolArrayGlass[6]) {
                     bindingDialog.waterGlass6.setBackgroundResource(R.drawable.icon_water)
                     true
-                }else{
+                } else {
                     bindingDialog.waterGlass6.setBackgroundResource(R.drawable.icon_glass_water_null)
                     false
                 }
                 boolArrayGlass[6] = value
             }
             R.id.water_glass_7 -> {
-                val value = if (!boolArrayGlass[7]){
+                val value = if (!boolArrayGlass[7]) {
                     bindingDialog.waterGlass7.setBackgroundResource(R.drawable.icon_water)
                     true
-                }else{
+                } else {
                     bindingDialog.waterGlass7.setBackgroundResource(R.drawable.icon_glass_water_null)
                     false
                 }
                 boolArrayGlass[7] = value
             }
             R.id.water_bottle_0 -> {
-                val value = if (!boolArrayBottle[0]){
+                val value = if (!boolArrayBottle[0]) {
                     bindingDialog.waterBottle0.setBackgroundResource(R.drawable.icon_bottle_water)
                     true
-                }else{
+                } else {
                     bindingDialog.waterBottle0.setBackgroundResource(R.drawable.icon_bottle_water_null)
                     false
                 }
                 boolArrayBottle[0] = value
             }
             R.id.water_bottle_1 -> {
-                val value = if (!boolArrayBottle[1]){
+                val value = if (!boolArrayBottle[1]) {
                     bindingDialog.waterBottle1.setBackgroundResource(R.drawable.icon_bottle_water)
                     true
-                }else{
+                } else {
                     bindingDialog.waterBottle1.setBackgroundResource(R.drawable.icon_bottle_water_null)
                     false
                 }
                 boolArrayBottle[1] = value
             }
             R.id.water_bottle_2 -> {
-                val value = if (!boolArrayBottle[2]){
+                val value = if (!boolArrayBottle[2]) {
                     bindingDialog.waterBottle2.setBackgroundResource(R.drawable.icon_bottle_water)
                     true
-                }else{
+                } else {
                     bindingDialog.waterBottle2.setBackgroundResource(R.drawable.icon_bottle_water_null)
                     false
                 }
                 boolArrayBottle[2] = value
             }
             R.id.water_bottle_3 -> {
-                val value = if (!boolArrayBottle[3]){
+                val value = if (!boolArrayBottle[3]) {
                     bindingDialog.waterBottle3.setBackgroundResource(R.drawable.icon_bottle_water)
                     true
-                }else{
+                } else {
                     bindingDialog.waterBottle3.setBackgroundResource(R.drawable.icon_bottle_water_null)
                     false
                 }
                 boolArrayBottle[3] = value
             }
             R.id.water_bottle_4 -> {
-                val value = if (!boolArrayBottle[4]){
+                val value = if (!boolArrayBottle[4]) {
                     bindingDialog.waterBottle4.setBackgroundResource(R.drawable.icon_bottle_water)
                     true
-                }else{
+                } else {
                     bindingDialog.waterBottle4.setBackgroundResource(R.drawable.icon_bottle_water_null)
                     false
                 }
                 boolArrayBottle[4] = value
             }
             R.id.water_bottle_5 -> {
-                val value = if (!boolArrayBottle[5]){
+                val value = if (!boolArrayBottle[5]) {
                     bindingDialog.waterBottle5.setBackgroundResource(R.drawable.icon_bottle_water)
                     true
-                }else{
+                } else {
                     bindingDialog.waterBottle5.setBackgroundResource(R.drawable.icon_bottle_water_null)
                     false
                 }
                 boolArrayBottle[5] = value
             }
             R.id.water_bottle_6 -> {
-                val value = if (!boolArrayBottle[6]){
+                val value = if (!boolArrayBottle[6]) {
                     bindingDialog.waterBottle6.setBackgroundResource(R.drawable.icon_bottle_water)
                     true
-                }else{
+                } else {
                     bindingDialog.waterBottle6.setBackgroundResource(R.drawable.icon_bottle_water_null)
                     false
                 }
                 boolArrayBottle[6] = value
             }
             R.id.water_bottle_7 -> {
-                val value = if (!boolArrayBottle[7]){
+                val value = if (!boolArrayBottle[7]) {
                     bindingDialog.waterBottle7.setBackgroundResource(R.drawable.icon_bottle_water)
                     true
-                }else{
+                } else {
                     bindingDialog.waterBottle7.setBackgroundResource(R.drawable.icon_bottle_water_null)
                     false
                 }
                 boolArrayBottle[7] = value
             }
-            R.id.add_water_button ->{
+            R.id.add_water_button -> {
                 var glassOk = 0
-                for (i in boolArrayGlass){
-                    if (i){
+                for (i in boolArrayGlass) {
+                    if (i) {
                         glassOk += 1
                     }
                 }
                 var bottleOk = 0
-                for (i in boolArrayBottle){
-                    if (i){
+                for (i in boolArrayBottle) {
+                    if (i) {
                         bottleOk += 1
                     }
                 }

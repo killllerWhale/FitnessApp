@@ -39,7 +39,7 @@ class ExerciseFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         bindingDialog = DialogExerciseBinding.inflate(layoutInflater)
-        prefs = context?.getSharedPreferences("themes", Context.MODE_PRIVATE)!!
+        prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
 
         //создание диалога
         var dialog = Dialog(requireContext()).apply {
@@ -63,13 +63,14 @@ class ExerciseFragment : Fragment() {
 
         bindingDialog.addExerciseButton.setOnClickListener {
             //обработка инфы с диалога
+            val weightUser = prefs.getString("user_weight", "0").toString().toInt()
             if (exercise.type == 0) {
                 kkal = (exercise.expenditure * bindingDialog.editText.text.toString()
                     .toInt() * bindingDialog.editText2.text.toString().toInt()).toInt()
                 result = exercise.name + "^ подходов: " + bindingDialog.editText2.text.toString() + ", повторений: " + bindingDialog.editText.text.toString() + "^ сожжено: " + kkal.toString() + " ккал"
             } else {
                 kkal = (exercise.expenditure * bindingDialog.editText.text.toString()
-                    .toInt() * bindingDialog.editText2.text.toString().toInt() * 80).toInt()
+                    .toInt() * bindingDialog.editText2.text.toString().toInt() * weightUser).toInt()
                 result = exercise.name + "^ подходов: " + bindingDialog.editText2.text.toString() + ", время (мин): " + bindingDialog.editText.text.toString() + "^ сожжено: " + kkal.toString() + " ккал"
             }
             val existingResult = prefs.getString("trainingStorage", "")
@@ -82,11 +83,14 @@ class ExerciseFragment : Fragment() {
 
             //сохранение инфы о упражнении
             if (existingResult.isNullOrEmpty() || currentDate > lastUpdated) {
-                prefs.edit()?.putString("trainingStorage", result)?.apply()
+                prefs.edit().putString("trainingStorage", result).apply()
                 prefs.edit().putInt("lastUpdated", currentDate).apply()
+                prefs.edit().putString("caloriesBurned", kkal.toString())?.apply()
             } else {
                 val updatedResult = "$existingResult;$result"
-                prefs.edit()?.putString("trainingStorage", updatedResult)?.apply()
+                prefs.edit().putString("trainingStorage", updatedResult).apply()
+                val caloriesBurned = prefs.getString("caloriesBurned", "0")
+                prefs.edit().putString("caloriesBurned", (kkal + caloriesBurned!!.toInt()).toString())?.apply()
             }
             dialog.dismiss()
         }

@@ -21,7 +21,6 @@ class WorkoutRecommendationFragment : Fragment() {
 
     private lateinit var binding: FragmentWorkoutRecommendationBinding
     private lateinit var adapter: TraningRecomAdapter
-    private lateinit var recyclerView: RecyclerView
     private lateinit var prefs: SharedPreferences
 
     override fun onCreateView(
@@ -40,7 +39,6 @@ class WorkoutRecommendationFragment : Fragment() {
     }
 
     private fun initial() {
-        recyclerView = binding.rvTraningRec
         adapter = TraningRecomAdapter { position ->
             prefs.edit().putInt("position", position).apply()
             val newFragment = ExerciseWorkoutFragment()
@@ -49,7 +47,7 @@ class WorkoutRecommendationFragment : Fragment() {
             transaction.addToBackStack(null)
             transaction.commit()
         }
-        recyclerView.adapter = adapter
+        binding.rvTraningRec.adapter = adapter
         adapter.setList(myTraning())
     }
 
@@ -64,16 +62,17 @@ class WorkoutRecommendationFragment : Fragment() {
         val traningList = ArrayList<TraningRecomModel>()
         when (target) {
             0 -> {
-                traningList.add(TraningRecomModel(post.plan[0].losingWeight[0].name,post.plan[0].losingWeight[0].kkal))
-                traningList.add(TraningRecomModel(post.plan[0].losingWeight[1].name,post.plan[0].losingWeight[1].kkal))
+                traningList.add(TraningRecomModel(post.plan[0].losingWeight[0].name,(post.plan[0].losingWeight[0].kkal.toInt()* prefs.getString("user_weight", "0")!!
+                    .toInt()).toString()))
+                traningList.add(TraningRecomModel(post.plan[0].losingWeight[1].name,(post.plan[0].losingWeight[1].kkal.toInt()*prefs.getString("user_weight", "0")!!.toInt()).toString()))
             }
             1 -> {
-                traningList.add(TraningRecomModel(post.plan[1].maintenance[0].name,post.plan[1].maintenance[0].kkal))
-                traningList.add(TraningRecomModel(post.plan[1].maintenance[1].name,post.plan[1].maintenance[1].kkal))
+                traningList.add(TraningRecomModel(post.plan[1].maintenance[0].name,(post.plan[1].maintenance[0].kkal.toInt()*prefs.getString("user_weight", "0")!!.toInt()).toString()))
+                traningList.add(TraningRecomModel(post.plan[1].maintenance[1].name,(post.plan[1].maintenance[1].kkal.toInt()*prefs.getString("user_weight", "0")!!.toInt()).toString()))
             }
             2 -> {
-                traningList.add(TraningRecomModel(post.plan[2].weightGain[0].name,post.plan[2].weightGain[0].kkal))
-                traningList.add(TraningRecomModel(post.plan[2].weightGain[1].name,post.plan[2].weightGain[1].kkal))
+                traningList.add(TraningRecomModel(post.plan[2].weightGain[0].name,(post.plan[2].weightGain[0].kkal.toInt()*prefs.getString("user_weight", "0")!!.toInt()).toString()))
+                traningList.add(TraningRecomModel(post.plan[2].weightGain[1].name,(post.plan[2].weightGain[1].kkal.toInt()*prefs.getString("user_weight", "0")!!.toInt()).toString()))
             }
         }
 

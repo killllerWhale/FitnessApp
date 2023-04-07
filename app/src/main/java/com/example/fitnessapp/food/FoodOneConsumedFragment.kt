@@ -17,8 +17,7 @@ class FoodOneConsumedFragment : Fragment() {
 
     lateinit var binding: FragmentFoodOneConsumedBinding
     private lateinit var existingResult: String
-    private lateinit var adapter: FoodAdapter
-    private lateinit var recyclerView: RecyclerView
+    private var adapter = FoodAdapter{}
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,9 +46,7 @@ class FoodOneConsumedFragment : Fragment() {
     }
 
     private fun initial() {
-        recyclerView = binding.rvFood
-        adapter = FoodAdapter()
-        recyclerView.adapter = adapter
+        binding.rvFood.adapter = adapter
         adapter.setList(myFood())
     }
 

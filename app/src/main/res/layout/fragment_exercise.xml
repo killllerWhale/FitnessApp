@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:background="@color/teal_700"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -31,63 +31,6 @@
                 app:layout_constraintBottom_toBottomOf="@+id/name_exercise"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/name_exercise" />
-
-            <TextView
-                android:id="@+id/static_text_20"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:breakStrategy="high_quality"
-                android:fontFamily="@font/lora_bold"
-                android:gravity="center"
-                android:text="@string/required_perform"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="@+id/must_do"
-                app:layout_constraintStart_toStartOf="@+id/must_do"
-                app:layout_constraintTop_toBottomOf="@+id/must_do" />
-
-            <TextView
-                android:id="@+id/must_do"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/lora_bold"
-                android:text="@string/_0"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="@+id/static_text_21"
-                app:layout_constraintStart_toStartOf="@+id/static_text_21"
-                app:layout_constraintTop_toBottomOf="@+id/static_text_21" />
-
-            <TextView
-                android:id="@+id/static_text_21"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:breakStrategy="high_quality"
-                android:fontFamily="@font/lora_bold"
-                android:gravity="center"
-                android:text="@string/completed_exercises"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="@+id/done_exercise"
-                app:layout_constraintStart_toStartOf="@+id/done_exercise"
-                app:layout_constraintTop_toBottomOf="@+id/done_exercise" />
-
-            <TextView
-                android:id="@+id/done_exercise"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/lora_bold"
-                android:text="@string/_0"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.3"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
             <TextView
                 android:id="@+id/name_exercise"
@@ -118,12 +61,12 @@
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginEnd="40dp"
                 android:background="@drawable/rect_gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/static_text_20">
+                app:layout_constraintTop_toBottomOf="@+id/imageView">
 
                 <ImageView
                     android:id="@+id/static_svg_0"
@@ -188,28 +131,6 @@
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="@+id/constraintLayout5"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
-
-            <TextView
-                android:id="@+id/kkal_burned"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/_0"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toTopOf="@+id/static_text_20"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/static_text_21"
-                app:layout_constraintTop_toBottomOf="@+id/done_exercise" />
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="@string/calories_burned"
-                android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="@+id/kkal_burned"
-                app:layout_constraintStart_toStartOf="@+id/kkal_burned"
-                app:layout_constraintTop_toBottomOf="@+id/kkal_burned" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

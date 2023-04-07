@@ -1,5 +1,6 @@
 package com.example.fitnessapp.workout
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -25,18 +26,37 @@ class DescriptionRecommendationFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
-        var position = prefs.getInt("position", 0)
+
+        binding.calculationWeightCol.text = prefs.getString("user_weight", "0")
+        val position = prefs.getInt("position", 0)
         val gson = Gson()
         val bufferedReader =
             BufferedReader(InputStreamReader(resources.openRawResource(R.raw.workout_recommendation)))
         val inputString = bufferedReader.use { it.readText() }
         val post = gson.fromJson(inputString, plan::class.java)
-        val plan = post.plan[0].losingWeight
 
-        binding.mechanicsDescription.text = plan[position].description
+        val target = prefs.getInt("user_target", 0)
+        when (target) {
+            0 -> {
+                val plan = post.plan[0].losingWeight
+                binding.kkalBurned.text = getString(R.string.Text3) + (plan[position].kkal.toInt() * prefs.getString("user_weight", "0")!!.toInt()).toString()
+                binding.mechanicsDescription.text = plan[position].description
+            }
+            1 -> {
+                val plan = post.plan[0].maintenance
+                binding.mechanicsDescription.text = plan[position].description
+                binding.kkalBurned.text = getString(R.string.Text3) + (plan[position].kkal.toInt() * prefs.getString("user_weight", "0")!!.toInt()).toString()
+            }
+            2 -> {
+                val plan = post.plan[0].weightGain
+                binding.mechanicsDescription.text = plan[position].description
+                binding.kkalBurned.text = getString(R.string.Text3) + (plan[position].kkal.toInt() * prefs.getString("user_weight", "0")!!.toInt()).toString()
+            }
+        }
+
     }
 }
