@@ -49,9 +49,9 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         bindingDialog = DialogWaterBinding.inflate(layoutInflater)
         boolArrayGlass = BooleanArray(8)
         boolArrayBottle = BooleanArray(8)
-
-
         prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
+
+        binding.textView8.text = prefs.getString("caloriesBurned", "0")
         val water = prefs.getString("water", "0;0")
         updateWater()
 

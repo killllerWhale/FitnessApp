@@ -1,6 +1,5 @@
 package com.example.fitnessapp.profile
 
-import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
@@ -12,14 +11,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
-import android.widget.PopupMenu
 import android.widget.Toast
-import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import com.example.fitnessapp.activity.EntryActivity
 import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.DialogChangeWeightBinding
+import com.example.fitnessapp.databinding.DialogTargetBinding
 import com.example.fitnessapp.databinding.FrafmentSettingBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
@@ -28,15 +27,14 @@ import com.google.firebase.database.FirebaseDatabase
 class SettingsFragment : Fragment() {
 
     lateinit var binding: FrafmentSettingBinding
-    private val bindingDialog: DialogChangeWeightBinding by lazy {
-        DialogChangeWeightBinding.inflate(layoutInflater)
-    }
-
+    lateinit var bindingDialog: DialogChangeWeightBinding
     private lateinit var prefs: SharedPreferences
     private var mAuth: FirebaseAuth? = null
     private var currentUser: FirebaseUser? = null
     private var myDataBase: DatabaseReference? = null
     private lateinit var dialog: Dialog
+    private lateinit var dialogTarget: Dialog
+    lateinit var bindingDialogTarget: DialogTargetBinding
     private var USER_KEY = "User"
 
     override fun onCreateView(
@@ -49,6 +47,8 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
+        bindingDialog = DialogChangeWeightBinding.inflate(layoutInflater)
+        bindingDialogTarget = DialogTargetBinding.inflate(layoutInflater)
 
         dialog = Dialog(requireContext()).apply {
             window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -56,6 +56,19 @@ class SettingsFragment : Fragment() {
             setContentView(bindingDialog.root)
         }
 
+        dialogTarget = BottomSheetDialog(requireContext()).apply {
+            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            requestWindowFeature(Window.FEATURE_NO_TITLE)
+            setContentView(bindingDialogTarget.root)
+        }
+
+        with(binding.setPurposeText) {
+            when (prefs.getInt("user_target", 0)) {
+                1 -> text = getString(R.string.be_fit)
+                0 -> text = getString(R.string.lose_weight)
+                else -> text = getString(R.string.muscles_up)
+            }
+        }
 
         myDataBase = FirebaseDatabase.getInstance().getReference(USER_KEY)
         mAuth = FirebaseAuth.getInstance()
@@ -70,22 +83,16 @@ class SettingsFragment : Fragment() {
         binding.setWeightText.text = prefs.getString("user_weight", "0")
         binding.setHeightText.text = prefs.getString("user_height", "0")
 
-        binding.goBack.setOnClickListener {
-            loadFragment(ProfileFragment())
-        }
+        binding.goBack.setOnClickListener { loadFragment(ProfileFragment()) }
 
-        binding.changeTarget.setOnClickListener {
-            chengrTarget()
-        }
+        binding.changeTarget.setOnClickListener { chengrTarget() }
 
         binding.exit.setOnClickListener {
             prefs.edit().putInt("user", 0).apply()
             startActivity(Intent(activity, EntryActivity::class.java))
         }
 
-        binding.setWeightText.setOnClickListener {
-            dialog.show()
-        }
+        binding.setWeightText.setOnClickListener { dialog.show() }
 
         bindingDialog.cancellation.setOnClickListener {
             dialog.dismiss()
@@ -106,37 +113,29 @@ class SettingsFragment : Fragment() {
 
     }
 
-    @SuppressLint("SetTextI18n")
-    private fun chengrTarget() {
-        val popupMenu = PopupMenu(requireContext(), binding.changeTarget)
-        popupMenu.inflate(R.menu.menu_target)
-
-        // Get the MaterialButton view for the popup menu
-        val targetButton = binding.changeTarget
-
-        // Attach the popup menu to the MaterialButton view
-        popupMenu.setOnMenuItemClickListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.lose_weight -> {
-                    targetButton.text = "Lose Weight"
-                    true
-                }
-                R.id.be_fit -> {
-                    targetButton.text = "Be Fit"
-                    true
-                }
-                R.id.muscles_up -> {
-                    targetButton.text = "Build Muscles"
-                    true
-                }
-                else -> false
+    fun chengrTarget() {
+        dialogTarget.show()
+        bindingDialogTarget.apply {
+            beFit.setOnClickListener {
+                changeDataBaseTarget("target", 1)
+                binding.setPurposeText.text = getString(R.string.be_fit)
+                prefs.edit().putInt("user_target", 1).apply()
+                dialogTarget.dismiss()
+            }
+            loseWeight.setOnClickListener {
+                changeDataBaseTarget("target", 0)
+                binding.setPurposeText.text = getString(R.string.lose_weight)
+                prefs.edit().putInt("user_target", 0).apply()
+                dialogTarget.dismiss()
+            }
+            musclesUp.setOnClickListener {
+                changeDataBaseTarget("target", 2)
+                binding.setPurposeText.text = getString(R.string.muscles_up)
+                prefs.edit().putInt("user_target", 2).apply()
+                dialogTarget.dismiss()
             }
         }
-
-        // Show the popup menu
-        popupMenu.show()
     }
-
     private fun changeDataBaseWeight(text: String, textChange: String) {
         mAuth!!.signInWithEmailAndPassword(
             prefs.getString("email_user", "0")!!,

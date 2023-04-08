@@ -45,11 +45,11 @@ class ExerciseWorkoutFragment : Fragment() {
                 binding.nameExercise2.text = plan[position].name
             }
             1 -> {
-                val plan = post.plan[0].maintenance
+                val plan = post.plan[1].maintenance
                 binding.nameExercise2.text = plan[position].name
             }
             2 -> {
-                val plan = post.plan[0].weightGain
+                val plan = post.plan[2].weightGain
                 binding.nameExercise2.text = plan[position].name
             }
         }

@@ -152,7 +152,7 @@ class FoodOneFragment : Fragment() {
 
     private fun loadFragment(fragment: Fragment) {
         parentFragmentManager.beginTransaction()
-            .replace(R.id.container_food, fragment)
+            .replace(R.id.container_food_content, fragment)
             .commit()
     }
 

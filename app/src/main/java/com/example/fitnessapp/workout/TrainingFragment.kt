@@ -95,12 +95,12 @@ class TrainingFragment : Fragment() {
                 binding.progressBar.max = post.plan[0].losingWeight[position].kkal.toInt() * weightUser
             }
             1 -> {
-                binding.mustDo.text = (post.plan[0].maintenance[position].kkal.toInt() * weightUser).toString()
-                binding.progressBar.max = post.plan[0].maintenance[position].kkal.toInt() * weightUser
+                binding.mustDo.text = (post.plan[1].maintenance[position].kkal.toInt() * weightUser).toString()
+                binding.progressBar.max = post.plan[1].maintenance[position].kkal.toInt() * weightUser
             }
             else -> {
-                binding.mustDo.text = (post.plan[0].weightGain[position].kkal.toInt() * weightUser).toString()
-                binding.progressBar.max = post.plan[0].weightGain[position].kkal.toInt() * weightUser
+                binding.mustDo.text = (post.plan[2].weightGain[position].kkal.toInt() * weightUser).toString()
+                binding.progressBar.max = post.plan[2].weightGain[position].kkal.toInt() * weightUser
             }
         }
     }

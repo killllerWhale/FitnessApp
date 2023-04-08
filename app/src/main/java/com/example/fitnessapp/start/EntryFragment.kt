@@ -50,12 +50,11 @@ class EntryFragment : Fragment() {
         mAuth = FirebaseAuth.getInstance()
 
         bindingDialog = DialogEnterBinding.inflate(layoutInflater)
-        val context = requireContext()
-        val dialog = BottomSheetDialog(context)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(bindingDialog.root)
-
+        val dialog = BottomSheetDialog(requireContext()).apply {
+            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            requestWindowFeature(Window.FEATURE_NO_TITLE)
+            setContentView(bindingDialog.root)
+        }
         prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
 
         binding.go.setOnClickListener {
@@ -65,8 +64,7 @@ class EntryFragment : Fragment() {
             bindingDialog.enter.setOnClickListener {
                 //вход
                 if (TextUtils.isEmpty(bindingDialog.editTextEmail.text.toString()) && TextUtils.isEmpty(bindingDialog.editTextPassword.text.toString())) {
-                    val toast = Toast.makeText(requireActivity(), "Введите пароль и email", Toast.LENGTH_SHORT)
-                    toast.show()
+                    toast("Введите пароль и email")
                 } else {
                     mAuth!!.signInWithEmailAndPassword(
                         bindingDialog.editTextEmail.text.toString(),
@@ -140,4 +138,9 @@ class EntryFragment : Fragment() {
         transaction.replace(R.id.container, fragment)
         transaction.commit()
     }
+
+
+    fun Fragment.toast(message: String?, duration: Int = Toast.LENGTH_SHORT) =
+        Toast.makeText(activity, message, duration).show()
+
 }

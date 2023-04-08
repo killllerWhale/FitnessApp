@@ -82,7 +82,7 @@ class TrainingRecommendationFragment : Fragment() {
                 return trainingList
             }
             1 -> {
-                val items = post.plan[0].maintenance[position].workout
+                val items = post.plan[1].maintenance[position].workout
                 val trainingList = ArrayList<FoodModel>()
                 items.forEach { item ->
                     val name = item.name
@@ -95,11 +95,11 @@ class TrainingRecommendationFragment : Fragment() {
                     val foodModel = FoodModel(name, gram, kkal)
                     trainingList.add(foodModel)
                 }
-                result = post.plan[0].maintenance[position].kkal.toInt()
+                result = post.plan[1].maintenance[position].kkal.toInt()
                 return trainingList
             }
             else -> {
-                val items = post.plan[0].weightGain[position].workout
+                val items = post.plan[2].weightGain[position].workout
                 val trainingList = ArrayList<FoodModel>()
                 items.forEach { item ->
                     val name = item.name
@@ -112,7 +112,7 @@ class TrainingRecommendationFragment : Fragment() {
                     val foodModel = FoodModel(name, gram, kkal)
                     trainingList.add(foodModel)
                 }
-                result = post.plan[0].weightGain[position].kkal.toInt()
+                result = post.plan[2].weightGain[position].kkal.toInt()
                 return trainingList
             }
         }

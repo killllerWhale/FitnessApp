@@ -50,7 +50,7 @@ class DescriptionRecommendationFragment : Fragment() {
                 binding.mechanicsDescription.text = plan[position].description
             }
             1 -> {
-                val plan = post.plan[0].maintenance
+                val plan = post.plan[1].maintenance
                 binding.mechanicsDescription.text = plan[position].description
                 binding.kkalBurned.text =
                     getString(R.string.Text3) + (plan[position].kkal.toInt() * prefs.getString(
@@ -59,7 +59,7 @@ class DescriptionRecommendationFragment : Fragment() {
                     )!!.toInt()).toString()
             }
             2 -> {
-                val plan = post.plan[0].weightGain
+                val plan = post.plan[2].weightGain
                 binding.mechanicsDescription.text = plan[position].description
                 binding.kkalBurned.text =
                     getString(R.string.Text3) + (plan[position].kkal.toInt() * prefs.getString(

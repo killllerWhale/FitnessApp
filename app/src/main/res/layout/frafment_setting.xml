@@ -43,7 +43,7 @@
                 android:fontFamily="@font/lora"
                 android:text="Имя"
                 android:textColor="@color/inconspicuous_shadow"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
@@ -55,7 +55,7 @@
                 android:fontFamily="@font/lora"
                 android:text="Рост"
                 android:textColor="@color/inconspicuous_shadow"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/static_text_1"
                 app:layout_constraintTop_toBottomOf="@+id/static_text_1" />
 
@@ -67,7 +67,7 @@
                 android:fontFamily="@font/lora"
                 android:text="Дата рождения"
                 android:textColor="@color/inconspicuous_shadow"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/static_text_3"
                 app:layout_constraintTop_toBottomOf="@+id/static_text_3" />
 
@@ -79,7 +79,7 @@
                 android:fontFamily="@font/lora"
                 android:text="Пол"
                 android:textColor="@color/inconspicuous_shadow"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/static_text_4"
                 app:layout_constraintTop_toBottomOf="@+id/static_text_4" />
 
@@ -92,7 +92,7 @@
                 android:fontFamily="@font/lora"
                 android:text="111"
                 android:textColor="@color/inconspicuous_shadow"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
@@ -104,7 +104,7 @@
                 android:fontFamily="@font/lora"
                 android:text="111"
                 android:textColor="@color/inconspicuous_shadow"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="@+id/set_name_text"
                 app:layout_constraintTop_toBottomOf="@+id/set_name_text" />
 
@@ -116,7 +116,7 @@
                 android:fontFamily="@font/lora"
                 android:text="111"
                 android:textColor="@color/inconspicuous_shadow"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="@+id/set_height_text"
                 app:layout_constraintTop_toBottomOf="@+id/set_height_text" />
 
@@ -128,7 +128,7 @@
                 android:fontFamily="@font/lora"
                 android:text="111"
                 android:textColor="@color/inconspicuous_shadow"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="@+id/set_birth_text"
                 app:layout_constraintTop_toBottomOf="@+id/set_birth_text" />
 
@@ -152,11 +152,10 @@
                     android:text="изменить цель"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     app:cornerRadius="20dp"
-                    app:layout_constraintEnd_toEndOf="@+id/set_purpose_text"
-                    app:layout_constraintHorizontal_bias="0.333"
-                    app:layout_constraintStart_toStartOf="@+id/set_purpose_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/set_purpose_text" />
 
                 <TextView
@@ -214,7 +213,7 @@
                 android:fontFamily="@font/lora"
                 android:text="Вес"
                 android:textColor="@color/inconspicuous_shadow"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/static_text_5"
                 app:layout_constraintTop_toBottomOf="@+id/static_text_5" />
@@ -227,7 +226,7 @@
                 android:fontFamily="@font/lora"
                 android:text="111"
                 android:textColor="@color/inconspicuous_shadow"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/static_text_2"
                 app:layout_constraintEnd_toEndOf="@+id/set_sex_text"
                 app:layout_constraintStart_toStartOf="@+id/set_sex_text"
