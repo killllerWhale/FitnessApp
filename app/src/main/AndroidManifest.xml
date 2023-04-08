@@ -4,11 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.SEND_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
 
     <application
         android:allowBackup="true"
@@ -21,7 +17,11 @@
         android:theme="@style/Theme.FitnessApp"
         tools:targetApi="31">
 
-        <service android:name="YourJobService" />
+        <receiver
+            android:name=".activity.MyBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
         <activity
             android:name=".activity.LoadActivity"
             android:exported="true">

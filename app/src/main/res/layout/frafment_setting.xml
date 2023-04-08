@@ -221,15 +221,19 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/set_weight_text"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="60dp"
+                android:layout_width="wrap_content"
                 android:layout_height="40dp"
+                android:layout_marginEnd="-10dp"
                 android:fontFamily="@font/lora"
                 android:text="111"
-                android:textColor="@color/inconspicuous_shadow"
+                android:textColor="@color/white"
                 android:textSize="12sp"
+                app:icon="@drawable/icon_notification"
+                app:iconSize="15sp"
+                app:iconTint="@color/white"
+                app:strokeColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="@+id/static_text_2"
                 app:layout_constraintEnd_toEndOf="@+id/set_sex_text"
-                app:layout_constraintStart_toStartOf="@+id/set_sex_text"
                 app:layout_constraintTop_toTopOf="@+id/static_text_2" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

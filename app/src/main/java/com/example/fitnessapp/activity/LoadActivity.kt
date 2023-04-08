@@ -1,15 +1,16 @@
 package com.example.fitnessapp.activity
 
 import android.annotation.SuppressLint
+import android.app.AlarmManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
+import androidx.appcompat.app.AppCompatActivity
 import com.example.fitnessapp.R
 import java.util.*
+
 
 lateinit var prefs: SharedPreferences
 
@@ -20,17 +21,27 @@ class LoadActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_load)
 
-        val context = this
-        val notificationManager = NotificationManagerCompat.from(context)
-        val builder = NotificationCompat.Builder(context, "CHANNEL_ID")
-            .setSmallIcon(R.drawable.icon_notification)
-            .setContentTitle("Заголовок уведомления")
-            .setContentText("Текст уведомления")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
-        // Показ уведомления
-        notificationManager.notify(1, builder.build())
+        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
+        // Создаем PendingIntent для запуска BroadcastReceiver
+        val intent = Intent(this, MyBroadcastReceiver::class.java)
+        val pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0)
+
+        // Устанавливаем время, когда нужно запустить BroadcastReceiver
+        val calendar = Calendar.getInstance().apply {
+            timeInMillis = System.currentTimeMillis()
+            set(Calendar.HOUR_OF_DAY, 23)
+            set(Calendar.MINUTE, 8)
+        }
+
+        // Устанавливаем повторение каждый день
+        alarmManager.setRepeating(
+            AlarmManager.RTC_WAKEUP,
+            calendar.timeInMillis,
+            AlarmManager.INTERVAL_DAY,
+            pendingIntent
+        )
 
         prefs = getSharedPreferences("themes", Context.MODE_PRIVATE)
         val intente = if (prefs.getInt("user", 0) == 1) {
