@@ -17,7 +17,6 @@ import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.DialogWaterBinding
 import com.example.fitnessapp.databinding.FragmentProfileBinding
 import com.example.fitnessapp.pars.nutrition.Recomend
-import com.example.fitnessapp.workout.ExerciseWorkoutFragment
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_entry.*
 import java.io.BufferedReader
@@ -29,8 +28,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     private lateinit var binding: FragmentProfileBinding
     private lateinit var bindingDialog: DialogWaterBinding
-
-
     lateinit var prefs: SharedPreferences
     private lateinit var boolArrayGlass: BooleanArray
     private lateinit var boolArrayBottle: BooleanArray
@@ -50,6 +47,8 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         boolArrayGlass = BooleanArray(8)
         boolArrayBottle = BooleanArray(8)
         prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
+
+        checkCleanData()
 
         binding.textView8.text = prefs.getString("caloriesBurned", "0")
         val water = prefs.getString("water", "0;0")
@@ -144,6 +143,10 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         updateProgressBarFats(food[3])
         updateProgressBarProtein(food[2])
         updateProgressBarCarbohydrates(food[1])
+    }
+
+    private fun checkCleanData() {
+
     }
 
     private fun updateProgressBar(s: String) {
