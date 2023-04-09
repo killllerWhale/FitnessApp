@@ -9,5 +9,7 @@ class MyBroadcastReceiverPrefs : BroadcastReceiver() {
         // Обновляем значения SharedPreferences
         val preferences = context?.getSharedPreferences("themes", Context.MODE_PRIVATE)
         preferences?.edit()?.putString("caloriesBurned", "0")?.apply()
+        preferences?.edit()?.putString("water", "0;0")?.apply()
+        preferences?.edit()?.putString("food_info", "0;0;0;0")?.apply()
     }
 }
