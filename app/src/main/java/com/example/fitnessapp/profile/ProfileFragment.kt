@@ -6,17 +6,23 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.nfc.Tag
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import com.example.fitnessapp.R
+import com.example.fitnessapp.databinding.ActivityMainBinding
 import com.example.fitnessapp.databinding.DialogWaterBinding
 import com.example.fitnessapp.databinding.FragmentProfileBinding
+import com.example.fitnessapp.food.FoodFragment
 import com.example.fitnessapp.pars.nutrition.Recomend
+import com.example.fitnessapp.workout.TrainingFragment
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_entry.*
 import java.io.BufferedReader
@@ -26,6 +32,7 @@ import java.util.*
 
 class ProfileFragment : Fragment(), View.OnClickListener {
 
+    private lateinit var bindingActivity: ActivityMainBinding
     private lateinit var binding: FragmentProfileBinding
     private lateinit var bindingDialog: DialogWaterBinding
     lateinit var prefs: SharedPreferences
@@ -44,6 +51,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bindingDialog = DialogWaterBinding.inflate(layoutInflater)
+        bindingActivity = ActivityMainBinding.inflate(layoutInflater)
         boolArrayGlass = BooleanArray(8)
         boolArrayBottle = BooleanArray(8)
         prefs = requireContext().getSharedPreferences("themes", Context.MODE_PRIVATE)
@@ -57,6 +65,45 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         //присваиваем актуальную дату
         updateDateText()
 
+        val eatingTime = loadDataEat()
+        binding.buttonGoBreakfast.setOnClickListener {
+            if (eatingTime == "Завтрак"){
+                loadFragment(FoodFragment())
+            } else{
+                toast("Сейчас не время завтрака")
+            }
+        }
+        binding.buttonGoLunch.setOnClickListener {
+            if (eatingTime == "Обед"){
+                loadFragment(FoodFragment())
+            } else{
+                toast("Сейчас не время обеда")
+            }
+
+        }
+        binding.buttonGoSnake.setOnClickListener {
+            if (eatingTime == "Перекус"){
+                loadFragment(FoodFragment())
+            } else{
+                toast("Сейчас не время перекуса")
+            }
+
+        }
+        binding.buttonGoDinner.setOnClickListener {
+            if (eatingTime == "Ужин"){
+                bindingActivity.bottomNavigation.apply { selectedItemId = R.id.food}
+                loadFragment(FoodFragment())
+            } else {
+                toast("Сейчас не время ужина")
+            }
+
+        }
+        binding.buttonGoWorkout.setOnClickListener {
+            bindingActivity.bottomNavigation.apply { selectedItemId = R.id.training }
+            loadFragment(TrainingFragment())
+
+        }
+
         dialog = Dialog(requireContext()).apply {
             window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -68,10 +115,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         }
 
         binding.goSettings.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container, SettingsFragment())
-                .addToBackStack(null)
-                .commit()
+            loadFragment(SettingsFragment())
         }
 
         binding.buttonGoWater.setOnClickListener {
@@ -145,6 +189,14 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         updateProgressBarCarbohydrates(food[1])
     }
 
+
+    fun loadFragment(fragment: Fragment){
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.container, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
     private fun checkCleanData() {
 
     }
@@ -190,6 +242,28 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         val waters = water.split(";")
         binding.waterMl.text = (waters[0].toInt() * 250 + waters[1].toInt() * 500).toString()
     }
+
+    private fun loadDataEat(): String {
+        val currentTime = Calendar.getInstance(TimeZone.getTimeZone("Europe/Moscow"))
+
+        when (currentTime.get(Calendar.HOUR_OF_DAY)) {
+            in 6..10 -> {
+                return "Завтрак"
+            }
+            in 11..14 -> {
+                return "Обед"
+            }
+            in 15..17 -> {
+                return "Перекус"
+            }
+            in 17..23, in 0..5 -> {
+                return "Ужин"
+            }
+        }
+        return ""
+    }
+
+    fun Fragment.toast(message: String?, duration: Int = Toast.LENGTH_SHORT) = Toast.makeText(activity, message, duration).show()
 
     private fun drawingWater(water: String) {
         val array = water.split(";")

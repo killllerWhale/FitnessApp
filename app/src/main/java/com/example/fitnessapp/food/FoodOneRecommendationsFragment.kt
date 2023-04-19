@@ -57,6 +57,10 @@ class FoodOneRecommendationsFragment : Fragment() {
                 val recommendation = post.nutrition[target].supper[0]
                 adapter.setList(myFood(recommendation.recommendations))
             }
+            3 -> {
+                val recommendation = post.nutrition[target].snack[0]
+                adapter.setList(myFood(recommendation.recommendations))
+            }
         }
     }
 

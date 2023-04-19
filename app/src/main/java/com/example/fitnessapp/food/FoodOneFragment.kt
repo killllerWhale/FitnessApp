@@ -113,6 +113,24 @@ class FoodOneFragment : Fragment() {
                     progressBarFats.max = (recommendation.fats * weightUser).toInt()
                 }
             }
+            3 -> {
+                val recommendation = post.nutrition[target].snack[0]
+                with(binding) {
+                    mustHaveKallToday.text =
+                        (recommendation.kkal * weightUser).toInt().toString()
+                    mustHaveCarbToday.text =
+                        (recommendation.carbohydrates * weightUser).toInt().toString()
+                    mustHaveProteinToday.text =
+                        (recommendation.proteins * weightUser).toInt().toString()
+                    mustHaveFatsToday.text =
+                        (recommendation.fats * weightUser).toInt().toString()
+                    progressAllFood.max = (recommendation.kkal * weightUser).toInt()
+                    progressBarCarbohydrates.max =
+                        (recommendation.carbohydrates * weightUser).toInt()
+                    progressBarProtein.max = (recommendation.proteins * weightUser).toInt()
+                    progressBarFats.max = (recommendation.fats * weightUser).toInt()
+                }
+            }
         }
     }
 

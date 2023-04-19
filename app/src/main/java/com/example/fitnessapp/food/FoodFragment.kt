@@ -116,11 +116,15 @@ class FoodFragment : Fragment() {
                 textView.text = "Завтрак"
                 prefs.edit().putInt("data_today", 0).apply()
             }
-            in 11..16 -> {
+            in 11..14 -> {
                 textView.text = "Обед"
                 prefs.edit().putInt("data_today", 1).apply()
             }
-            in 17..23, in 0..5 -> {
+            in 15..17 -> {
+                textView.text = "Перекус"
+                prefs.edit().putInt("data_today", 3).apply()
+            }
+            in 18..23, in 0..5 -> {
                 textView.text = "Ужин"
                 prefs.edit().putInt("data_today", 2).apply()
             }
